@@ -13,7 +13,7 @@
     "next": "15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@studio-freight/lenis": "^1.0.45",
+    "lenis": "^1.1.19",
     "gsap": "^3.12.5"
   },
   "devDependencies": {
