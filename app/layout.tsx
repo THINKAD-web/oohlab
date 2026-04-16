@@ -104,7 +104,7 @@ export default function RootLayout({
           ::-webkit-scrollbar-track { background: #0A0A0A; }
           ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
           /* 선택 색상 */
-          ::selection { background: #FF4D00; color: #fff; }
+          ::selection { background: #F37021; color: #fff; }
         `}</style>
       </body>
     </html>

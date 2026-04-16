@@ -43,7 +43,7 @@ export default function HomePage() {
             fontSize: 11,
             letterSpacing: '0.22em',
             textTransform: 'uppercase',
-            color: '#FF4D00',
+            color: '#F37021',
             fontWeight: 600,
           }}
         >
@@ -84,7 +84,7 @@ export default function HomePage() {
                       alignItems: 'center',
                       gap: 8,
                       padding: '18px 36px',
-                      background: '#FF4D00',
+                      background: '#F37021',
                       color: '#fff',
                       fontWeight: 700,
                       fontSize: 16,

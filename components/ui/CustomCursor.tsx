@@ -91,7 +91,7 @@ export function CustomCursor() {
           ...(isPointer && {
             width: 64,
             height: 64,
-            borderColor: '#FF4D00',
+            borderColor: '#F37021',
             marginLeft: -12,
             marginTop: -12,
           }),
@@ -108,7 +108,7 @@ export function CustomCursor() {
           width: 8,
           height: 8,
           borderRadius: '50%',
-          backgroundColor: isPointer ? '#FF4D00' : '#fff',
+          backgroundColor: isPointer ? '#F37021' : '#fff',
           pointerEvents: 'none',
           zIndex: 9999,
           transition: 'background-color 0.2s ease',

@@ -54,7 +54,7 @@ export function ContactForm() {
 
   const fieldStyle = (name: string): React.CSSProperties => ({
     ...INPUT_STYLE,
-    borderColor: focusedField === name ? '#FF4D00' : '#222',
+    borderColor: focusedField === name ? '#F37021' : '#222',
   })
 
   if (formState === 'success') {
@@ -286,7 +286,7 @@ export function ContactForm() {
         style={{
           width: '100%',
           padding: '18px',
-          background: formState === 'submitting' ? '#333' : '#FF4D00',
+          background: formState === 'submitting' ? '#333' : '#F37021',
           color: '#fff',
           fontWeight: 700,
           fontSize: 15,

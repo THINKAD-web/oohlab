@@ -85,7 +85,7 @@ function StrengthCard({ item, index }: { item: StrengthItem; index: number }) {
       }}
       onMouseEnter={(e) => {
         const el = e.currentTarget
-        el.style.borderColor = '#FF4D00'
+        el.style.borderColor = '#F37021'
         el.style.background = '#131313'
       }}
       onMouseLeave={(e) => {
@@ -103,7 +103,7 @@ function StrengthCard({ item, index }: { item: StrengthItem; index: number }) {
           top: 0,
           width: '3px',
           height: '100%',
-          background: '#FF4D00',
+          background: '#F37021',
           transform: 'scaleY(0)',
           transformOrigin: 'top',
           transition: 'transform 0.35s cubic-bezier(0.16,1,0.3,1)',
@@ -119,7 +119,7 @@ function StrengthCard({ item, index }: { item: StrengthItem; index: number }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#FF4D00',
+          color: '#F37021',
           marginBottom: 24,
           background: 'rgba(255,77,0,0.08)',
           borderRadius: '4px',
@@ -183,7 +183,7 @@ export function StrengthCards({ items }: Props) {
           fontSize: 11,
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
-          color: '#FF4D00',
+          color: '#F37021',
           fontWeight: 600,
         }}
       >

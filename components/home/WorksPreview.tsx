@@ -155,7 +155,7 @@ function WorkPreviewCard({ work, index }: CardProps) {
               <span
                 style={{
                   padding: '4px 10px',
-                  background: '#FF4D00',
+                  background: '#F37021',
                   color: '#fff',
                   fontSize: 10,
                   fontWeight: 700,
@@ -226,7 +226,7 @@ function WorkPreviewCard({ work, index }: CardProps) {
             style={{
               margin: '8px 0 0',
               fontSize: 13,
-              color: '#FF4D00',
+              color: '#F37021',
               fontWeight: 600,
               opacity: hovered ? 1 : 0,
               transform: hovered ? 'translateY(0)' : 'translateY(8px)',
@@ -276,7 +276,7 @@ export function WorksPreview({ works }: Props) {
               fontSize: 11,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: '#FF4D00',
+              color: '#F37021',
               fontWeight: 600,
             }}
           >

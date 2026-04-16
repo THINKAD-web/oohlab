@@ -26,7 +26,7 @@ export function Footer() {
         <div>
           <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
             <span style={{ fontSize: 18, fontWeight: 900, color: '#FFFFFF', letterSpacing: '-0.03em', fontFamily: "'Pretendard', sans-serif" }}>OOH</span>
-            <span style={{ fontSize: 18, fontWeight: 300, color: '#FF4D00', letterSpacing: '0.05em' }}>LAB</span>
+            <span style={{ fontSize: 18, fontWeight: 300, color: '#F37021', letterSpacing: '0.05em' }}>LAB</span>
           </Link>
           <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.3)', lineHeight: 1.6, maxWidth: 280 }}>
             말보다 행동으로 증명합니다.<br />

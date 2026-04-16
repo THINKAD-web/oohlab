@@ -151,7 +151,7 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
                 fontSize: 11,
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
-                color: '#FF4D00',
+                color: '#F37021',
                 fontWeight: 700,
               }}
             >
@@ -238,7 +238,7 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
                   margin: 0,
                   fontSize: 'clamp(16px, 2vw, 22px)',
                   fontWeight: 700,
-                  color: '#FF4D00',
+                  color: '#F37021',
                   lineHeight: 1.2,
                   fontFamily: "'Pretendard', sans-serif",
                 }}
@@ -268,7 +268,7 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
             rel="noopener noreferrer"
             style={{
               padding: '14px 28px',
-              background: '#FF4D00',
+              background: '#F37021',
               color: '#fff',
               fontSize: 14,
               fontWeight: 700,
@@ -423,7 +423,7 @@ function WorkCard({
           {/* 배지 */}
           <div style={{ position: 'absolute', top: 12, left: 12, zIndex: 3, display: 'flex', gap: 6 }}>
             {work.isWomenCertProject && (
-              <span style={{ padding: '3px 8px', background: '#FF4D00', color: '#fff', fontSize: 9, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', borderRadius: '2px' }}>
+              <span style={{ padding: '3px 8px', background: '#F37021', color: '#fff', fontSize: 9, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', borderRadius: '2px' }}>
                 여성기업
               </span>
             )}
@@ -460,7 +460,7 @@ function WorkCard({
           <h3 style={{ margin: '0 0 4px', fontSize: 15, fontWeight: 700, color: '#fff', lineHeight: 1.25, fontFamily: "'Pretendard', sans-serif" }}>
             {work.title}
           </h3>
-          <p style={{ margin: 0, fontSize: 12, color: '#FF4D00', fontWeight: 600, opacity: hovered ? 1 : 0, transition: 'opacity 0.3s' }}>
+          <p style={{ margin: 0, fontSize: 12, color: '#F37021', fontWeight: 600, opacity: hovered ? 1 : 0, transition: 'opacity 0.3s' }}>
             {work.stats.result}
           </p>
         </div>
@@ -513,9 +513,9 @@ export function WorksGrid({ works }: Props) {
             aria-pressed={mediaFilter === t.value}
             style={{
               padding: '8px 16px',
-              background: mediaFilter === t.value ? '#FF4D00' : 'transparent',
+              background: mediaFilter === t.value ? '#F37021' : 'transparent',
               color: mediaFilter === t.value ? '#fff' : 'rgba(255,255,255,0.45)',
-              border: `1px solid ${mediaFilter === t.value ? '#FF4D00' : 'rgba(255,255,255,0.12)'}`,
+              border: `1px solid ${mediaFilter === t.value ? '#F37021' : 'rgba(255,255,255,0.12)'}`,
               borderRadius: '2px',
               fontSize: 12,
               fontWeight: mediaFilter === t.value ? 700 : 400,
@@ -557,7 +557,7 @@ export function WorksGrid({ works }: Props) {
           style={{
             padding: '8px 16px',
             background: womenOnly ? 'rgba(255,77,0,0.15)' : 'transparent',
-            color: womenOnly ? '#FF4D00' : 'rgba(255,255,255,0.35)',
+            color: womenOnly ? '#F37021' : 'rgba(255,255,255,0.35)',
             border: `1px solid ${womenOnly ? 'rgba(255,77,0,0.4)' : 'rgba(255,255,255,0.08)'}`,
             borderRadius: '2px',
             fontSize: 12,

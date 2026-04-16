@@ -32,7 +32,7 @@ export default function WorksPage() {
               fontSize: 11,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: '#FF4D00',
+              color: '#F37021',
               fontWeight: 600,
             }}
           >

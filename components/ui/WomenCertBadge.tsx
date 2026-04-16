@@ -69,7 +69,7 @@ export function WomenCertBadge({ size = 'md', compact = false }: Props) {
             width: s.iconSize,
             height: s.iconSize,
             borderRadius: '50%',
-            background: 'linear-gradient(135deg, #FF4D00 0%, #FF8040 100%)',
+            background: 'linear-gradient(135deg, #F37021 0%, #F7A56A 100%)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -91,7 +91,7 @@ export function WomenCertBadge({ size = 'md', compact = false }: Props) {
               fontWeight: 700,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: '#FF4D00',
+              color: '#F37021',
               lineHeight: 1,
             }}
           >

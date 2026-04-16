@@ -18,7 +18,7 @@ export default function AboutPage() {
 
         {/* ── 페이지 헤더 ── */}
         <div style={{ marginBottom: 'clamp(60px, 8vw, 100px)', maxWidth: 700 }}>
-          <p style={{ margin: '0 0 16px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#FF4D00', fontWeight: 600 }}>
+          <p style={{ margin: '0 0 16px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#F37021', fontWeight: 600 }}>
             About OOH-LAB
           </p>
           <h1
@@ -64,7 +64,7 @@ export default function AboutPage() {
                 width: 'clamp(80px, 12vw, 140px)',
                 height: 'clamp(80px, 12vw, 140px)',
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, #FF4D00 0%, #FF8040 100%)',
+                background: 'linear-gradient(135deg, #F37021 0%, #F7A56A 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -76,7 +76,7 @@ export default function AboutPage() {
             >
               ♀
             </div>
-            <span style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#FF4D00', fontWeight: 700 }}>
+            <span style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#F37021', fontWeight: 700 }}>
               인증완료
             </span>
           </div>
@@ -86,7 +86,7 @@ export default function AboutPage() {
             <h2 style={{ margin: '0 0 8px', fontSize: 'clamp(22px, 3.5vw, 36px)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.02em', fontFamily: "'Pretendard', sans-serif" }}>
               {data.womenCertSection.headline}
             </h2>
-            <p style={{ margin: '0 0 28px', fontSize: 15, color: '#FF4D00', fontWeight: 600 }}>
+            <p style={{ margin: '0 0 28px', fontSize: 15, color: '#F37021', fontWeight: 600 }}>
               {data.womenCertSection.subline}
             </p>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -95,7 +95,7 @@ export default function AboutPage() {
                   key={b.title}
                   style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}
                 >
-                  <span aria-hidden="true" style={{ color: '#FF4D00', fontSize: 16, lineHeight: '22px', flexShrink: 0 }}>→</span>
+                  <span aria-hidden="true" style={{ color: '#F37021', fontSize: 16, lineHeight: '22px', flexShrink: 0 }}>→</span>
                   <div>
                     <strong style={{ display: 'block', fontSize: 14, color: '#FFFFFF', fontWeight: 600, marginBottom: 2 }}>{b.title}</strong>
                     <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)' }}>{b.desc}</span>
@@ -108,7 +108,7 @@ export default function AboutPage() {
 
         {/* ── 15년 타임라인 ── */}
         <section aria-labelledby="timeline-heading" style={{ marginBottom: 'clamp(60px, 8vw, 100px)' }}>
-          <p style={{ margin: '0 0 16px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#FF4D00', fontWeight: 600 }}>
+          <p style={{ margin: '0 0 16px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#F37021', fontWeight: 600 }}>
             Timeline
           </p>
           <h2
@@ -130,7 +130,7 @@ export default function AboutPage() {
 
         {/* ── 클로징 문구 ── */}
         <div style={{ textAlign: 'center', padding: 'clamp(60px, 8vw, 100px) 0', borderTop: '1px solid #1A1A1A' }}>
-          <p style={{ margin: '0 0 8px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#FF4D00', fontWeight: 600 }}>
+          <p style={{ margin: '0 0 8px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#F37021', fontWeight: 600 }}>
             OOH-LAB
           </p>
           <h2 style={{ margin: 0, fontSize: 'clamp(40px, 7vw, 88px)', fontWeight: 900, color: '#FFFFFF', letterSpacing: '-0.03em', lineHeight: 1, fontFamily: "'Pretendard', sans-serif" }}>

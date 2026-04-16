@@ -99,7 +99,7 @@ export default async function WorkDetailPage({ params }: Props) {
               border: '1px solid rgba(255,77,0,0.4)',
               borderRadius: '2px',
               fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase',
-              color: '#FF4D00', fontWeight: 700,
+              color: '#F37021', fontWeight: 700,
             }}>
               여성기업 인증 프로젝트
             </span>
@@ -145,7 +145,7 @@ export default async function WorkDetailPage({ params }: Props) {
                 {s.label}
               </p>
               <p style={{
-                margin: 0, fontSize: 22, fontWeight: 700, color: '#FF4D00',
+                margin: 0, fontSize: 22, fontWeight: 700, color: '#F37021',
                 fontFamily: "'Pretendard', sans-serif",
               }}>
                 {s.value}
@@ -171,7 +171,7 @@ export default async function WorkDetailPage({ params }: Props) {
             rel="noopener noreferrer"
             style={{
               padding: '14px 24px',
-              background: '#FF4D00',
+              background: '#F37021',
               color: '#fff',
               borderRadius: '4px',
               textDecoration: 'none',

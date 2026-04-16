@@ -21,7 +21,7 @@ export function ContactInfo() {
           fontSize: 11,
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
-          color: '#FF4D00',
+          color: '#F37021',
           fontWeight: 600,
         }}
       >
@@ -99,7 +99,7 @@ export function ContactInfo() {
             fontSize: 11,
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
-            color: '#FF4D00',
+            color: '#F37021',
             fontWeight: 700,
           }}
         >
@@ -131,7 +131,7 @@ export function ContactInfo() {
           href="mailto:gov@oohlab.co.kr"
           style={{
             fontSize: 12,
-            color: '#FF4D00',
+            color: '#F37021',
             textDecoration: 'none',
             fontWeight: 600,
             letterSpacing: '0.05em',

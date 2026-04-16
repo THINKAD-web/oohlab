@@ -75,7 +75,7 @@ export function Navbar() {
             style={{
               fontSize: 20,
               fontWeight: 300,
-              color: '#FF4D00',
+              color: '#F37021',
               letterSpacing: '0.05em',
             }}
           >
@@ -121,7 +121,7 @@ export function Navbar() {
                     left: 0,
                     right: 0,
                     height: '1px',
-                    background: '#FF4D00',
+                    background: '#F37021',
                   }}
                 />
               )}
@@ -140,7 +140,7 @@ export function Navbar() {
               data-cursor-pointer
               style={{
                 padding: '8px 16px',
-                background: '#FF4D00',
+                background: '#F37021',
                 color: '#fff',
                 fontSize: 12,
                 fontWeight: 700,
@@ -258,7 +258,7 @@ export function Navbar() {
                 display: 'block',
                 fontSize: 'clamp(36px, 9vw, 64px)',
                 fontWeight: 800,
-                color: pathname === item.href ? '#FF4D00' : 'rgba(255,255,255,0.85)',
+                color: pathname === item.href ? '#F37021' : 'rgba(255,255,255,0.85)',
                 textDecoration: 'none',
                 lineHeight: 1.15,
                 letterSpacing: '-0.02em',
@@ -295,7 +295,7 @@ export function Navbar() {
             onClick={() => setMenuOpen(false)}
             style={{
               padding: '16px 24px',
-              background: '#FF4D00',
+              background: '#F37021',
               color: '#fff',
               fontSize: 15,
               fontWeight: 700,
