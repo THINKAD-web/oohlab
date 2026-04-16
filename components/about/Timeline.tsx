@@ -190,7 +190,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
             height: '100%',
             background: '#FF4D00',
             transformOrigin: 'top',
-            scaleY: 0,
+            transform: 'scaleY(0)',
           }}
         />
       </div>
