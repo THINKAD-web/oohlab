@@ -45,8 +45,8 @@ export function WomenCertBadge({ size = 'md', compact = false }: Props) {
         style={{
           transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${hovered ? 1.06 : 1})`,
           transition: hovered
-            ? 'transform 0.08s ease-out'
-            : 'transform 0.55s cubic-bezier(0.16,1,0.3,1)',
+            ? 'transform 0.08s ease-out, background 0.3s, border-color 0.3s'
+            : 'transform 0.55s cubic-bezier(0.16,1,0.3,1), background 0.3s, border-color 0.3s',
           display: 'inline-flex',
           alignItems: 'center',
           gap: compact ? 8 : 10,
@@ -56,7 +56,6 @@ export function WomenCertBadge({ size = 'md', compact = false }: Props) {
           borderRadius: '4px',
           backdropFilter: 'blur(10px)',
           WebkitBackdropFilter: 'blur(10px)',
-          transition: 'background 0.3s, border-color 0.3s, transform 0.08s',
           cursor: 'default',
           userSelect: 'none',
           position: 'relative',
