@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { name, company, tel, email, inquiryType, message } = body
+    const { name, company: _company, tel, email: _email, inquiryType, message: _message } = body
 
     // 필수값 검증
     if (!name || !tel || !inquiryType) {

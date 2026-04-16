@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
-import type { Work, MediaType, ClientType } from '@/lib/types'
+import type { Work, MediaType } from '@/lib/types'
 
 // ──────────────────────────────
 //  필터 설정
@@ -352,7 +352,12 @@ function WorkCard({
   useEffect(() => {
     const video = videoRef.current
     if (!video || !videoReady) return
-    hovered ? video.play().catch(() => {}) : (video.pause(), (video.currentTime = 0))
+    if (hovered) {
+      video.play().catch(() => {})
+    } else {
+      video.pause()
+      video.currentTime = 0
+    }
   }, [hovered, videoReady])
 
   return (

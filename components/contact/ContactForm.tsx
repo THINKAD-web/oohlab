@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
