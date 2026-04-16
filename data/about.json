@@ -1,0 +1,90 @@
+{
+  "headline": "행동이 쌓여 경력이 됩니다.",
+  "subHeadline": "15년의 실행. 지금도 현장에 있습니다.",
+
+  "stats": [
+    {
+      "label": "업력",
+      "value": 15,
+      "unit": "년",
+      "prefix": ""
+    },
+    {
+      "label": "집행 매체 수",
+      "value": 2400,
+      "unit": "개+",
+      "prefix": "전국"
+    },
+    {
+      "label": "완료 캠페인",
+      "value": 680,
+      "unit": "건+",
+      "prefix": ""
+    },
+    {
+      "label": "고객 재계약률",
+      "value": 91,
+      "unit": "%",
+      "prefix": ""
+    }
+  ],
+
+  "timeline": [
+    {
+      "year": 2010,
+      "event": "오랩 창립. 서울 옥외광고 대행 시작."
+    },
+    {
+      "year": 2013,
+      "event": "전국 매체 네트워크 완성. 지자체 첫 수주."
+    },
+    {
+      "year": 2016,
+      "event": "DOOH 전문 팀 신설. 디지털 옥외광고 확대."
+    },
+    {
+      "year": 2019,
+      "event": "여성기업인증 획득. 공공 프로젝트 본격 확대."
+    },
+    {
+      "year": 2021,
+      "event": "OOH + SNS 미디어믹스 서비스 론칭."
+    },
+    {
+      "year": 2024,
+      "event": "연간 집행 역대 최고치. 전국 47개 지자체 파트너."
+    }
+  ],
+
+  "womenCertSection": {
+    "headline": "여성기업인증",
+    "subline": "지자체·공공기관 발주 시 오랩이 우선입니다.",
+    "certImage": "/images/women-cert-doc.jpg",
+    "badgeImage": "/images/women-cert-badge.png",
+    "benefits": [
+      {
+        "title": "수의계약 가능",
+        "desc": "일정 금액 이하 지자체 발주 직계약 체결."
+      },
+      {
+        "title": "공공입찰 가산점",
+        "desc": "여성기업 인증으로 입찰 경쟁력 자동 강화."
+      },
+      {
+        "title": "예산 집행 간소화",
+        "desc": "복잡한 공공 행정 절차 없이 신속 집행."
+      }
+    ]
+  },
+
+  "partners": [
+    { "name": "서울메트로미디어", "logo": "/images/partners/smm.svg" },
+    { "name": "JCDecaux Korea",   "logo": "/images/partners/jcd.svg" },
+    { "name": "KT스카이라이프",    "logo": "/images/partners/kt.svg"  },
+    { "name": "CJ ENM",           "logo": "/images/partners/cj.svg"  },
+    { "name": "코레일유통",        "logo": "/images/partners/korail.svg" },
+    { "name": "옥션OOH",          "logo": "/images/partners/auction.svg" }
+  ],
+
+  "closingLine": "결과가 증거입니다."
+}

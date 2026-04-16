@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "video": "/videos/hero-reel.webm",
+    "videoMp4": "/videos/hero-reel.mp4",
+    "videoPoster": "/images/hero-poster.jpg",
+    "slogan": "15년 경력. 말보다 행동으로 증명합니다.",
+    "subSlogan": "트렌드 미디어믹스로 강력한 결과를 만들어갑니다.",
+    "womenCertHero": {
+      "badge": "/images/women-cert-badge.png",
+      "label": "여성기업인증",
+      "highlight": "지자체·공공기관이 선호하는 여성기업 대행사"
+    },
+    "cta": [
+      {
+        "label": "무료 미디어 제안 받기",
+        "type": "kakao",
+        "href": "https://pf.kakao.com/_OOHLABchannel",
+        "style": "primary"
+      },
+      {
+        "label": "지자체·기관 상담하기",
+        "type": "internal",
+        "href": "/contact?type=gov",
+        "style": "secondary"
+      }
+    ]
+  },
+  "strengths": [
+    {
+      "id": "network",
+      "icon": "grid",
+      "title": "15년 강력 네트워크",
+      "body": "전국 주요 매체사·옥외광고 업체 독점 협력 관계."
+    },
+    {
+      "id": "mediamix",
+      "icon": "layers",
+      "title": "트렌드 미디어믹스",
+      "body": "DOOH·SNS·OOH 크로스 믹스로 최대 도달률 설계."
+    },
+    {
+      "id": "data",
+      "icon": "chart",
+      "title": "데이터 기반 실행",
+      "body": "유동인구 데이터 + 실시간 노출 측정. 낭비 없는 집행."
+    },
+    {
+      "id": "management",
+      "icon": "check",
+      "title": "꼼꼼한 원스톱 관리",
+      "body": "제안부터 정산까지. 담당자 직접 관리 원칙."
+    }
+  ]
+}

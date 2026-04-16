@@ -1,0 +1,163 @@
+import type { Metadata } from 'next'
+import aboutData from '@/data/about.json'
+import { Timeline, CounterStats } from '@/components/about/Timeline'
+import type { AboutData } from '@/lib/types'
+
+export const metadata: Metadata = {
+  title: 'About — 오랩 소개',
+  description: '15년 경력 옥외광고 전문 대행사 오랩. 여성기업인증 보유. 지자체·공공기관 우선 협상 대상.',
+}
+
+export default function AboutPage() {
+  const data = aboutData as unknown as AboutData
+
+  return (
+    <div style={{ background: '#0A0A0A', minHeight: '100vh', paddingTop: 100 }}>
+      <div style={{ padding: '0 clamp(24px, 6vw, 100px)' }}>
+
+        {/* ── 페이지 헤더 ── */}
+        <div style={{ marginBottom: 'clamp(60px, 8vw, 100px)', maxWidth: 700 }}>
+          <p style={{ margin: '0 0 16px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#FF4D00', fontWeight: 600 }}>
+            About OOH-LAB
+          </p>
+          <h1
+            style={{
+              margin: '0 0 20px',
+              fontSize: 'clamp(36px, 6vw, 72px)',
+              fontWeight: 800,
+              color: '#FFFFFF',
+              letterSpacing: '-0.025em',
+              lineHeight: 1.05,
+              fontFamily: "'Pretendard', sans-serif",
+            }}
+          >
+            {data.headline}
+          </h1>
+          <p style={{ margin: 0, fontSize: 16, color: 'rgba(255,255,255,0.45)', lineHeight: 1.65 }}>
+            {data.subHeadline}
+          </p>
+        </div>
+
+        {/* ── 숫자 카운터 ── */}
+        <CounterStats stats={data.stats} />
+
+        {/* ── 여성기업인증 강조 섹션 ── */}
+        <section
+          aria-label="여성기업인증 상세"
+          style={{
+            marginBottom: 'clamp(60px, 8vw, 100px)',
+            padding: 'clamp(40px, 6vw, 72px)',
+            background: 'linear-gradient(135deg, rgba(255,77,0,0.08) 0%, rgba(255,77,0,0.02) 100%)',
+            border: '1px solid rgba(255,77,0,0.25)',
+            borderRadius: '2px',
+            display: 'grid',
+            gridTemplateColumns: 'auto 1fr',
+            gap: 'clamp(32px, 5vw, 64px)',
+            alignItems: 'center',
+          }}
+        >
+          {/* 배지/인증서 */}
+          <div style={{ textAlign: 'center' }}>
+            <div
+              style={{
+                width: 'clamp(80px, 12vw, 140px)',
+                height: 'clamp(80px, 12vw, 140px)',
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #FF4D00 0%, #FF8040 100%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 'clamp(36px, 6vw, 64px)',
+                margin: '0 auto 16px',
+                boxShadow: '0 0 40px rgba(255,77,0,0.3)',
+              }}
+              aria-hidden="true"
+            >
+              ♀
+            </div>
+            <span style={{ fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#FF4D00', fontWeight: 700 }}>
+              인증완료
+            </span>
+          </div>
+
+          {/* 텍스트 */}
+          <div>
+            <h2 style={{ margin: '0 0 8px', fontSize: 'clamp(22px, 3.5vw, 36px)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.02em', fontFamily: "'Pretendard', sans-serif" }}>
+              {data.womenCertSection.headline}
+            </h2>
+            <p style={{ margin: '0 0 28px', fontSize: 15, color: '#FF4D00', fontWeight: 600 }}>
+              {data.womenCertSection.subline}
+            </p>
+            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {data.womenCertSection.benefits.map((b) => (
+                <li
+                  key={b.title}
+                  style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}
+                >
+                  <span aria-hidden="true" style={{ color: '#FF4D00', fontSize: 16, lineHeight: '22px', flexShrink: 0 }}>→</span>
+                  <div>
+                    <strong style={{ display: 'block', fontSize: 14, color: '#FFFFFF', fontWeight: 600, marginBottom: 2 }}>{b.title}</strong>
+                    <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)' }}>{b.desc}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* ── 15년 타임라인 ── */}
+        <section aria-labelledby="timeline-heading" style={{ marginBottom: 'clamp(60px, 8vw, 100px)' }}>
+          <p style={{ margin: '0 0 16px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#FF4D00', fontWeight: 600 }}>
+            Timeline
+          </p>
+          <h2
+            id="timeline-heading"
+            style={{ margin: '0 0 56px', fontSize: 'clamp(24px, 4vw, 44px)', fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.02em', fontFamily: "'Pretendard', sans-serif" }}
+          >
+            15년이 쌓인 자리.
+          </h2>
+          <Timeline items={data.timeline} />
+        </section>
+
+        {/* ── 파트너 매체사 ── */}
+        <section aria-label="파트너 매체사" style={{ marginBottom: 'clamp(60px, 8vw, 100px)' }}>
+          <p style={{ margin: '0 0 32px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', fontWeight: 600 }}>
+            Media Partners
+          </p>
+          <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', alignItems: 'center' }}>
+            {data.partners.map((p) => (
+              <div
+                key={p.name}
+                style={{
+                  padding: '16px 24px',
+                  background: '#111',
+                  border: '1px solid #1E1E1E',
+                  borderRadius: '2px',
+                  fontSize: 13,
+                  color: 'rgba(255,255,255,0.4)',
+                  letterSpacing: '0.05em',
+                  transition: 'color 0.2s, border-color 0.2s',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.8)'; e.currentTarget.style.borderColor = '#333' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)'; e.currentTarget.style.borderColor = '#1E1E1E' }}
+              >
+                {p.name}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── 클로징 문구 ── */}
+        <div style={{ textAlign: 'center', padding: 'clamp(60px, 8vw, 100px) 0', borderTop: '1px solid #1A1A1A' }}>
+          <p style={{ margin: '0 0 8px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#FF4D00', fontWeight: 600 }}>
+            OOH-LAB
+          </p>
+          <h2 style={{ margin: 0, fontSize: 'clamp(40px, 7vw, 88px)', fontWeight: 900, color: '#FFFFFF', letterSpacing: '-0.03em', lineHeight: 1, fontFamily: "'Pretendard', sans-serif" }}>
+            {data.closingLine}
+          </h2>
+        </div>
+
+      </div>
+    </div>
+  )
+}
