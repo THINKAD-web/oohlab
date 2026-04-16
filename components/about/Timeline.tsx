@@ -23,22 +23,21 @@ export function CounterStats({ stats }: { stats: StatItem[] }) {
         stats.forEach((stat, i) => {
           const target = countersRef.current[i]
           if (!target) return
-          gsap.fromTo(
-            { val: 0 },
-            {
-              val: stat.value,
-              duration: 1.8,
-              delay: i * 0.15,
-              ease: 'power2.out',
-              onUpdate() {
-                const v = Math.round(this.targets()[0].val)
-                target.textContent =
-                  (stat.prefix ? stat.prefix + ' ' : '') +
-                  v.toLocaleString() +
-                  stat.unit
-              },
-            }
-          )
+          // gsap.to on a plain proxy object — correct GSAP 3 pattern for counters
+          const proxy = { val: 0 }
+          gsap.to(proxy, {
+            val: stat.value,
+            duration: 1.8,
+            delay: i * 0.15,
+            ease: 'power2.out',
+            onUpdate() {
+              const v = Math.round(proxy.val)
+              target.textContent =
+                (stat.prefix ? stat.prefix + ' ' : '') +
+                v.toLocaleString() +
+                stat.unit
+            },
+          })
         })
       }
 
