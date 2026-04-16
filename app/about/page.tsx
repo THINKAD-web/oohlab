@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import aboutData from '@/data/about.json'
 import { Timeline, CounterStats } from '@/components/about/Timeline'
+import { PartnerLogos } from '@/components/about/PartnerLogos'
 import type { AboutData } from '@/lib/types'
 
 export const metadata: Metadata = {
@@ -124,27 +125,7 @@ export default function AboutPage() {
           <p style={{ margin: '0 0 32px', fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', fontWeight: 600 }}>
             Media Partners
           </p>
-          <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', alignItems: 'center' }}>
-            {data.partners.map((p) => (
-              <div
-                key={p.name}
-                style={{
-                  padding: '16px 24px',
-                  background: '#111',
-                  border: '1px solid #1E1E1E',
-                  borderRadius: '2px',
-                  fontSize: 13,
-                  color: 'rgba(255,255,255,0.4)',
-                  letterSpacing: '0.05em',
-                  transition: 'color 0.2s, border-color 0.2s',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.8)'; e.currentTarget.style.borderColor = '#333' }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)'; e.currentTarget.style.borderColor = '#1E1E1E' }}
-              >
-                {p.name}
-              </div>
-            ))}
-          </div>
+          <PartnerLogos partners={data.partners} />
         </section>
 
         {/* ── 클로징 문구 ── */}
