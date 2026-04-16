@@ -65,12 +65,19 @@ export interface HomeData {
   womenCert: WomenCertData
 }
 
+export interface HeroWomenCert {
+  badge: string
+  label: string
+  highlight: string
+}
+
 export interface HeroData {
   video: string
   videoMp4: string                 // Safari fallback
   videoPoster: string              // 영상 로드 전 플레이스홀더
   slogan: string                   // 메인 슬로건 (타이핑 애니메이션)
   subSlogan: string                // 서브 슬로건
+  womenCertHero: HeroWomenCert     // Hero 섹션 여성기업인증 배지
   cta: CtaButton[]
 }
 
