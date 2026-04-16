@@ -4,7 +4,18 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     // 외부 이미지 허용 도메인 (필요 시 추가)
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',  // ImgBB 이미지 호스팅
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ibb.co',
+        pathname: '/**',
+      },
+    ],
     // 이미지 품질 기본값 (Lighthouse 최적화)
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],

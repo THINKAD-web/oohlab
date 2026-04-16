@@ -3,27 +3,36 @@
     {
       "id": "seoul-metro-dooh-2024",
       "slug": "seoul-metro-dooh-2024",
-      "title": "봄툰 × 삼성전자 DOOH 캠페인",
+      "title": "서울 지하철 DOOH 캠페인",
       "client": "삼성전자",
       "clientType": "대기업",
       "mediaType": "DOOH",
-      "category": ["DOOH", "지하철", "디지털사이니지", "옥외광고"],
+      "category": [
+        "DOOH",
+        "지하철",
+        "디지털사이니지"
+      ],
       "isPublic": true,
       "isGovernment": false,
       "isWomenCertProject": false,
       "year": 2024,
-      "thumbnail": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
+      "thumbnail": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
       "videoPreview": "/videos/works/seoul-metro-preview.webm",
       "videoFull": "/videos/works/seoul-metro-full.webm",
-      "heroImage": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
+      "heroImage": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
       "stats": {
         "impressions": "1,200만",
         "duration": "4주",
-        "locations": "홍대·강남·신촌·서울역 등 주요 상권",
+        "locations": "강남·홍대·신촌 12개소",
         "result": "브랜드 인지도 +34%"
       },
-      "story": "서울 핵심 상권 지하철 DOOH와 옥외 미디어 12개소 동시 집행. 봄툰(오지) 웹툰 IP를 활용한 삼성전자 브랜드 캠페인으로, 론칭 첫 달 최고 도달률을 기록하며 큰 화제를 모았다.",
-      "tags": ["DOOH", "봄툰", "오지", "웹툰IP", "삼성전자", "지하철", "옥외광고"]
+      "story": "서울 핵심 상권 지하철 DOOH 12개 노선 동시 집행. 론칭 첫 달 최고 도달률.",
+      "tags": [
+        "DOOH",
+        "서울",
+        "지하철",
+        "삼성"
+      ]
     },
     {
       "id": "busan-cultural-festival-2024",
@@ -32,15 +41,19 @@
       "client": "부산광역시",
       "clientType": "지자체·공공기관",
       "mediaType": "미디어믹스",
-      "category": ["현수막·배너", "전광판", "버스쉘터"],
+      "category": [
+        "현수막·배너",
+        "전광판",
+        "버스쉘터"
+      ],
       "isPublic": true,
       "isGovernment": true,
       "isWomenCertProject": true,
       "year": 2024,
-      "thumbnail": "/images/works/busan-gov-thumb.jpg",
+      "thumbnail": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
       "videoPreview": "/videos/works/busan-gov-preview.webm",
       "videoFull": null,
-      "heroImage": "/images/works/busan-gov-hero.jpg",
+      "heroImage": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
       "stats": {
         "impressions": "850만",
         "duration": "6주",
@@ -48,7 +61,12 @@
         "result": "축제 방문객 전년 대비 +22%"
       },
       "story": "여성기업인증 수의계약 활용. 6주 집중 집행으로 관광 유입 목표 초과 달성.",
-      "tags": ["지자체", "부산", "관광", "여성기업"]
+      "tags": [
+        "지자체",
+        "부산",
+        "관광",
+        "여성기업"
+      ]
     },
     {
       "id": "gangnam-billboard-2024",
@@ -57,15 +75,18 @@
       "client": "현대자동차",
       "clientType": "대기업",
       "mediaType": "빌보드",
-      "category": ["빌보드", "대형 옥외"],
+      "category": [
+        "빌보드",
+        "대형 옥외"
+      ],
       "isPublic": true,
       "isGovernment": false,
       "isWomenCertProject": false,
       "year": 2024,
-      "thumbnail": "/images/works/gangnam-billboard-thumb.jpg",
+      "thumbnail": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
       "videoPreview": "/videos/works/gangnam-billboard-preview.webm",
       "videoFull": "/videos/works/gangnam-billboard-full.webm",
-      "heroImage": "/images/works/gangnam-billboard-hero.jpg",
+      "heroImage": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
       "stats": {
         "impressions": "2,100만",
         "duration": "8주",
@@ -73,7 +94,12 @@
         "result": "신차 사전예약 목표 대비 151%"
       },
       "story": "강남 프라임 입지 독점 패키지. 경쟁 차종 대비 노출 우위 3배 확보.",
-      "tags": ["빌보드", "강남", "자동차", "대형옥외"]
+      "tags": [
+        "빌보드",
+        "강남",
+        "자동차",
+        "대형옥외"
+      ]
     },
     {
       "id": "seoul-city-gov-2023",
@@ -82,7 +108,11 @@
       "client": "서울특별시",
       "clientType": "지자체·공공기관",
       "mediaType": "미디어믹스",
-      "category": ["버스쉘터", "DOOH", "현수막·배너"],
+      "category": [
+        "버스쉘터",
+        "DOOH",
+        "현수막·배너"
+      ],
       "isPublic": true,
       "isGovernment": true,
       "isWomenCertProject": true,
@@ -98,7 +128,12 @@
         "result": "캠페인 구간 사고율 -18%"
       },
       "story": "여성기업인증으로 서울시 공공 프로젝트 직계약. 전 자치구 동시 집행.",
-      "tags": ["지자체", "서울시", "공공캠페인", "여성기업"]
+      "tags": [
+        "지자체",
+        "서울시",
+        "공공캠페인",
+        "여성기업"
+      ]
     },
     {
       "id": "kakao-launch-2023",
@@ -107,7 +142,11 @@
       "client": "카카오",
       "clientType": "대기업",
       "mediaType": "미디어믹스",
-      "category": ["DOOH", "지하철", "버스쉘터"],
+      "category": [
+        "DOOH",
+        "지하철",
+        "버스쉘터"
+      ],
       "isPublic": true,
       "isGovernment": false,
       "isWomenCertProject": false,
@@ -123,7 +162,12 @@
         "result": "앱 다운로드 일 최고치 갱신"
       },
       "story": "OOH + DOOH + 지하철 3채널 동시 미디어믹스. 3주 단기 집중으로 바이럴 폭발.",
-      "tags": ["미디어믹스", "서울", "테크", "론칭"]
+      "tags": [
+        "미디어믹스",
+        "서울",
+        "테크",
+        "론칭"
+      ]
     },
     {
       "id": "incheon-airport-dooh-2023",
@@ -132,7 +176,10 @@
       "client": "롯데면세점",
       "clientType": "대기업",
       "mediaType": "DOOH",
-      "category": ["DOOH", "공항"],
+      "category": [
+        "DOOH",
+        "공항"
+      ],
       "isPublic": true,
       "isGovernment": false,
       "isWomenCertProject": false,
@@ -148,7 +195,12 @@
         "result": "면세 매출 전년 동기 +29%"
       },
       "story": "인천공항 프리미엄 DOOH 독점 집행. 출국 동선 전 구간 브랜드 노출.",
-      "tags": ["DOOH", "공항", "면세", "상시집행"]
+      "tags": [
+        "DOOH",
+        "공항",
+        "면세",
+        "상시집행"
+      ]
     },
     {
       "id": "gyeonggi-gov-2023",
@@ -157,7 +209,11 @@
       "client": "경기도청",
       "clientType": "지자체·공공기관",
       "mediaType": "미디어믹스",
-      "category": ["현수막·배너", "버스쉘터", "전광판"],
+      "category": [
+        "현수막·배너",
+        "버스쉘터",
+        "전광판"
+      ],
       "isPublic": true,
       "isGovernment": true,
       "isWomenCertProject": true,
@@ -173,7 +229,12 @@
         "result": "정책 인지도 목표 대비 127%"
       },
       "story": "여성기업 우선계약으로 경기도 전역 최단기 집행 체계 구축.",
-      "tags": ["지자체", "경기도", "정책홍보", "여성기업"]
+      "tags": [
+        "지자체",
+        "경기도",
+        "정책홍보",
+        "여성기업"
+      ]
     },
     {
       "id": "startup-mediamix-2022",
@@ -182,7 +243,11 @@
       "client": "(비공개)",
       "clientType": "스타트업",
       "mediaType": "미디어믹스",
-      "category": ["DOOH", "지하철", "버스쉘터"],
+      "category": [
+        "DOOH",
+        "지하철",
+        "버스쉘터"
+      ],
       "isPublic": false,
       "isGovernment": false,
       "isWomenCertProject": false,
@@ -198,7 +263,12 @@
         "result": "투자 라운드 클로징 당일 최고 트래픽"
       },
       "story": "시리즈B 클로징 시점 맞춤 OOH 집중 집행. 짧고 강하게.",
-      "tags": ["스타트업", "핀테크", "미디어믹스", "단기"]
+      "tags": [
+        "스타트업",
+        "핀테크",
+        "미디어믹스",
+        "단기"
+      ]
     },
     {
       "id": "busan-transit-2022",
@@ -207,7 +277,9 @@
       "client": "부산시설공단",
       "clientType": "지자체·공공기관",
       "mediaType": "버스쉘터",
-      "category": ["버스쉘터"],
+      "category": [
+        "버스쉘터"
+      ],
       "isPublic": true,
       "isGovernment": true,
       "isWomenCertProject": true,
@@ -223,7 +295,12 @@
         "result": "시민 만족도 조사 1위"
       },
       "story": "부산 전역 버스 쉘터 88개 동시 래핑. 여성기업 직계약으로 비용 30% 절감.",
-      "tags": ["버스쉘터", "부산", "지자체", "여성기업"]
+      "tags": [
+        "버스쉘터",
+        "부산",
+        "지자체",
+        "여성기업"
+      ]
     },
     {
       "id": "fmcg-nationwide-2022",
@@ -232,7 +309,11 @@
       "client": "CJ제일제당",
       "clientType": "대기업",
       "mediaType": "미디어믹스",
-      "category": ["빌보드", "버스쉘터", "전광판"],
+      "category": [
+        "빌보드",
+        "버스쉘터",
+        "전광판"
+      ],
       "isPublic": true,
       "isGovernment": false,
       "isWomenCertProject": false,
@@ -248,7 +329,12 @@
         "result": "신제품 출시 첫 달 시장점유율 1위"
       },
       "story": "전국 광역시 동시 OOH 집행. 가장 빠른 전국 커버리지 기록.",
-      "tags": ["전국", "FMCG", "식품", "대형집행"]
+      "tags": [
+        "전국",
+        "FMCG",
+        "식품",
+        "대형집행"
+      ]
     },
     {
       "id": "jeju-gov-2021",
@@ -257,7 +343,11 @@
       "client": "제주특별자치도",
       "clientType": "지자체·공공기관",
       "mediaType": "미디어믹스",
-      "category": ["빌보드", "DOOH", "현수막·배너"],
+      "category": [
+        "빌보드",
+        "DOOH",
+        "현수막·배너"
+      ],
       "isPublic": true,
       "isGovernment": true,
       "isWomenCertProject": true,
@@ -273,7 +363,12 @@
         "result": "제주 관광객 월별 최고치 경신"
       },
       "story": "제주도청 여성기업 직계약. 내륙 주요 거점 + 제주 현지 동시 집행.",
-      "tags": ["지자체", "제주", "관광", "여성기업"]
+      "tags": [
+        "지자체",
+        "제주",
+        "관광",
+        "여성기업"
+      ]
     },
     {
       "id": "luxury-brand-2021",
@@ -282,7 +377,10 @@
       "client": "(비공개)",
       "clientType": "대기업",
       "mediaType": "DOOH",
-      "category": ["DOOH", "빌보드"],
+      "category": [
+        "DOOH",
+        "빌보드"
+      ],
       "isPublic": false,
       "isGovernment": false,
       "isWomenCertProject": false,
@@ -298,7 +396,12 @@
         "result": "팝업 오픈 당일 대기줄 500m"
       },
       "story": "글로벌 럭셔리 팝업 1주 초집중 집행. 프리미엄 입지 독점 확보.",
-      "tags": ["럭셔리", "팝업", "청담", "단기집중"]
+      "tags": [
+        "럭셔리",
+        "팝업",
+        "청담",
+        "단기집중"
+      ]
     }
   ]
 }
