@@ -1,36 +1,31 @@
 {
   "works": [
     {
-    "id": "기존-마지막-캠페인-id",
-    ... 기존 내용 ...
-  },     ←←← 이 콤마가 중요합니다!
-
-  {
-    "id": "seoul-metro-dooh-2024",
-    "slug": "seoul-metro-dooh-2024",
-    "title": "봄툰 × 삼성전자 DOOH 캠페인",
-    "client": "삼성전자",
-    "clientType": "대기업",
-    "mediaType": "DOOH",
-    "category": ["DOOH", "지하철", "디지털사이니지", "옥외광고"],
-    "isPublic": true,
-    "isGovernment": false,
-    "isWomenCertProject": false,
-    "year": 2024,
-    "thumbnail": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
-    "videoPreview": "/videos/works/seoul-metro-preview.webm",
-    "videoFull": "/videos/works/seoul-metro-full.webm",
-    "heroImage": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
-    "stats": {
-      "impressions": "1,200만",
-      "duration": "4주",
-      "locations": "홍대·강남·신촌·서울역 등 주요 상권",
-      "result": "브랜드 인지도 +34%"
-    },
-    "story": "서울 핵심 상권 지하철 DOOH와 옥외 미디어 12개소 동시 집행. 봄툰(오지) 웹툰 IP를 활용한 삼성전자 브랜드 캠페인으로, 론칭 첫 달 최고 도달률을 기록하며 큰 화제를 모았다.",
-    "tags": ["DOOH", "봄툰", "오지", "웹툰IP", "삼성전자", "지하철", "옥외광고"]
-  }
-]
+      "id": "seoul-metro-dooh-2024",
+      "slug": "seoul-metro-dooh-2024",
+      "title": "봄툰 × 삼성전자 DOOH 캠페인",
+      "client": "삼성전자",
+      "clientType": "대기업",
+      "mediaType": "DOOH",
+      "category": ["DOOH", "지하철", "디지털사이니지", "옥외광고"],
+      "isPublic": true,
+      "isGovernment": false,
+      "isWomenCertProject": false,
+      "year": 2024,
+      "thumbnail": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
+      "videoPreview": "/videos/works/seoul-metro-preview.webm",
+      "videoFull": "/videos/works/seoul-metro-full.webm",
+      "heroImage": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
+      "stats": {
+        "impressions": "1,200만",
+        "duration": "4주",
+        "locations": "홍대·강남·신촌·서울역 등 주요 상권",
+        "result": "브랜드 인지도 +34%"
+      },
+      "story": "서울 핵심 상권 지하철 DOOH와 옥외 미디어 12개소 동시 집행. 봄툰(오지) 웹툰 IP를 활용한 삼성전자 브랜드 캠페인으로, 론칭 첫 달 최고 도달률을 기록하며 큰 화제를 모았다.",
+      "tags": ["DOOH", "봄툰", "오지", "웹툰IP", "삼성전자", "지하철", "옥외광고"]
+    }
+  ]
 }
 
     {
