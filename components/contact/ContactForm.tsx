@@ -12,6 +12,10 @@ const INQUIRY_TYPES = [
   '기타 문의',
 ]
 
+const KAKAO_URL =
+  process.env.NEXT_PUBLIC_KAKAO_CHANNEL_URL ||
+  'https://pf.kakao.com/_OOHLABchannel'
+
 const INPUT_STYLE: React.CSSProperties = {
   width: '100%',
   padding: '14px 16px',
@@ -29,6 +33,7 @@ const INPUT_STYLE: React.CSSProperties = {
 
 export function ContactForm() {
   const [formState, setFormState] = useState<FormState>('idle')
+  const [errorMessage, setErrorMessage] = useState<string>('')
   const [focusedField, setFocusedField] = useState<string | null>(null)
   const [values, setValues] = useState({
     name: '',
@@ -45,11 +50,30 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setErrorMessage('')
     setFormState('submitting')
-    // 실제 배포 시 API Route /api/contact 로 전송
-    // 현재는 1.5s 딜레이 후 success 시뮬레이션
-    await new Promise((r) => setTimeout(r, 1500))
-    setFormState('success')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      })
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.error || '전송에 실패했습니다.')
+      }
+
+      setFormState('success')
+    } catch (err) {
+      setFormState('error')
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : '네트워크 오류가 발생했습니다. 카카오톡으로 문의해 주세요.'
+      )
+    }
   }
 
   const fieldStyle = (name: string): React.CSSProperties => ({
@@ -102,7 +126,7 @@ export function ContactForm() {
           빠른 상담은 카카오톡을 이용해 주세요.
         </p>
         <a
-          href="https://pf.kakao.com/_OOHLABchannel"
+          href={KAKAO_URL}
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -277,6 +301,25 @@ export function ContactForm() {
           }}
         />
       </div>
+
+      {/* 에러 메시지 */}
+      {formState === 'error' && errorMessage && (
+        <div
+          role="alert"
+          style={{
+            marginBottom: 16,
+            padding: '12px 14px',
+            background: 'rgba(239, 68, 68, 0.08)',
+            border: '1px solid rgba(239, 68, 68, 0.3)',
+            borderRadius: 3,
+            fontSize: 13,
+            color: '#FCA5A5',
+            lineHeight: 1.5,
+          }}
+        >
+          {errorMessage}
+        </div>
+      )}
 
       {/* 제출 버튼 */}
       <button

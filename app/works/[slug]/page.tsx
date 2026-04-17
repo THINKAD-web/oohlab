@@ -122,37 +122,45 @@ export default async function WorkDetailPage({ params }: Props) {
           {work.story}
         </p>
 
-        {/* 성과 지표 */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-          gap: '1px',
-          background: '#1E1E1E',
-          border: '1px solid #1E1E1E',
-          marginBottom: 48,
-        }}>
-          {[
-            { label: '총 노출수',  value: work.stats.impressions },
-            { label: '집행 기간',  value: work.stats.duration    },
-            { label: '집행 지역',  value: work.stats.locations   },
-            { label: '핵심 성과',  value: work.stats.result      },
-          ].map((s) => (
-            <div key={s.label} style={{ padding: '28px 24px', background: '#0D0D0D' }}>
-              <p style={{
-                margin: '0 0 8px', fontSize: 10, letterSpacing: '0.15em',
-                textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)',
-              }}>
-                {s.label}
-              </p>
-              <p style={{
-                margin: 0, fontSize: 22, fontWeight: 700, color: '#F37021',
-                fontFamily: "'Pretendard', sans-serif",
-              }}>
-                {s.value}
-              </p>
+        {/* 성과 지표 (값이 있는 항목만 표시) */}
+        {(() => {
+          const items = [
+            { label: '총 노출수', value: work.stats.impressions },
+            { label: '집행 기간', value: work.stats.duration    },
+            { label: '집행 지역', value: work.stats.locations   },
+            { label: '핵심 성과', value: work.stats.result      },
+          ].filter((s) => s.value && s.value.trim() !== '')
+
+          if (items.length === 0) return null
+
+          return (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+              gap: '1px',
+              background: '#1E1E1E',
+              border: '1px solid #1E1E1E',
+              marginBottom: 48,
+            }}>
+              {items.map((s) => (
+                <div key={s.label} style={{ padding: '28px 24px', background: '#0D0D0D' }}>
+                  <p style={{
+                    margin: '0 0 8px', fontSize: 10, letterSpacing: '0.15em',
+                    textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)',
+                  }}>
+                    {s.label}
+                  </p>
+                  <p style={{
+                    margin: 0, fontSize: 22, fontWeight: 700, color: '#F37021',
+                    fontFamily: "'Pretendard', sans-serif",
+                  }}>
+                    {s.value}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          )
+        })()}
 
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
           <Link href="/works" style={{

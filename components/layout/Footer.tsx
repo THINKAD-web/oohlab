@@ -1,7 +1,14 @@
 import Link from 'next/link'
+import { COMPANY } from '@/lib/company'
 
 export function Footer() {
   const year = new Date().getFullYear()
+
+  const legalParts = [
+    COMPANY.businessNumber && `사업자등록번호: ${COMPANY.businessNumber}`,
+    COMPANY.ceo && `대표: ${COMPANY.ceo}`,
+    COMPANY.address,
+  ].filter(Boolean) as string[]
 
   return (
     <footer
@@ -29,8 +36,8 @@ export function Footer() {
             <span style={{ fontSize: 18, fontWeight: 300, color: '#F37021', letterSpacing: '0.05em' }}>LAB</span>
           </Link>
           <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.3)', lineHeight: 1.6, maxWidth: 280 }}>
-            말보다 행동으로 증명합니다.<br />
-            여성기업인증 · 옥외광고 전문 대행사
+            {COMPANY.tagline}<br />
+            {COMPANY.description}
           </p>
         </div>
 
@@ -54,7 +61,7 @@ export function Footer() {
 
         {/* 카카오 CTA */}
         <a
-          href="https://pf.kakao.com/_OOHLABchannel"
+          href={COMPANY.kakaoChannel}
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -89,16 +96,16 @@ export function Footer() {
         }}
       >
         <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.18)', lineHeight: 1.6 }}>
-          © {year} OOH-LAB Co., Ltd. All rights reserved.
-          <span style={{ margin: '0 8px', opacity: 0.4 }}>|</span>
-          사업자등록번호: 000-00-00000
-          <span style={{ margin: '0 8px', opacity: 0.4 }}>|</span>
-          대표: 홍길동
-          <span style={{ margin: '0 8px', opacity: 0.4 }}>|</span>
-          서울특별시 강남구 테헤란로 000
+          © {year} {COMPANY.legalName}. All rights reserved.
+          {legalParts.map((part, i) => (
+            <span key={i}>
+              <span style={{ margin: '0 8px', opacity: 0.4 }}>|</span>
+              {part}
+            </span>
+          ))}
         </p>
         <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.18)' }}>
-          <a href="/privacy" style={{ color: 'inherit', textDecoration: 'none' }}>개인정보처리방침</a>
+          <Link href="/privacy" style={{ color: 'inherit', textDecoration: 'none' }}>개인정보처리방침</Link>
         </p>
       </div>
     </footer>

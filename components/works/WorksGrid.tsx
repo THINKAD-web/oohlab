@@ -201,53 +201,61 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
           {work.story}
         </p>
 
-        {/* 성과 지표 4개 */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-            gap: '1px',
-            background: '#1E1E1E',
-            border: '1px solid #1E1E1E',
-            marginBottom: 48,
-          }}
-        >
-          {[
+        {/* 성과 지표 (값이 있는 항목만 표시) */}
+        {(() => {
+          const items = [
             { label: '총 노출수', value: work.stats.impressions },
             { label: '집행 기간', value: work.stats.duration },
             { label: '집행 지역', value: work.stats.locations },
             { label: '핵심 성과', value: work.stats.result },
-          ].map((stat) => (
+          ].filter((s) => s.value && s.value.trim() !== '')
+
+          if (items.length === 0) return null
+
+          return (
             <div
-              key={stat.label}
-              style={{ padding: '28px 24px', background: '#0D0D0D' }}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+                gap: '1px',
+                background: '#1E1E1E',
+                border: '1px solid #1E1E1E',
+                marginBottom: 48,
+              }}
             >
-              <p
-                style={{
-                  margin: '0 0 8px',
-                  fontSize: 11,
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.35)',
-                }}
-              >
-                {stat.label}
-              </p>
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: 'clamp(16px, 2vw, 22px)',
-                  fontWeight: 700,
-                  color: '#F37021',
-                  lineHeight: 1.2,
-                  fontFamily: "'Pretendard', sans-serif",
-                }}
-              >
-                {stat.value}
-              </p>
+              {items.map((stat) => (
+                <div
+                  key={stat.label}
+                  style={{ padding: '28px 24px', background: '#0D0D0D' }}
+                >
+                  <p
+                    style={{
+                      margin: '0 0 8px',
+                      fontSize: 11,
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      color: 'rgba(255,255,255,0.35)',
+                    }}
+                  >
+                    {stat.label}
+                  </p>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: 'clamp(16px, 2vw, 22px)',
+                      fontWeight: 700,
+                      color: '#F37021',
+                      lineHeight: 1.2,
+                      fontFamily: "'Pretendard', sans-serif",
+                    }}
+                  >
+                    {stat.value}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          )
+        })()}
 
         {/* SEO 링크 (숨김) + 문의 CTA */}
         <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -460,9 +468,11 @@ function WorkCard({
           <h3 style={{ margin: '0 0 4px', fontSize: 15, fontWeight: 700, color: '#fff', lineHeight: 1.25, fontFamily: "'Pretendard', sans-serif" }}>
             {work.title}
           </h3>
-          <p style={{ margin: 0, fontSize: 12, color: '#F37021', fontWeight: 600, opacity: hovered ? 1 : 0, transition: 'opacity 0.3s' }}>
-            {work.stats.result}
-          </p>
+          {work.stats.result && work.stats.result.trim() !== '' && (
+            <p style={{ margin: 0, fontSize: 12, color: '#F37021', fontWeight: 600, opacity: hovered ? 1 : 0, transition: 'opacity 0.3s' }}>
+              {work.stats.result}
+            </p>
+          )}
         </div>
       </button>
     </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
 import { CustomCursor } from '@/components/ui/CustomCursor'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
 
@@ -8,6 +9,7 @@ import { SmoothScroll } from '@/components/ui/SmoothScroll'
 // next/font/local을 사용하면 FOUT 없이 최적화됨
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://oohlab.co.kr'),
   title: {
     default: '오랩(OOH-LAB) | 대한민국 대표 옥외광고 대행사',
     template: '%s | OOH-LAB',
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    url: 'https://oohlab.co.kr',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://oohlab.co.kr',
     siteName: '오랩(OOH-LAB)',
     title: '오랩 — 말보다 행동으로 증명합니다',
     description: '15년 경력 옥외광고 전문 대행사. 여성기업인증.',
@@ -49,11 +51,19 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
   other: {
-    // Naver 소유권 확인 코드 (실제 코드로 교체)
-    'naver-site-verification': 'NAVER_VERIFICATION_CODE',
+    // Naver 소유권 확인 코드 — .env의 NAVER_SITE_VERIFICATION에서 주입
+    ...(process.env.NAVER_SITE_VERIFICATION
+      ? { 'naver-site-verification': process.env.NAVER_SITE_VERIFICATION }
+      : {}),
+  },
+  verification: {
+    // Google Search Console 코드 — .env의 GOOGLE_SITE_VERIFICATION에서 주입
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
   },
   alternates: {
-    canonical: 'https://oohlab.co.kr',
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://oohlab.co.kr',
   },
 }
 
@@ -87,6 +97,7 @@ export default function RootLayout({
           <CustomCursor />
           <Navbar />
           <main id="main-content">{children}</main>
+          <Footer />
         </SmoothScroll>
 
         {/* 전역 CSS 리셋 + 유틸리티 */}
