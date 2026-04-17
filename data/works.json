@@ -1,407 +1,410 @@
 {
   "works": [
     {
-      "id": "seoul-metro-dooh-2024",
-      "slug": "seoul-metro-dooh-2024",
-      "title": "서울 지하철 DOOH 캠페인",
-      "client": "삼성전자",
-      "clientType": "대기업",
-      "mediaType": "DOOH",
-      "category": [
-        "DOOH",
-        "지하철",
-        "디지털사이니지"
-      ],
+      "id": "bomtoon-ooh-2024-2025",
+      "slug": "bomtoon-ooh-2024-2025",
+      "title": "봄툰 기업 미디어믹스 옥외광고 캠페인",
+      "client": "봄툰",
+      "clientType": "기업",
+      "mediaType": "미디어믹스",
+      "category": ["전광판", "외벽", "버스쉘터", "지하철", "옥외광고"],
       "isPublic": true,
       "isGovernment": false,
       "isWomenCertProject": false,
-      "year": 2024,
-      "thumbnail": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
-      "videoPreview": "/videos/works/seoul-metro-preview.webm",
-      "videoFull": "/videos/works/seoul-metro-full.webm",
-      "heroImage": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/QF1MNdSR/10.png",
+      "videoPreview": "https://www.youtube.com/watch?v=7_u5X0TeVfQ",
+      "videoFull": "https://www.youtube.com/watch?v=7_u5X0TeVfQ",
+      "heroImage": "https://i.ibb.co/5WLkV5rR/5.png",
+      "images": [
+        "https://i.ibb.co/QF1MNdSR/10.png",
+        "https://i.ibb.co/5WLkV5rR/5.png"
+      ],
       "stats": {
-        "impressions": "1,200만",
-        "duration": "4주",
-        "locations": "강남·홍대·신촌 12개소",
-        "result": "브랜드 인지도 +34%"
+        "impressions": "",
+        "duration": "",
+        "locations": "홍대 M스크린+스타피카소 전광판, LC타워 외벽, 스마트쉘터, 지하철 아트캔버스 등",
+        "result": ""
       },
-      "story": "서울 핵심 상권 지하철 DOOH 12개 노선 동시 집행. 론칭 첫 달 최고 도달률.",
-      "tags": [
-        "DOOH",
-        "서울",
-        "지하철",
-        "삼성"
-      ]
+      "story": "봄툰 웹툰 IP를 활용한 기업 자체 미디어믹스 옥외광고 캠페인. 홍대 전광판(M스크린+스타피카소), 외벽(LC타워), 스마트쉘터, 지하철 아트캔버스 등 주요 상권과 교통 매체를 종합 집행하여 브랜드 노출을 극대화했다.",
+      "tags": ["봄툰", "웹툰IP", "전광판", "외벽광고", "스마트쉘터", "지하철광고", "홍대", "미디어믹스", "옥외광고"]
     },
     {
-      "id": "busan-cultural-festival-2024",
-      "slug": "busan-cultural-festival-2024",
-      "title": "부산 문화관광 옥외광고",
-      "client": "부산광역시",
+      "id": "hangang-env-agency-2025",
+      "slug": "hangang-env-agency-2025",
+      "title": "한강유역환경청 기관 버스·지하철 광고진행",
+      "client": "한강유역환경청",
       "clientType": "지자체·공공기관",
       "mediaType": "미디어믹스",
-      "category": [
-        "현수막·배너",
-        "전광판",
-        "버스쉘터"
-      ],
+      "category": ["버스", "지하철", "기관광고"],
       "isPublic": true,
       "isGovernment": true,
       "isWomenCertProject": true,
-      "year": 2024,
-      "thumbnail": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
-      "videoPreview": "/videos/works/busan-gov-preview.webm",
-      "videoFull": null,
-      "heroImage": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
-      "stats": {
-        "impressions": "850만",
-        "duration": "6주",
-        "locations": "부산 전역 47개소",
-        "result": "축제 방문객 전년 대비 +22%"
-      },
-      "story": "여성기업인증 수의계약 활용. 6주 집중 집행으로 관광 유입 목표 초과 달성.",
-      "tags": [
-        "지자체",
-        "부산",
-        "관광",
-        "여성기업"
-      ]
-    },
-    {
-      "id": "gangnam-billboard-2024",
-      "slug": "gangnam-billboard-2024",
-      "title": "강남 대형 빌보드 패키지",
-      "client": "현대자동차",
-      "clientType": "대기업",
-      "mediaType": "빌보드",
-      "category": [
-        "빌보드",
-        "대형 옥외"
-      ],
-      "isPublic": true,
-      "isGovernment": false,
-      "isWomenCertProject": false,
-      "year": 2024,
-      "thumbnail": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
-      "videoPreview": "/videos/works/gangnam-billboard-preview.webm",
-      "videoFull": "/videos/works/gangnam-billboard-full.webm",
-      "heroImage": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
-      "stats": {
-        "impressions": "2,100만",
-        "duration": "8주",
-        "locations": "강남·코엑스 8개소",
-        "result": "신차 사전예약 목표 대비 151%"
-      },
-      "story": "강남 프라임 입지 독점 패키지. 경쟁 차종 대비 노출 우위 3배 확보.",
-      "tags": [
-        "빌보드",
-        "강남",
-        "자동차",
-        "대형옥외"
-      ]
-    },
-    {
-      "id": "seoul-city-gov-2023",
-      "slug": "seoul-city-gov-2023",
-      "title": "서울시 교통 안전 캠페인",
-      "client": "서울특별시",
-      "clientType": "지자체·공공기관",
-      "mediaType": "미디어믹스",
-      "category": [
-        "버스쉘터",
-        "DOOH",
-        "현수막·배너"
-      ],
-      "isPublic": true,
-      "isGovernment": true,
-      "isWomenCertProject": true,
-      "year": 2023,
-      "thumbnail": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
-      "videoPreview": "/videos/works/seoul-gov-preview.webm",
-      "videoFull": null,
-      "heroImage": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
-      "stats": {
-        "impressions": "3,400만",
-        "duration": "12주",
-        "locations": "서울 전역 220개소",
-        "result": "캠페인 구간 사고율 -18%"
-      },
-      "story": "여성기업인증으로 서울시 공공 프로젝트 직계약. 전 자치구 동시 집행.",
-      "tags": [
-        "지자체",
-        "서울시",
-        "공공캠페인",
-        "여성기업"
-      ]
-    },
-    {
-      "id": "kakao-launch-2023",
-      "slug": "kakao-launch-2023",
-      "title": "카카오 신규 서비스 론칭",
-      "client": "카카오",
-      "clientType": "대기업",
-      "mediaType": "미디어믹스",
-      "category": [
-        "DOOH",
-        "지하철",
-        "버스쉘터"
-      ],
-      "isPublic": true,
-      "isGovernment": false,
-      "isWomenCertProject": false,
-      "year": 2023,
-      "thumbnail": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
-      "videoPreview": "/videos/works/kakao-launch-preview.webm",
-      "videoFull": "/videos/works/kakao-launch-full.webm",
-      "heroImage": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
-      "stats": {
-        "impressions": "1,800만",
-        "duration": "3주",
-        "locations": "수도권 40개소",
-        "result": "앱 다운로드 일 최고치 갱신"
-      },
-      "story": "OOH + DOOH + 지하철 3채널 동시 미디어믹스. 3주 단기 집중으로 바이럴 폭발.",
-      "tags": [
-        "미디어믹스",
-        "서울",
-        "테크",
-        "론칭"
-      ]
-    },
-    {
-      "id": "incheon-airport-dooh-2023",
-      "slug": "incheon-airport-dooh-2023",
-      "title": "인천공항 DOOH 상시 집행",
-      "client": "롯데면세점",
-      "clientType": "대기업",
-      "mediaType": "DOOH",
-      "category": [
-        "DOOH",
-        "공항"
-      ],
-      "isPublic": true,
-      "isGovernment": false,
-      "isWomenCertProject": false,
-      "year": 2023,
-      "thumbnail": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
-      "videoPreview": "/videos/works/incheon-airport-preview.webm",
-      "videoFull": "/videos/works/incheon-airport-full.webm",
-      "heroImage": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
-      "stats": {
-        "impressions": "680만",
-        "duration": "상시",
-        "locations": "인천공항 T1·T2 16개소",
-        "result": "면세 매출 전년 동기 +29%"
-      },
-      "story": "인천공항 프리미엄 DOOH 독점 집행. 출국 동선 전 구간 브랜드 노출.",
-      "tags": [
-        "DOOH",
-        "공항",
-        "면세",
-        "상시집행"
-      ]
-    },
-    {
-      "id": "gyeonggi-gov-2023",
-      "slug": "gyeonggi-gov-2023",
-      "title": "경기도 정책 홍보 캠페인",
-      "client": "경기도청",
-      "clientType": "지자체·공공기관",
-      "mediaType": "미디어믹스",
-      "category": [
-        "현수막·배너",
-        "버스쉘터",
-        "전광판"
-      ],
-      "isPublic": true,
-      "isGovernment": true,
-      "isWomenCertProject": true,
-      "year": 2023,
-      "thumbnail": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
-      "videoPreview": "/videos/works/gyeonggi-preview.webm",
-      "videoFull": null,
-      "heroImage": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
-      "stats": {
-        "impressions": "2,200만",
-        "duration": "8주",
-        "locations": "경기도 31개 시군 180개소",
-        "result": "정책 인지도 목표 대비 127%"
-      },
-      "story": "여성기업 우선계약으로 경기도 전역 최단기 집행 체계 구축.",
-      "tags": [
-        "지자체",
-        "경기도",
-        "정책홍보",
-        "여성기업"
-      ]
-    },
-    {
-      "id": "startup-mediamix-2022",
-      "slug": "startup-mediamix-2022",
-      "title": "핀테크 스타트업 브랜딩",
-      "client": "(비공개)",
-      "clientType": "스타트업",
-      "mediaType": "미디어믹스",
-      "category": [
-        "DOOH",
-        "지하철",
-        "버스쉘터"
-      ],
-      "isPublic": false,
-      "isGovernment": false,
-      "isWomenCertProject": false,
-      "year": 2022,
-      "thumbnail": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
-      "videoPreview": "/videos/works/startup-mediamix-preview.webm",
-      "videoFull": null,
-      "heroImage": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
-      "stats": {
-        "impressions": "420만",
-        "duration": "2주",
-        "locations": "강남·여의도 25개소",
-        "result": "투자 라운드 클로징 당일 최고 트래픽"
-      },
-      "story": "시리즈B 클로징 시점 맞춤 OOH 집중 집행. 짧고 강하게.",
-      "tags": [
-        "스타트업",
-        "핀테크",
-        "미디어믹스",
-        "단기"
-      ]
-    },
-    {
-      "id": "busan-transit-2022",
-      "slug": "busan-transit-2022",
-      "title": "부산 버스 쉘터 전면 래핑",
-      "client": "부산시설공단",
-      "clientType": "지자체·공공기관",
-      "mediaType": "버스쉘터",
-      "category": [
-        "버스쉘터"
-      ],
-      "isPublic": true,
-      "isGovernment": true,
-      "isWomenCertProject": true,
-      "year": 2022,
-      "thumbnail": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/mVvNvKcM/2026-04-18-1-49-50.png",
       "videoPreview": null,
       "videoFull": null,
-      "heroImage": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
-      "stats": {
-        "impressions": "560만",
-        "duration": "16주",
-        "locations": "부산 전역 88개소",
-        "result": "시민 만족도 조사 1위"
-      },
-      "story": "부산 전역 버스 쉘터 88개 동시 래핑. 여성기업 직계약으로 비용 30% 절감.",
-      "tags": [
-        "버스쉘터",
-        "부산",
-        "지자체",
-        "여성기업"
-      ]
-    },
-    {
-      "id": "fmcg-nationwide-2022",
-      "slug": "fmcg-nationwide-2022",
-      "title": "식품 브랜드 전국 옥외 집행",
-      "client": "CJ제일제당",
-      "clientType": "대기업",
-      "mediaType": "미디어믹스",
-      "category": [
-        "빌보드",
-        "버스쉘터",
-        "전광판"
+      "heroImage": "https://i.ibb.co/jqZ70mw/2026-04-18-1-50-01.png",
+      "images": [
+        "https://i.ibb.co/mVvNvKcM/2026-04-18-1-49-50.png",
+        "https://i.ibb.co/jqZ70mw/2026-04-18-1-50-01.png"
       ],
-      "isPublic": true,
-      "isGovernment": false,
-      "isWomenCertProject": false,
-      "year": 2022,
-      "thumbnail": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
-      "videoPreview": "/videos/works/fmcg-nationwide-preview.webm",
-      "videoFull": "/videos/works/fmcg-nationwide-full.webm",
-      "heroImage": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
       "stats": {
-        "impressions": "4,800만",
-        "duration": "6주",
-        "locations": "전국 광역시 142개소",
-        "result": "신제품 출시 첫 달 시장점유율 1위"
+        "impressions": "",
+        "duration": "",
+        "locations": "경기버스 내/외부, 수인분당선 지하철",
+        "result": ""
       },
-      "story": "전국 광역시 동시 OOH 집행. 가장 빠른 전국 커버리지 기록.",
-      "tags": [
-        "전국",
-        "FMCG",
-        "식품",
-        "대형집행"
-      ]
+      "story": "한강유역환경청 기관 광고 종합 집행. 경기버스 내·외부와 수인분당선 지하철 광고를 동시에 진행하여 환경 정책 홍보를 강화.",
+      "tags": ["한강유역환경청", "환경부", "G버스", "지하철광고", "수인분당선", "공공기관", "여성기업"]
     },
     {
-      "id": "jeju-gov-2021",
-      "slug": "jeju-gov-2021",
-      "title": "제주 관광 활성화 캠페인",
-      "client": "제주특별자치도",
+      "id": "kcci-led-2025",
+      "slug": "kcci-led-2025",
+      "title": "대한상공회의소 기관 전광판 광고진행",
+      "client": "대한상공회의소",
       "clientType": "지자체·공공기관",
-      "mediaType": "미디어믹스",
-      "category": [
-        "빌보드",
-        "DOOH",
-        "현수막·배너"
-      ],
+      "mediaType": "전광판",
+      "category": ["전광판", "기관광고"],
       "isPublic": true,
       "isGovernment": true,
       "isWomenCertProject": true,
-      "year": 2021,
-      "thumbnail": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
-      "videoPreview": "/videos/works/jeju-gov-preview.webm",
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/GQzvK0Mz/2026-04-18-1-50-15.png",
+      "videoPreview": null,
       "videoFull": null,
-      "heroImage": "https://i.ibb.co/gbST1B04/2026-04-16-4-28-15.png",
+      "heroImage": "https://i.ibb.co/Rp8V95t1/2026-04-18-1-50-59.png",
+      "images": [
+        "https://i.ibb.co/GQzvK0Mz/2026-04-18-1-50-15.png",
+        "https://i.ibb.co/Rp8V95t1/2026-04-18-1-50-59.png"
+      ],
       "stats": {
-        "impressions": "1,050만",
-        "duration": "10주",
-        "locations": "제주·서울·부산 60개소",
-        "result": "제주 관광객 월별 최고치 경신"
+        "impressions": "",
+        "duration": "",
+        "locations": "주요 전광판",
+        "result": ""
       },
-      "story": "제주도청 여성기업 직계약. 내륙 주요 거점 + 제주 현지 동시 집행.",
-      "tags": [
-        "지자체",
-        "제주",
-        "관광",
-        "여성기업"
-      ]
+      "story": "대한상공회의소 기관 전광판 광고 진행. 경제·산업 관련 정책 및 사업 홍보.",
+      "tags": ["대한상공회의소", "전광판", "기관광고", "공공기관", "여성기업"]
     },
     {
-      "id": "luxury-brand-2021",
-      "slug": "luxury-brand-2021",
-      "title": "럭셔리 브랜드 팝업 OOH",
-      "client": "(비공개)",
-      "clientType": "대기업",
-      "mediaType": "DOOH",
-      "category": [
-        "DOOH",
-        "빌보드"
+      "id": "at-korea-subway-2025",
+      "slug": "at-korea-subway-2025",
+      "title": "한국농수산식품유통공사 기관 지하철 광고진행",
+      "client": "한국농수산식품유통공사",
+      "clientType": "지자체·공공기관",
+      "mediaType": "지하철",
+      "category": ["지하철", "기관광고"],
+      "isPublic": true,
+      "isGovernment": true,
+      "isWomenCertProject": true,
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/XxZC80hx/2026-04-18-1-51-15.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/YBn0y7dq/2026-04-18-1-51-24.png",
+      "images": [
+        "https://i.ibb.co/XxZC80hx/2026-04-18-1-51-15.png",
+        "https://i.ibb.co/YBn0y7dq/2026-04-18-1-51-24.png"
       ],
-      "isPublic": false,
+      "stats": {
+        "impressions": "",
+        "duration": "",
+        "locations": "강남역 미디어월",
+        "result": ""
+      },
+      "story": "한국농수산식품유통공사 기관 지하철 광고 진행. 농수산식품 유통 및 정책 홍보를 위한 강남역 미디어월 집행.",
+      "tags": ["한국농수산식품유통공사", "aT", "지하철광고", "미디어월", "공공기관", "여성기업"]
+    },
+    {
+      "id": "kisa-subway-2025",
+      "slug": "kisa-subway-2025",
+      "title": "한국인터넷진흥원 기관 지하철 광고진행",
+      "client": "한국인터넷진흥원",
+      "clientType": "지자체·공공기관",
+      "mediaType": "지하철",
+      "category": ["지하철", "기관광고"],
+      "isPublic": true,
+      "isGovernment": true,
+      "isWomenCertProject": true,
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/xSqCFS8w/2026-04-18-1-51-49.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/gMPcZgv3/2026-04-18-1-52-31.png",
+      "images": [
+        "https://i.ibb.co/xSqCFS8w/2026-04-18-1-51-49.png",
+        "https://i.ibb.co/gMPcZgv3/2026-04-18-1-52-31.png"
+      ],
+      "stats": {
+        "impressions": "",
+        "duration": "",
+        "locations": "지하철 주요 노선",
+        "result": ""
+      },
+      "story": "한국인터넷진흥원 기관 지하철 광고 진행. 사이버 보안, 인터넷 윤리 등 정책 홍보.",
+      "tags": ["한국인터넷진흥원", "KISA", "지하철광고", "공공기관", "여성기업"]
+    },
+    {
+      "id": "kto-subway-2025",
+      "slug": "kto-subway-2025",
+      "title": "한국관광공사 기관 지하철 광고진행",
+      "client": "한국관광공사",
+      "clientType": "지자체·공공기관",
+      "mediaType": "지하철",
+      "category": ["지하철", "기관광고"],
+      "isPublic": true,
+      "isGovernment": true,
+      "isWomenCertProject": true,
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/wrb0KchV/2026-04-18-1-52-47.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/PzJwMRfB/2026-04-18-1-53-01.png",
+      "images": [
+        "https://i.ibb.co/wrb0KchV/2026-04-18-1-52-47.png",
+        "https://i.ibb.co/PzJwMRfB/2026-04-18-1-53-01.png"
+      ],
+      "stats": {
+        "impressions": "",
+        "duration": "",
+        "locations": "지하철 주요 노선",
+        "result": ""
+      },
+      "story": "한국관광공사 기관 지하철 광고 진행. 국내외 관광 활성화 및 정책 홍보.",
+      "tags": ["한국관광공사", "KTO", "지하철광고", "관광홍보", "공공기관", "여성기업"]
+    },
+    {
+      "id": "seoul-50plus-foundation-2025",
+      "slug": "seoul-50plus-foundation-2025",
+      "title": "서울시50플러스재단 기관 지하철·디지털사이니지·버스쉘터 광고진행",
+      "client": "서울시50플러스재단",
+      "clientType": "지자체·공공기관",
+      "mediaType": "미디어믹스",
+      "category": ["지하철", "디지털사이니지", "버스쉘터", "기관광고"],
+      "isPublic": true,
+      "isGovernment": true,
+      "isWomenCertProject": true,
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/vCrJ9sCv/2026-04-18-1-49-12.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/nMBm5XyM/2026-04-18-1-53-19.png",
+      "images": [
+        "https://i.ibb.co/vCrJ9sCv/2026-04-18-1-49-12.png",
+        "https://i.ibb.co/nMBm5XyM/2026-04-18-1-53-19.png"
+      ],
+      "stats": {
+        "impressions": "",
+        "duration": "",
+        "locations": "서울 지하철, 디지털사이니지, 가로변 버스쉘터",
+        "result": ""
+      },
+      "story": "서울시50플러스재단 기관 미디어믹스 광고 종합 집행. 지하철, 디지털사이니지, 버스쉘터를 통해 중장년층 대상 정책 및 프로그램 홍보.",
+      "tags": ["서울시50플러스재단", "50플러스", "지하철광고", "디지털사이니지", "버스쉘터", "공공기관", "여성기업"]
+    },
+    {
+      "id": "carbon-neutral-committee-2025",
+      "slug": "carbon-neutral-committee-2025",
+      "title": "탄소중립녹색성장위원회 기관 지하철·KTX 광고진행",
+      "client": "탄소중립녹색성장위원회",
+      "clientType": "지자체·공공기관",
+      "mediaType": "미디어믹스",
+      "category": ["지하철", "KTX", "기관광고"],
+      "isPublic": true,
+      "isGovernment": true,
+      "isWomenCertProject": true,
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/BHxgQbFX/2026-04-18-1-48-18.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/MkRCDD8f/2026-04-18-1-48-29.png",
+      "images": [
+        "https://i.ibb.co/BHxgQbFX/2026-04-18-1-48-18.png",
+        "https://i.ibb.co/MkRCDD8f/2026-04-18-1-48-29.png"
+      ],
+      "stats": {
+        "impressions": "",
+        "duration": "",
+        "locations": "지하철 주요 노선, KTX 서울역 디지털사각기둥",
+        "result": ""
+      },
+      "story": "탄소중립녹색성장위원회 기관 미디어믹스 광고 집행. 지하철과 KTX 서울역 디지털사각기둥을 통해 탄소중립 및 녹색성장 정책 홍보를 진행.",
+      "tags": ["탄소중립녹색성장위원회", "탄소중립", "지하철광고", "KTX광고", "서울역", "공공기관", "여성기업"]
+    },
+    {
+      "id": "love-fruit-ds-2025",
+      "slug": "love-fruit-ds-2025",
+      "title": "사랑의열매 기관 디지털사이니지 광고진행",
+      "client": "사랑의열매",
+      "clientType": "지자체·공공기관",
+      "mediaType": "디지털사이니지",
+      "category": ["디지털사이니지", "기관광고"],
+      "isPublic": true,
+      "isGovernment": true,
+      "isWomenCertProject": true,
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/NgF0DmJJ/2026-04-18-1-46-55.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/Xr69nydy/2026-04-18-1-47-10.png",
+      "images": [
+        "https://i.ibb.co/NgF0DmJJ/2026-04-18-1-46-55.png",
+        "https://i.ibb.co/Xr69nydy/2026-04-18-1-47-10.png"
+      ],
+      "stats": {
+        "impressions": "",
+        "duration": "",
+        "locations": "주요 디지털사이니지",
+        "result": ""
+      },
+      "story": "사랑의열매 기관 디지털사이니지 광고 진행. 나눔과 기부 문화 확산을 위한 공익 캠페인 홍보.",
+      "tags": ["사랑의열매", "디지털사이니지", "공익광고", "기관광고", "공공기관", "여성기업"]
+    },
+    {
+      "id": "dongbu-tech-bus-2025",
+      "slug": "dongbu-tech-bus-2025",
+      "title": "동부기술교육원 기관 버스 광고진행",
+      "client": "동부기술교육원",
+      "clientType": "지자체·공공기관",
+      "mediaType": "버스",
+      "category": ["버스", "기관광고"],
+      "isPublic": true,
+      "isGovernment": true,
+      "isWomenCertProject": true,
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/ShqtZdv/2026-04-18-1-47-28.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/1tykFr1Z/2026-04-18-1-47-40.png",
+      "images": [
+        "https://i.ibb.co/ShqtZdv/2026-04-18-1-47-28.png",
+        "https://i.ibb.co/1tykFr1Z/2026-04-18-1-47-40.png"
+      ],
+      "stats": {
+        "impressions": "",
+        "duration": "",
+        "locations": "경기/서울 버스 노선",
+        "result": ""
+      },
+      "story": "동부기술교육원 기관 버스 광고 진행. 기술 교육 및 직업훈련 프로그램 홍보를 위한 버스 내·외부 광고 집행.",
+      "tags": ["동부기술교육원", "버스광고", "기술교육", "기관광고", "공공기관", "여성기업"]
+    },
+    {
+      "id": "china-tourism-seoul-2025",
+      "slug": "china-tourism-seoul-2025",
+      "title": "중국주서울관광사무소 기업 광고진행",
+      "client": "중국주서울관광사무소",
+      "clientType": "기업",
+      "mediaType": "미디어믹스",
+      "category": ["기관·기업광고"],
+      "isPublic": true,
       "isGovernment": false,
       "isWomenCertProject": false,
-      "year": 2021,
-      "thumbnail": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
-      "videoPreview": "/videos/works/luxury-brand-preview.webm",
-      "videoFull": "/videos/works/luxury-brand-full.webm",
-      "heroImage": "https://i.ibb.co/nMRFtDX0/2026-04-16-4-28-24.png",
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/twGxRhZY/2026-04-18-1-45-26.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/VYStND87/2026-04-18-1-45-38.png",
+      "images": [
+        "https://i.ibb.co/twGxRhZY/2026-04-18-1-45-26.png",
+        "https://i.ibb.co/VYStND87/2026-04-18-1-45-38.png"
+      ],
       "stats": {
-        "impressions": "380만",
-        "duration": "1주",
-        "locations": "청담·한남 6개소",
-        "result": "팝업 오픈 당일 대기줄 500m"
+        "impressions": "",
+        "duration": "",
+        "locations": "서울버스 TV광고",
+        "result": ""
       },
-      "story": "글로벌 럭셔리 팝업 1주 초집중 집행. 프리미엄 입지 독점 확보.",
-      "tags": [
-        "럭셔리",
-        "팝업",
-        "청담",
-        "단기집중"
-      ]
+      "story": "중국주서울관광사무소 기업 광고 진행. 서울버스 TV를 활용한 중국 관광 홍보.",
+      "tags": ["중국주서울관광사무소", "중국관광", "버스TV", "기업광고"]
+    },
+    {
+      "id": "sony-led-2025",
+      "slug": "sony-led-2025",
+      "title": "소니 기업 전광판 광고진행",
+      "client": "소니",
+      "clientType": "대기업",
+      "mediaType": "전광판",
+      "category": ["전광판"],
+      "isPublic": true,
+      "isGovernment": false,
+      "isWomenCertProject": false,
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/7N82WFKd/2026-04-18-1-44-54.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/WvM3Kmkz/2026-04-18-1-45-12.png",
+      "images": [
+        "https://i.ibb.co/7N82WFKd/2026-04-18-1-44-54.png",
+        "https://i.ibb.co/WvM3Kmkz/2026-04-18-1-45-12.png"
+      ],
+      "stats": {
+        "impressions": "",
+        "duration": "",
+        "locations": "KTX 서울역 전광판",
+        "result": ""
+      },
+      "story": "소니 기업 전광판 광고 진행. KTX 서울역 프라임 위치를 활용한 브랜드 노출.",
+      "tags": ["소니", "전광판", "KTX서울역", "기업광고"]
+    },
+    {
+      "id": "jeju-broadcasting-2025",
+      "slug": "jeju-broadcasting-2025",
+      "title": "제주방송 기업 전광판 광고진행",
+      "client": "제주방송",
+      "clientType": "기업",
+      "mediaType": "전광판",
+      "category": ["전광판"],
+      "isPublic": true,
+      "isGovernment": false,
+      "isWomenCertProject": false,
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/Qv7NRJTL/2026-04-18-1-44-21.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/bjsvhVZC/2026-04-18-1-44-36.png",
+      "images": [
+        "https://i.ibb.co/Qv7NRJTL/2026-04-18-1-44-21.png",
+        "https://i.ibb.co/bjsvhVZC/2026-04-18-1-44-36.png"
+      ],
+      "stats": {
+        "impressions": "",
+        "duration": "",
+        "locations": "제주국제공항 LED광고",
+        "result": ""
+      },
+      "story": "제주방송 기업 전광판 광고 진행. 제주국제공항 LED를 활용한 브랜드 및 방송 홍보.",
+      "tags": ["제주방송", "전광판", "제주공항", "기업광고"]
+    },
+    {
+      "id": "rejuran-wall-2025",
+      "slug": "rejuran-wall-2025",
+      "title": "리쥬란 기업 외벽 광고진행",
+      "client": "리쥬란",
+      "clientType": "기업",
+      "mediaType": "외벽",
+      "category": ["외벽"],
+      "isPublic": true,
+      "isGovernment": false,
+      "isWomenCertProject": false,
+      "year": 2025,
+      "thumbnail": "https://i.ibb.co/jPr1WwWb/2026-04-18-2-06-04.png",
+      "videoPreview": null,
+      "videoFull": null,
+      "heroImage": "https://i.ibb.co/RkRtWdkb/2026-04-18-2-06-20.png",
+      "images": [
+        "https://i.ibb.co/jPr1WwWb/2026-04-18-2-06-04.png",
+        "https://i.ibb.co/RkRtWdkb/2026-04-18-2-06-20.png"
+      ],
+      "stats": {
+        "impressions": "",
+        "duration": "",
+        "locations": "강남역 한승빌딩 외벽",
+        "result": ""
+      },
+      "story": "리쥬란 기업 외벽 광고 진행. 강남역 한승빌딩 프라임 외벽을 활용한 브랜드 홍보.",
+      "tags": ["리쥬란", "외벽광고", "강남역", "기업광고"]
     }
   ]
 }
