@@ -1,8 +1,8 @@
 {
   "hero": {
-    "video": "/videos/hero-reel.webm",
-    "videoMp4": "/videos/hero-reel.mp4",
-    "videoPoster": "/images/hero-poster.jpg",
+    "video": "",
+    "videoMp4": "",
+    "videoPoster": "https://i.ibb.co/Y7mK4HvP/2026-04-16-4-28-35.png",
     "slogan": "15년 경력. 말보다 행동으로 증명합니다.",
     "subSlogan": "트렌드 미디어믹스로 강력한 결과를 만들어갑니다.",
     "womenCertHero": {
@@ -23,7 +23,8 @@
         "href": "/contact?type=gov",
         "style": "secondary"
       }
-    ]
+    ],
+    "youtubeId": "XDBl8ATdt-U"
   },
   "strengths": [
     {

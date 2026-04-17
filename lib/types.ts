@@ -77,6 +77,7 @@ export interface HeroData {
   videoPoster: string              // 영상 로드 전 플레이스홀더
   slogan: string                   // 메인 슬로건 (타이핑 애니메이션)
   subSlogan: string                // 서브 슬로건
+  youtubeId?: string               // 유튜브 배경 영상 ID (있으면 영상 우선)
   womenCertHero: HeroWomenCert     // Hero 섹션 여성기업인증 배지
   cta: CtaButton[]
 }

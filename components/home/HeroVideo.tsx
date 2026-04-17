@@ -240,28 +240,81 @@ export function HeroVideo({ data }: Props) {
       }}
       aria-label="오랩 히어로 섹션"
     >
-      {/* ── 배경 영상 ── */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={data.videoPoster}
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          opacity: videoLoaded ? 1 : 0,
-          transition: 'opacity 1.5s ease',
-          zIndex: 1,
-        }}
-      >
-        <source src={data.video} type="video/webm" />
-        <source src={data.videoMp4} type="video/mp4" />
-      </video>
+      {/* ── 배경 이미지 (항상 최하단 — 영상/유튜브 로딩 전 표시) ── */}
+      {data.videoPoster && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={data.videoPoster}
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 1,
+          }}
+        />
+      )}
+
+      {/* ── 유튜브 배경 영상 ── */}
+      {data.youtubeId && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            // 16:9 비율을 화면에 꽉 채우기 위해 넉넉하게 확장
+            top: '50%',
+            left: '50%',
+            width: '177.78vh',  // 16/9 * 100vh
+            height: '56.25vw',  // 9/16 * 100vw
+            minWidth: '100%',
+            minHeight: '100%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 2,
+            pointerEvents: 'none',
+          }}
+        >
+          <iframe
+            src={`https://www.youtube.com/embed/${data.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${data.youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`}
+            allow="autoplay; encrypted-media"
+            allowFullScreen={false}
+            title="배경 영상"
+            style={{
+              width: '100%',
+              height: '100%',
+              border: 'none',
+              pointerEvents: 'none',
+            }}
+          />
+        </div>
+      )}
+
+      {/* ── 로컬/외부 WebM 영상 (유튜브 없을 때) ── */}
+      {!data.youtubeId && data.video && (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={data.videoPoster}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: videoLoaded ? 1 : 0,
+            transition: 'opacity 1.5s ease',
+            zIndex: 2,
+          }}
+        >
+          <source src={data.video} type="video/webm" />
+          <source src={data.videoMp4} type="video/mp4" />
+        </video>
+      )}
 
       {/* ── 그라디언트 오버레이 ── */}
       <div
