@@ -9,30 +9,26 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div style={{ minHeight: '100vh' }}>
+    <div
+      style={{
+        background: '#F8F5F0',
+        minHeight: '100vh',
+        paddingTop: 64,
+      }}
+    >
       <div
         style={{
+          maxWidth: 1200,
+          margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          minHeight: '100vh',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: 'clamp(40px, 6vw, 80px)',
+          padding: 'clamp(48px, 7vw, 88px) clamp(24px, 6vw, 80px)',
+          alignItems: 'start',
         }}
       >
-        {/* 왼쪽: 어두운 다크 패널 */}
         <ContactInfo />
-
-        {/* 오른쪽: 크림 패널 */}
-        <div
-          style={{
-            padding: 'clamp(48px, 7vw, 88px) clamp(24px, 6vw, 80px)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            background: '#F8F5F0',
-            paddingTop: 'calc(clamp(48px, 7vw, 88px) + 64px)',
-          }}
-        >
-          <ContactForm />
-        </div>
+        <ContactForm />
       </div>
     </div>
   )
