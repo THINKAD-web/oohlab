@@ -1,24 +1,24 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import type { Work } from '@/lib/types'
 
-interface CardProps {
-  work: Work
-  index: number
+const TYPE_COLORS: Record<string, string> = {
+  '미디어믹스':     '#F37021',
+  '전광판':         '#E8B86D',
+  '지하철':         '#6D9EE8',
+  '버스':           '#72C472',
+  '디지털사이니지': '#C86DD2',
+  '외벽':           '#D2916D',
+  'DOOH':           '#F37021',
 }
 
-function WorkPreviewCard({ work, index }: CardProps) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [hovered, setHovered] = useState(false)
-  const [videoReady, setVideoReady] = useState(false)
+function WorkRow({ work, index }: { work: Work; index: number }) {
+  const rowRef = useRef<HTMLDivElement>(null)
 
-  // GSAP 스크롤 진입 애니메이션
   useEffect(() => {
-    const el = cardRef.current
+    const el = rowRef.current
     if (!el) return
     async function animate() {
       const { gsap } = await import('gsap')
@@ -26,142 +26,78 @@ function WorkPreviewCard({ work, index }: CardProps) {
       gsap.registerPlugin(ScrollTrigger)
       gsap.fromTo(
         el,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 20 },
         {
           opacity: 1, y: 0,
-          duration: 1,
-          delay: (index % 3) * 0.15,
+          duration: 0.7,
+          delay: index * 0.06,
           ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true },
         }
       )
     }
     animate()
   }, [index])
 
-  // hover 시 영상 재생 (Intersection Observer로 lazy load)
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video || !work.videoPreview) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.src = work.videoPreview!
-          video.load()
-          video.addEventListener('canplaythrough', () => setVideoReady(true), { once: true })
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.2 }
-    )
-    observer.observe(video)
-    return () => observer.disconnect()
-  }, [work.videoPreview])
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video || !videoReady) return
-    if (hovered) {
-      video.play().catch(() => {/* 자동재생 정책 무시 */})
-    } else {
-      video.pause()
-      video.currentTime = 0
-    }
-  }, [hovered, videoReady])
-
-  const aspectRatio = index === 0 || index === 3 ? '3/4' : '4/3'
+  const typeColor = TYPE_COLORS[work.mediaType] || 'rgba(255,255,255,0.4)'
 
   return (
     <div
-      ref={cardRef}
-      style={{ opacity: 0 }} // GSAP 진입 전
+      ref={rowRef}
+      style={{ opacity: 0 }}
     >
       <div
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
         style={{
-          position: 'relative',
-          aspectRatio,
-          overflow: 'hidden',
-          background: '#111',
-          cursor: 'pointer',
+          display: 'grid',
+          gridTemplateColumns: '40px 1fr auto',
+          gap: '0 20px',
+          alignItems: 'center',
+          padding: '20px 0',
+          borderBottom: '1px solid #1E1E1E',
+          transition: 'background 0.15s',
         }}
+        onMouseEnter={(e) => { e.currentTarget.style.background = '#0F0F0F' }}
+        onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent' }}
       >
-        {/* 썸네일 이미지 */}
-        <div
+        {/* 번호 */}
+        <span
           style={{
-            position: 'absolute',
-            inset: 0,
-            transition: 'transform 0.7s cubic-bezier(0.16,1,0.3,1)',
-            transform: hovered ? 'scale(1.06)' : 'scale(1)',
+            fontSize: 12,
+            fontWeight: 700,
+            color: 'rgba(255,255,255,0.2)',
+            fontVariantNumeric: 'tabular-nums',
+            fontFamily: "'Pretendard', sans-serif",
           }}
         >
-          <Image
-            src={work.thumbnail}
-            alt={work.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            style={{ objectFit: 'cover' }}
-          />
-        </div>
+          {String(index + 1).padStart(2, '0')}
+        </span>
 
-        {/* hover 영상 레이어 */}
-        {work.videoPreview && (
-          <video
-            ref={videoRef}
-            muted
-            loop
-            playsInline
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              opacity: hovered && videoReady ? 1 : 0,
-              transition: 'opacity 0.5s ease',
-              zIndex: 1,
-            }}
-          />
-        )}
-
-        {/* 하단 그라디언트 오버레이 */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to top, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.1) 50%, transparent 100%)',
-            zIndex: 2,
-            transition: 'opacity 0.4s ease',
-            opacity: hovered ? 0.7 : 1,
-          }}
-        />
-
-        {/* 여성기업 / 지자체 배지 */}
-        {(work.isGovernment || work.isWomenCertProject) && (
-          <div
-            style={{
-              position: 'absolute',
-              top: 16,
-              left: 16,
-              zIndex: 3,
-              display: 'flex',
-              gap: 6,
-            }}
-          >
+        {/* 클라이언트 + 타이틀 */}
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 3, flexWrap: 'wrap' }}>
+            <span
+              style={{
+                fontSize: 15,
+                fontWeight: 600,
+                color: '#E8E8E8',
+                letterSpacing: '-0.01em',
+                fontFamily: "'Pretendard', sans-serif",
+              }}
+            >
+              {work.client}
+            </span>
             {work.isWomenCertProject && (
               <span
                 style={{
-                  padding: '4px 10px',
-                  background: '#F37021',
-                  color: '#fff',
-                  fontSize: 10,
-                  fontWeight: 700,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
+                  padding: '2px 6px',
+                  background: 'rgba(243,112,33,0.15)',
+                  border: '1px solid rgba(243,112,33,0.3)',
                   borderRadius: '2px',
+                  fontSize: 9,
+                  fontWeight: 700,
+                  color: '#F37021',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
                 }}
               >
                 여성기업
@@ -170,73 +106,57 @@ function WorkPreviewCard({ work, index }: CardProps) {
             {work.isGovernment && (
               <span
                 style={{
-                  padding: '4px 10px',
-                  background: 'rgba(255,255,255,0.12)',
-                  color: 'rgba(255,255,255,0.85)',
-                  fontSize: 10,
-                  fontWeight: 600,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
+                  padding: '2px 6px',
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.1)',
                   borderRadius: '2px',
-                  backdropFilter: 'blur(8px)',
+                  fontSize: 9,
+                  color: 'rgba(255,255,255,0.4)',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
                 }}
               >
-                지자체
+                공공
               </span>
             )}
           </div>
-        )}
-
-        {/* 카드 하단 텍스트 */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            padding: '20px 20px 20px',
-            zIndex: 3,
-          }}
-        >
           <p
             style={{
-              margin: '0 0 6px',
-              fontSize: 11,
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.62)',
-            }}
-          >
-            {work.mediaType} · {work.year}
-          </p>
-          <h3
-            style={{
               margin: 0,
-              fontSize: 'clamp(15px, 2vw, 18px)',
-              fontWeight: 700,
-              color: '#fff',
-              lineHeight: 1.25,
-              fontFamily: "'Pretendard', sans-serif",
+              fontSize: 12,
+              color: 'rgba(255,255,255,0.38)',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
             }}
           >
             {work.title}
-          </h3>
-          {/* hover 시 성과 등장 */}
-          {work.stats.result && work.stats.result.trim() !== '' && (
-            <p
-              style={{
-                margin: '8px 0 0',
-                fontSize: 13,
-                color: '#F37021',
-                fontWeight: 600,
-                opacity: hovered ? 1 : 0,
-                transform: hovered ? 'translateY(0)' : 'translateY(8px)',
-                transition: 'opacity 0.35s ease, transform 0.35s ease',
-              }}
-            >
-              {work.stats.result}
-            </p>
-          )}
+          </p>
+        </div>
+
+        {/* 매체 + 연도 */}
+        <div style={{ textAlign: 'right', flexShrink: 0 }}>
+          <span
+            style={{
+              display: 'block',
+              fontSize: 12,
+              fontWeight: 600,
+              color: typeColor,
+              marginBottom: 2,
+            }}
+          >
+            {work.mediaType}
+          </span>
+          <span
+            style={{
+              display: 'block',
+              fontSize: 11,
+              color: 'rgba(255,255,255,0.28)',
+              fontVariantNumeric: 'tabular-nums',
+            }}
+          >
+            {work.year}
+          </span>
         </div>
       </div>
     </div>
@@ -248,33 +168,31 @@ interface Props {
 }
 
 export function WorksPreview({ works }: Props) {
-  // 상위 6개만 표시
-  const preview = works.filter((w) => w.isPublic).slice(0, 6)
+  const preview = works.filter((w) => w.isPublic).slice(0, 8)
 
   return (
     <section
       aria-label="대표 집행 사례"
       style={{
         background: '#0A0A0A',
-        padding: 'clamp(80px, 10vw, 140px) 0',
+        padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 100px)',
       }}
     >
-      {/* 섹션 헤더 */}
+      {/* 헤더 */}
       <div
         style={{
-          padding: '0 clamp(24px, 6vw, 100px)',
-          marginBottom: 48,
           display: 'flex',
           alignItems: 'flex-end',
           justifyContent: 'space-between',
           gap: 24,
           flexWrap: 'wrap',
+          marginBottom: 40,
         }}
       >
         <div>
           <p
             style={{
-              margin: '0 0 16px',
+              margin: '0 0 14px',
               fontSize: 11,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
@@ -300,10 +218,9 @@ export function WorksPreview({ works }: Props) {
         </div>
         <Link
           href="/works"
-          data-cursor-pointer
           style={{
             fontSize: 13,
-            color: 'rgba(255,255,255,0.62)',
+            color: 'rgba(255,255,255,0.5)',
             textDecoration: 'none',
             letterSpacing: '0.08em',
             display: 'flex',
@@ -313,43 +230,43 @@ export function WorksPreview({ works }: Props) {
             whiteSpace: 'nowrap',
           }}
         >
-          전체 사례 보기
-          <span aria-hidden="true" style={{ fontSize: 18 }}>→</span>
+          전체 보기 <span aria-hidden="true">→</span>
         </Link>
       </div>
 
-      {/* 3열 Masonry-like 그리드 */}
+      {/* 헤더 행 */}
       <div
+        aria-hidden="true"
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '1px',
-          background: '#1A1A1A',
+          gridTemplateColumns: '40px 1fr auto',
+          gap: '0 20px',
+          padding: '0 0 10px',
+          borderBottom: '1px solid #222',
         }}
       >
-        {preview.map((work, i) => (
-          <WorkPreviewCard key={work.id} work={work} index={i} />
-        ))}
+        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.18)' }}>#</span>
+        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.18)' }}>캠페인</span>
+        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.18)', textAlign: 'right' }}>매체 · 연도</span>
       </div>
 
-      {/* 하단 CTA */}
-      <div
+      {/* 리스트 */}
+      {preview.map((work, i) => (
+        <WorkRow key={work.id} work={work} index={i} />
+      ))}
+
+      {/* 하단 */}
+      <p
         style={{
-          padding: '48px clamp(24px, 6vw, 100px) 0',
+          marginTop: 40,
+          fontSize: 13,
+          color: 'rgba(255,255,255,0.3)',
           textAlign: 'center',
+          fontStyle: 'italic',
         }}
       >
-        <p
-          style={{
-            margin: 0,
-            fontSize: 14,
-            color: 'rgba(255,255,255,0.5)',
-            fontStyle: 'italic',
-          }}
-        >
-          추가 사례는 문의 주시면 바로 PDF로 전달드립니다.
-        </p>
-      </div>
+        추가 사례는 문의 주시면 PDF로 바로 전달드립니다.
+      </p>
     </section>
   )
 }
