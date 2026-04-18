@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Work } from '@/lib/types'
 
@@ -12,13 +13,17 @@ const TYPE_COLORS: Record<string, string> = {
   '디지털사이니지': '#7C22C7',
   '외벽':           '#B04A00',
   'DOOH':           '#E05C00',
+  '빌보드':         '#B04A00',
+  '버스쉘터':       '#16A34A',
+  '현수막·배너':    '#888888',
 }
 
-function WorkRow({ work, index }: { work: Work; index: number }) {
-  const rowRef = useRef<HTMLDivElement>(null)
+function WorkCard({ work, index }: { work: Work; index: number }) {
+  const [hovered, setHovered] = useState(false)
+  const cardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const el = rowRef.current
+    const el = cardRef.current
     if (!el) return
     async function animate() {
       const { gsap } = await import('gsap')
@@ -26,13 +31,13 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
       gsap.registerPlugin(ScrollTrigger)
       gsap.fromTo(
         el,
-        { opacity: 0, y: 16 },
+        { opacity: 0, y: 28 },
         {
           opacity: 1, y: 0,
-          duration: 0.6,
-          delay: index * 0.05,
+          duration: 0.75,
+          delay: (index % 3) * 0.1,
           ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true },
         }
       )
     }
@@ -42,86 +47,161 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
   const typeColor = TYPE_COLORS[work.mediaType] || '#888888'
 
   return (
-    <div ref={rowRef} style={{ opacity: 0 }}>
+    <div
+      ref={cardRef}
+      style={{ opacity: 0 }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: '36px 1fr auto',
-          gap: '0 20px',
-          alignItems: 'center',
-          padding: '18px 8px',
-          borderBottom: '1px solid #E8E4DB',
-          transition: 'background 0.15s',
-          borderRadius: '4px',
-          margin: '0 -8px',
+          background: '#FFFFFF',
+          borderRadius: '14px',
+          overflow: 'hidden',
+          border: '1px solid #E8E4DB',
+          boxShadow: hovered
+            ? '0 16px 48px rgba(0,0,0,0.12)'
+            : '0 2px 12px rgba(0,0,0,0.05)',
+          transform: hovered ? 'translateY(-5px)' : 'translateY(0)',
+          transition: 'box-shadow 0.35s ease, transform 0.35s ease',
+          cursor: 'default',
         }}
-        onMouseEnter={(e) => { e.currentTarget.style.background = '#F0ECE4' }}
-        onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent' }}
       >
-        {/* 번호 */}
-        <span
+        {/* 이미지 */}
+        <div
           style={{
-            fontSize: 12,
-            fontWeight: 700,
-            color: 'rgba(0,0,0,0.2)',
-            fontVariantNumeric: 'tabular-nums',
-            fontFamily: "'Pretendard', sans-serif",
+            position: 'relative',
+            aspectRatio: '4/3',
+            overflow: 'hidden',
+            background: '#F0EDE6',
           }}
         >
-          {String(index + 1).padStart(2, '0')}
-        </span>
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              transform: hovered ? 'scale(1.06)' : 'scale(1)',
+              transition: 'transform 0.6s cubic-bezier(0.16,1,0.3,1)',
+            }}
+          >
+            <Image
+              src={work.thumbnail}
+              alt={`${work.client} 캠페인`}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
 
-        {/* 클라이언트 + 타이틀 */}
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 3, flexWrap: 'wrap' }}>
+          {/* 호버 오버레이 */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'rgba(15,17,23,0.35)',
+              opacity: hovered ? 1 : 0,
+              transition: 'opacity 0.35s ease',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
             <span
               style={{
-                fontSize: 15,
+                fontSize: 13,
                 fontWeight: 600,
-                color: '#111111',
-                letterSpacing: '-0.01em',
-                fontFamily: "'Pretendard', sans-serif",
+                color: '#FFFFFF',
+                letterSpacing: '0.08em',
+                opacity: hovered ? 1 : 0,
+                transform: hovered ? 'translateY(0)' : 'translateY(6px)',
+                transition: 'opacity 0.3s 0.05s ease, transform 0.3s 0.05s ease',
               }}
             >
               {work.client}
             </span>
-            {work.isWomenCertProject && (
-              <span
-                style={{
-                  padding: '2px 6px',
-                  background: 'rgba(243,112,33,0.1)',
-                  border: '1px solid rgba(243,112,33,0.25)',
-                  borderRadius: '3px',
-                  fontSize: 9,
-                  fontWeight: 700,
-                  color: '#E05C00',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                여성기업
-              </span>
-            )}
-            {work.isGovernment && (
-              <span
-                style={{
-                  padding: '2px 6px',
-                  background: 'rgba(0,0,0,0.05)',
-                  border: '1px solid rgba(0,0,0,0.1)',
-                  borderRadius: '3px',
-                  fontSize: 9,
-                  color: 'rgba(0,0,0,0.4)',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                공공
-              </span>
-            )}
+          </div>
+
+          {/* 매체 배지 */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 12,
+              left: 12,
+              padding: '4px 10px',
+              background: 'rgba(0,0,0,0.55)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              borderRadius: '100px',
+              fontSize: 10,
+              fontWeight: 700,
+              color: '#FFFFFF',
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+            }}
+          >
+            {work.mediaType}
+          </div>
+
+          {/* 여성기업 배지 */}
+          {work.isWomenCertProject && (
+            <div
+              style={{
+                position: 'absolute',
+                top: 12,
+                right: 12,
+                padding: '4px 8px',
+                background: 'rgba(243,112,33,0.85)',
+                borderRadius: '100px',
+                fontSize: 9,
+                fontWeight: 700,
+                color: '#FFFFFF',
+                letterSpacing: '0.06em',
+              }}
+            >
+              여성기업
+            </div>
+          )}
+        </div>
+
+        {/* 텍스트 */}
+        <div style={{ padding: '16px 20px 18px' }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: 8,
+            }}
+          >
+            <h3
+              style={{
+                margin: 0,
+                fontSize: 15,
+                fontWeight: 700,
+                color: '#111111',
+                fontFamily: "'Pretendard', sans-serif",
+                letterSpacing: '-0.01em',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {work.client}
+            </h3>
+            <span
+              style={{
+                fontSize: 12,
+                color: typeColor,
+                fontWeight: 600,
+                flexShrink: 0,
+              }}
+            >
+              {work.year}
+            </span>
           </div>
           <p
             style={{
-              margin: 0,
+              margin: '4px 0 0',
               fontSize: 12,
               color: '#999999',
               overflow: 'hidden',
@@ -131,31 +211,6 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
           >
             {work.title}
           </p>
-        </div>
-
-        {/* 매체 + 연도 */}
-        <div style={{ textAlign: 'right', flexShrink: 0 }}>
-          <span
-            style={{
-              display: 'block',
-              fontSize: 12,
-              fontWeight: 600,
-              color: typeColor,
-              marginBottom: 2,
-            }}
-          >
-            {work.mediaType}
-          </span>
-          <span
-            style={{
-              display: 'block',
-              fontSize: 11,
-              color: '#AAAAAA',
-              fontVariantNumeric: 'tabular-nums',
-            }}
-          >
-            {work.year}
-          </span>
         </div>
       </div>
     </div>
@@ -167,7 +222,7 @@ interface Props {
 }
 
 export function WorksPreview({ works }: Props) {
-  const preview = works.filter((w) => w.isPublic).slice(0, 8)
+  const preview = works.filter((w) => w.isPublic).slice(0, 6)
 
   return (
     <section
@@ -185,7 +240,7 @@ export function WorksPreview({ works }: Props) {
           justifyContent: 'space-between',
           gap: 24,
           flexWrap: 'wrap',
-          marginBottom: 40,
+          marginBottom: 48,
         }}
       >
         <div>
@@ -218,45 +273,50 @@ export function WorksPreview({ works }: Props) {
         <Link
           href="/works"
           style={{
-            fontSize: 13,
-            color: '#888888',
-            textDecoration: 'none',
-            letterSpacing: '0.08em',
-            display: 'flex',
+            display: 'inline-flex',
             alignItems: 'center',
-            gap: 6,
-            whiteSpace: 'nowrap',
+            gap: 8,
+            fontSize: 13,
+            fontWeight: 600,
+            color: '#111111',
+            textDecoration: 'none',
+            letterSpacing: '0.05em',
+            padding: '10px 20px',
+            border: '1px solid #D8D3CB',
+            borderRadius: '100px',
+            transition: 'border-color 0.2s, background 0.2s',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = '#F37021'
+            e.currentTarget.style.background = 'rgba(243,112,33,0.05)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = '#D8D3CB'
+            e.currentTarget.style.background = 'transparent'
           }}
         >
-          전체 보기 <span aria-hidden="true">→</span>
+          전체 보기 <span aria-hidden="true" style={{ color: '#F37021' }}>→</span>
         </Link>
       </div>
 
-      {/* 헤더 행 */}
+      {/* 사진 그리드 */}
       <div
-        aria-hidden="true"
         style={{
           display: 'grid',
-          gridTemplateColumns: '36px 1fr auto',
-          gap: '0 20px',
-          padding: '0 8px 10px',
-          borderBottom: '1px solid #D8D3CB',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: 20,
         }}
+        className="ooh-works-grid"
       >
-        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.25)' }}>#</span>
-        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.25)' }}>캠페인</span>
-        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.25)', textAlign: 'right' }}>매체 · 연도</span>
+        {preview.map((work, i) => (
+          <WorkCard key={work.id} work={work} index={i} />
+        ))}
       </div>
-
-      {/* 리스트 */}
-      {preview.map((work, i) => (
-        <WorkRow key={work.id} work={work} index={i} />
-      ))}
 
       {/* 하단 */}
       <p
         style={{
-          marginTop: 40,
+          marginTop: 48,
           fontSize: 13,
           color: '#AAAAAA',
           textAlign: 'center',
@@ -265,6 +325,15 @@ export function WorksPreview({ works }: Props) {
       >
         추가 사례는 문의 주시면 PDF로 바로 전달드립니다.
       </p>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .ooh-works-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 480px) {
+          .ooh-works-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   )
 }
