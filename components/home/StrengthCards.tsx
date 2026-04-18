@@ -73,10 +73,10 @@ function StrengthCard({ item, index }: { item: StrengthItem; index: number }) {
     <div
       ref={cardRef}
       style={{
-        opacity: 0, // GSAP 진입 전 숨김
+        opacity: 0,
         padding: '36px 32px',
-        background: '#111111',
-        border: '1px solid #1E1E1E',
+        background: '#141414',
+        border: '1px solid #232323',
         borderRadius: '2px',
         cursor: 'default',
         transition: 'border-color 0.3s ease, background 0.3s ease',
@@ -86,12 +86,12 @@ function StrengthCard({ item, index }: { item: StrengthItem; index: number }) {
       onMouseEnter={(e) => {
         const el = e.currentTarget
         el.style.borderColor = '#F37021'
-        el.style.background = '#131313'
+        el.style.background = '#181818'
       }}
       onMouseLeave={(e) => {
         const el = e.currentTarget
-        el.style.borderColor = '#1E1E1E'
-        el.style.background = '#111111'
+        el.style.borderColor = '#232323'
+        el.style.background = '#141414'
       }}
     >
       {/* 오렌지 라인 — 좌측 강조 */}
@@ -148,7 +148,7 @@ function StrengthCard({ item, index }: { item: StrengthItem; index: number }) {
           margin: 0,
           fontSize: 14,
           lineHeight: 1.7,
-          color: 'rgba(255,255,255,0.5)',
+          color: 'rgba(255,255,255,0.68)',
           fontFamily: "'Pretendard', sans-serif",
         }}
       >
@@ -212,8 +212,8 @@ export function StrengthCards({ items }: Props) {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
           gap: '1px',
-          background: '#1E1E1E',
-          border: '1px solid #1E1E1E',
+          background: '#232323',
+          border: '1px solid #232323',
         }}
       >
         {items.map((item, i) => (

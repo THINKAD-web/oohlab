@@ -58,15 +58,15 @@ export function CounterStats({ stats }: { stats: StatItem[] }) {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
         gap: '1px',
-        background: '#1E1E1E',
-        border: '1px solid #1E1E1E',
+        background: '#232323',
+        border: '1px solid #232323',
         marginBottom: 'clamp(60px, 8vw, 100px)',
       }}
     >
       {stats.map((stat, i) => (
         <div
           key={stat.label}
-          style={{ padding: '40px 32px', background: '#0D0D0D' }}
+          style={{ padding: '40px 32px', background: '#151515' }}
         >
           <span
             ref={(el) => { countersRef.current[i] = el }}
@@ -91,7 +91,7 @@ export function CounterStats({ stats }: { stats: StatItem[] }) {
               fontSize: 12,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.35)',
+              color: 'rgba(255,255,255,0.55)',
               fontWeight: 500,
             }}
           >

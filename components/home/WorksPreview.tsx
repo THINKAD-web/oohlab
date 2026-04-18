@@ -204,7 +204,7 @@ function WorkPreviewCard({ work, index }: CardProps) {
               fontSize: 11,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.45)',
+              color: 'rgba(255,255,255,0.62)',
             }}
           >
             {work.mediaType} · {work.year}
@@ -222,19 +222,21 @@ function WorkPreviewCard({ work, index }: CardProps) {
             {work.title}
           </h3>
           {/* hover 시 성과 등장 */}
-          <p
-            style={{
-              margin: '8px 0 0',
-              fontSize: 13,
-              color: '#F37021',
-              fontWeight: 600,
-              opacity: hovered ? 1 : 0,
-              transform: hovered ? 'translateY(0)' : 'translateY(8px)',
-              transition: 'opacity 0.35s ease, transform 0.35s ease',
-            }}
-          >
-            {work.stats.result}
-          </p>
+          {work.stats.result && work.stats.result.trim() !== '' && (
+            <p
+              style={{
+                margin: '8px 0 0',
+                fontSize: 13,
+                color: '#F37021',
+                fontWeight: 600,
+                opacity: hovered ? 1 : 0,
+                transform: hovered ? 'translateY(0)' : 'translateY(8px)',
+                transition: 'opacity 0.35s ease, transform 0.35s ease',
+              }}
+            >
+              {work.stats.result}
+            </p>
+          )}
         </div>
       </div>
     </div>
@@ -301,7 +303,7 @@ export function WorksPreview({ works }: Props) {
           data-cursor-pointer
           style={{
             fontSize: 13,
-            color: 'rgba(255,255,255,0.45)',
+            color: 'rgba(255,255,255,0.62)',
             textDecoration: 'none',
             letterSpacing: '0.08em',
             display: 'flex',
@@ -341,7 +343,7 @@ export function WorksPreview({ works }: Props) {
           style={{
             margin: 0,
             fontSize: 14,
-            color: 'rgba(255,255,255,0.35)',
+            color: 'rgba(255,255,255,0.5)',
             fontStyle: 'italic',
           }}
         >

@@ -323,7 +323,7 @@ export function HeroVideo({ data }: Props) {
           position: 'absolute',
           inset: 0,
           background:
-            'linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.55) 50%, rgba(10,10,10,0.8) 100%)',
+            'linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.45) 50%, rgba(10,10,10,0.78) 100%)',
           zIndex: 3,
         }}
       />

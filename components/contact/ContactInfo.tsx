@@ -44,7 +44,7 @@ export function ContactInfo() {
         style={{
           margin: '0 0 48px',
           fontSize: 15,
-          color: 'rgba(255,255,255,0.4)',
+          color: 'rgba(255,255,255,0.62)',
           lineHeight: 1.7,
           maxWidth: 380,
         }}
@@ -120,7 +120,7 @@ export function ContactInfo() {
           style={{
             margin: '0 0 16px',
             fontSize: 13,
-            color: 'rgba(255,255,255,0.45)',
+            color: 'rgba(255,255,255,0.62)',
             lineHeight: 1.6,
           }}
         >

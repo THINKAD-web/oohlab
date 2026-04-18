@@ -19,8 +19,8 @@ const KAKAO_URL =
 const INPUT_STYLE: React.CSSProperties = {
   width: '100%',
   padding: '14px 16px',
-  background: '#111',
-  border: '1px solid #222',
+  background: '#181818',
+  border: '1px solid #2A2A2A',
   borderRadius: '3px',
   color: '#FFFFFF',
   fontSize: 14,

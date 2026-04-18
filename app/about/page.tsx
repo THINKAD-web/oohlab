@@ -34,7 +34,7 @@ export default function AboutPage() {
           >
             {data.headline}
           </h1>
-          <p style={{ margin: 0, fontSize: 16, color: 'rgba(255,255,255,0.45)', lineHeight: 1.65 }}>
+          <p style={{ margin: 0, fontSize: 16, color: 'rgba(255,255,255,0.65)', lineHeight: 1.65 }}>
             {data.subHeadline}
           </p>
         </div>

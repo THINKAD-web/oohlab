@@ -104,7 +104,7 @@ export function Navbar() {
                 fontWeight: pathname === item.href ? 600 : 400,
                 color: pathname === item.href
                   ? '#FFFFFF'
-                  : 'rgba(255,255,255,0.5)',
+                  : 'rgba(255,255,255,0.7)',
                 textDecoration: 'none',
                 letterSpacing: '0.08em',
                 transition: 'color 0.2s',
