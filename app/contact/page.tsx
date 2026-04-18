@@ -9,28 +9,26 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div style={{ background: '#0A0A0A', minHeight: '100vh', paddingTop: 100 }}>
+    <div
+      style={{
+        background: '#F8F5F0',
+        minHeight: '100vh',
+        paddingTop: 64,
+      }}
+    >
       <div
         style={{
+          maxWidth: 1200,
+          margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          minHeight: 'calc(100vh - 100px)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: 'clamp(40px, 6vw, 80px)',
+          padding: 'clamp(48px, 7vw, 88px) clamp(24px, 6vw, 80px)',
+          alignItems: 'start',
         }}
       >
-        {/* 왼쪽: 헤더 + 카카오 + 지자체 강조 (Client Component) */}
         <ContactInfo />
-
-        {/* 오른쪽: 문의 폼 (Client Component) */}
-        <div
-          style={{
-            padding: 'clamp(48px, 7vw, 88px) clamp(24px, 6vw, 80px)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}
-        >
-          <ContactForm />
-        </div>
+        <ContactForm />
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import worksData from '@/data/works.json'
-import { WorksList } from '@/components/works/WorksList'
+import { WorksGrid } from '@/components/works/WorksGrid'
 import type { Work } from '@/lib/types'
 
 export const metadata: Metadata = {
@@ -15,14 +15,13 @@ export default function WorksPage() {
   return (
     <div
       style={{
-        background: '#0A0A0A',
+        background: '#F8F5F0',
         minHeight: '100vh',
         paddingTop: 100,
         paddingBottom: 100,
       }}
     >
       <div style={{ padding: '0 clamp(24px, 6vw, 100px)' }}>
-        {/* 페이지 헤더 */}
         <div style={{ marginBottom: 64 }}>
           <p
             style={{
@@ -31,7 +30,7 @@ export default function WorksPage() {
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color: '#F37021',
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           >
             Our Works
@@ -41,7 +40,7 @@ export default function WorksPage() {
               margin: '0 0 16px',
               fontSize: 'clamp(32px, 5vw, 64px)',
               fontWeight: 800,
-              color: '#FFFFFF',
+              color: '#111111',
               letterSpacing: '-0.025em',
               lineHeight: 1.05,
               fontFamily: "'Pretendard', sans-serif",
@@ -53,16 +52,16 @@ export default function WorksPage() {
             style={{
               margin: 0,
               fontSize: 15,
-              color: 'rgba(255,255,255,0.55)',
+              color: '#666666',
               maxWidth: 440,
               lineHeight: 1.65,
             }}
           >
-            직접 집행한 대표 캠페인 목록입니다.
+            15년 간 직접 집행한 대표 캠페인. 숫자가 말합니다.
           </p>
         </div>
 
-        <WorksList works={works} />
+        <WorksGrid works={works} />
       </div>
     </div>
   )

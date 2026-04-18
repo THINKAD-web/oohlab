@@ -23,7 +23,6 @@ export function CounterStats({ stats }: { stats: StatItem[] }) {
         stats.forEach((stat, i) => {
           const target = countersRef.current[i]
           if (!target) return
-          // gsap.to on a plain proxy object — correct GSAP 3 pattern for counters
           const proxy = { val: 0 }
           gsap.to(proxy, {
             val: stat.value,
@@ -57,16 +56,20 @@ export function CounterStats({ stats }: { stats: StatItem[] }) {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-        gap: '1px',
-        background: '#232323',
-        border: '1px solid #232323',
+        gap: '16px',
         marginBottom: 'clamp(60px, 8vw, 100px)',
       }}
     >
       {stats.map((stat, i) => (
         <div
           key={stat.label}
-          style={{ padding: '40px 32px', background: '#151515' }}
+          style={{
+            padding: '40px 32px',
+            background: '#FFFFFF',
+            border: '1px solid #E8E4DB',
+            borderRadius: '12px',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+          }}
         >
           <span
             ref={(el) => { countersRef.current[i] = el }}
@@ -91,7 +94,7 @@ export function CounterStats({ stats }: { stats: StatItem[] }) {
               fontSize: 12,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.55)',
+              color: '#888888',
               fontWeight: 500,
             }}
           >
@@ -121,7 +124,6 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
       const { ScrollTrigger } = await import('gsap/ScrollTrigger')
       gsap.registerPlugin(ScrollTrigger)
 
-      // 중앙 라인 드로우
       gsap.fromTo(
         line,
         { scaleY: 0 },
@@ -138,7 +140,6 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
         }
       )
 
-      // 각 아이템 등장
       itemRefs.current.forEach((el, i) => {
         if (!el) return
         const isRight = i % 2 === 0
@@ -146,15 +147,10 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
           el,
           { opacity: 0, x: isRight ? 40 : -40 },
           {
-            opacity: 1,
-            x: 0,
+            opacity: 1, x: 0,
             duration: 0.9,
             ease: 'power3.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 82%',
-              once: true,
-            },
+            scrollTrigger: { trigger: el, start: 'top 82%', once: true },
           }
         )
       })
@@ -165,10 +161,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
   return (
     <div
       ref={containerRef}
-      style={{
-        position: 'relative',
-        marginBottom: 'clamp(60px, 8vw, 100px)',
-      }}
+      style={{ position: 'relative', marginBottom: 'clamp(60px, 8vw, 100px)' }}
       aria-label="오랩 15년 연혁"
     >
       {/* 중앙 수직선 */}
@@ -176,10 +169,9 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
         style={{
           position: 'absolute',
           left: '50%',
-          top: 0,
-          bottom: 0,
+          top: 0, bottom: 0,
           width: '1px',
-          background: '#1E1E1E',
+          background: '#E8E4DB',
           transform: 'translateX(-50%)',
         }}
       >
@@ -195,7 +187,6 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
         />
       </div>
 
-      {/* 아이템들 */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
         {items.map((item, i) => {
           const isRight = i % 2 === 0
@@ -208,10 +199,10 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
                 gridTemplateColumns: '1fr 40px 1fr',
                 alignItems: 'center',
                 marginBottom: 40,
-                opacity: 0, // GSAP 진입 전
+                opacity: 0,
               }}
             >
-              {/* 왼쪽 콘텐츠 */}
+              {/* 왼쪽 */}
               <div
                 style={{
                   textAlign: 'right',
@@ -236,15 +227,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
                     >
                       {item.year}
                     </span>
-                    <p
-                      style={{
-                        margin: 0,
-                        fontSize: 14,
-                        color: 'rgba(255,255,255,0.65)',
-                        lineHeight: 1.6,
-                        fontFamily: "'Pretendard', sans-serif",
-                      }}
-                    >
+                    <p style={{ margin: 0, fontSize: 14, color: '#666666', lineHeight: 1.6 }}>
                       {item.event}
                     </p>
                   </>
@@ -259,7 +242,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
                     height: 12,
                     borderRadius: '50%',
                     background: '#F37021',
-                    border: '2px solid #0A0A0A',
+                    border: '2px solid #F8F5F0',
                     boxShadow: '0 0 0 1px #F37021',
                     zIndex: 1,
                     flexShrink: 0,
@@ -267,11 +250,11 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
                 />
               </div>
 
-              {/* 오른쪽 콘텐츠 */}
+              {/* 오른쪽 */}
               <div
                 style={{
                   paddingLeft: 28,
-                  ...(! isRight && { visibility: 'hidden' }),
+                  ...(!isRight && { visibility: 'hidden' }),
                 }}
               >
                 {isRight && (
@@ -291,15 +274,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
                     >
                       {item.year}
                     </span>
-                    <p
-                      style={{
-                        margin: 0,
-                        fontSize: 14,
-                        color: 'rgba(255,255,255,0.65)',
-                        lineHeight: 1.6,
-                        fontFamily: "'Pretendard', sans-serif",
-                      }}
-                    >
+                    <p style={{ margin: 0, fontSize: 14, color: '#666666', lineHeight: 1.6 }}>
                       {item.event}
                     </p>
                   </>

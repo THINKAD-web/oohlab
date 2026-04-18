@@ -217,16 +217,15 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-                gap: '1px',
-                background: '#1E1E1E',
-                border: '1px solid #1E1E1E',
+                gap: '12px',
+                background: 'transparent',
                 marginBottom: 48,
               }}
             >
               {items.map((stat) => (
                 <div
                   key={stat.label}
-                  style={{ padding: '28px 24px', background: '#0D0D0D' }}
+                  style={{ padding: '28px 24px', background: '#1A2030', borderRadius: '10px', border: '1px solid #1E2A3A' }}
                 >
                   <p
                     style={{
@@ -234,7 +233,7 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
                       fontSize: 11,
                       letterSpacing: '0.15em',
                       textTransform: 'uppercase',
-                      color: 'rgba(255,255,255,0.35)',
+                      color: 'rgba(255,255,255,0.55)',
                     }}
                   >
                     {stat.label}
@@ -369,7 +368,19 @@ function WorkCard({
   }, [hovered, videoReady])
 
   return (
-    <div ref={cardRef} style={{ opacity: 0 }}>
+    <div
+      ref={cardRef}
+      style={{
+        opacity: 0,
+        background: '#FFFFFF',
+        borderRadius: '14px',
+        overflow: 'hidden',
+        border: '1px solid #E8E4DB',
+        boxShadow: hovered ? '0 16px 48px rgba(0,0,0,0.12)' : '0 2px 12px rgba(0,0,0,0.05)',
+        transform: hovered ? 'translateY(-5px)' : 'translateY(0)',
+        transition: 'box-shadow 0.35s ease, transform 0.35s ease',
+      }}
+    >
       <button
         onClick={onClick}
         onMouseEnter={() => setHovered(true)}
@@ -391,14 +402,14 @@ function WorkCard({
             position: 'relative',
             aspectRatio: '4/3',
             overflow: 'hidden',
-            background: '#111',
+            background: '#E8E4DB',
           }}
         >
           <div
             style={{
               position: 'absolute', inset: 0,
               transition: 'transform 0.7s cubic-bezier(0.16,1,0.3,1)',
-              transform: hovered ? 'scale(1.05)' : 'scale(1)',
+              transform: hovered ? 'scale(1.06)' : 'scale(1)',
             }}
           >
             <Image
@@ -421,55 +432,62 @@ function WorkCard({
               }}
             />
           )}
+          {/* 호버 오버레이 */}
           <div
             aria-hidden="true"
             style={{
               position: 'absolute', inset: 0, zIndex: 2,
-              background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, transparent 100%)',
+              background: hovered
+                ? 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 40%, transparent 70%)'
+                : 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.05) 40%, transparent 70%)',
+              transition: 'background 0.35s ease',
             }}
           />
           {/* 배지 */}
           <div style={{ position: 'absolute', top: 12, left: 12, zIndex: 3, display: 'flex', gap: 6 }}>
             {work.isWomenCertProject && (
-              <span style={{ padding: '3px 8px', background: '#F37021', color: '#fff', fontSize: 9, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', borderRadius: '2px' }}>
+              <span style={{ padding: '4px 9px', background: 'rgba(243,112,33,0.85)', backdropFilter: 'blur(8px)', color: '#fff', fontSize: 9, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', borderRadius: '100px' }}>
                 여성기업
               </span>
             )}
             {work.isGovernment && (
-              <span style={{ padding: '3px 8px', background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.75)', fontSize: 9, letterSpacing: '0.1em', textTransform: 'uppercase', borderRadius: '2px', backdropFilter: 'blur(6px)' }}>
-                지자체
+              <span style={{ padding: '4px 9px', background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(8px)', color: 'rgba(255,255,255,0.85)', fontSize: 9, letterSpacing: '0.08em', textTransform: 'uppercase', borderRadius: '100px' }}>
+                공공
               </span>
             )}
           </div>
-          {/* 호버 재생 아이콘 */}
+          {/* 호버 클릭 힌트 */}
           <div
             aria-hidden="true"
             style={{
-              position: 'absolute', top: '50%', left: '50%',
-              transform: `translate(-50%, -50%) scale(${hovered ? 1 : 0.6})`,
-              opacity: hovered ? 1 : 0,
-              transition: 'opacity 0.3s, transform 0.3s',
+              position: 'absolute', bottom: 12, right: 12,
               zIndex: 3,
-              width: 48, height: 48,
+              width: 36, height: 36,
               borderRadius: '50%',
-              background: 'rgba(255,77,0,0.9)',
+              background: '#F37021',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
+              opacity: hovered ? 1 : 0,
+              transform: `scale(${hovered ? 1 : 0.6})`,
+              transition: 'opacity 0.3s, transform 0.3s',
             }}
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#fff"><path d="M4 2l10 6-10 6V2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="#fff"><path d="M4 2l10 6-10 6V2z"/></svg>
           </div>
         </div>
 
         {/* 텍스트 */}
-        <div style={{ padding: '16px 4px 4px' }}>
-          <p style={{ margin: '0 0 4px', fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)' }}>
+        <div style={{ padding: '16px 18px 18px' }}>
+          <p style={{ margin: '0 0 4px', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#AAAAAA' }}>
             {work.mediaType} · {work.year}
           </p>
-          <h3 style={{ margin: '0 0 4px', fontSize: 15, fontWeight: 700, color: '#fff', lineHeight: 1.25, fontFamily: "'Pretendard', sans-serif" }}>
-            {work.title}
+          <h3 style={{ margin: '0 0 2px', fontSize: 15, fontWeight: 700, color: '#111111', lineHeight: 1.25, fontFamily: "'Pretendard', sans-serif", letterSpacing: '-0.01em' }}>
+            {work.client}
           </h3>
+          <p style={{ margin: 0, fontSize: 12, color: '#999999', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            {work.title}
+          </p>
           {work.stats.result && work.stats.result.trim() !== '' && (
-            <p style={{ margin: 0, fontSize: 12, color: '#F37021', fontWeight: 600, opacity: hovered ? 1 : 0, transition: 'opacity 0.3s' }}>
+            <p style={{ margin: '8px 0 0', fontSize: 12, color: '#F37021', fontWeight: 600, opacity: hovered ? 1 : 0, transform: hovered ? 'translateY(0)' : 'translateY(4px)', transition: 'opacity 0.3s, transform 0.3s' }}>
               {work.stats.result}
             </p>
           )}
@@ -512,7 +530,7 @@ export function WorksGrid({ works }: Props) {
           alignItems: 'center',
           marginBottom: 48,
           paddingBottom: 24,
-          borderBottom: '1px solid #1E1E1E',
+          borderBottom: '1px solid #E8E4DB',
         }}
       >
         {/* 매체 유형 필터 */}
@@ -523,10 +541,10 @@ export function WorksGrid({ works }: Props) {
             aria-pressed={mediaFilter === t.value}
             style={{
               padding: '8px 16px',
-              background: mediaFilter === t.value ? '#F37021' : 'transparent',
-              color: mediaFilter === t.value ? '#fff' : 'rgba(255,255,255,0.45)',
-              border: `1px solid ${mediaFilter === t.value ? '#F37021' : 'rgba(255,255,255,0.12)'}`,
-              borderRadius: '2px',
+              background: mediaFilter === t.value ? '#F37021' : '#FFFFFF',
+              color: mediaFilter === t.value ? '#fff' : '#555555',
+              border: `1px solid ${mediaFilter === t.value ? '#F37021' : '#E8E4DB'}`,
+              borderRadius: '6px',
               fontSize: 12,
               fontWeight: mediaFilter === t.value ? 700 : 400,
               letterSpacing: '0.08em',
@@ -539,7 +557,7 @@ export function WorksGrid({ works }: Props) {
         ))}
 
         {/* 구분선 */}
-        <div style={{ width: 1, height: 24, background: '#1E1E1E', margin: '0 4px' }} />
+        <div style={{ width: 1, height: 24, background: '#E8E4DB', margin: '0 4px' }} />
 
         {/* 지자체 토글 */}
         <button
@@ -547,10 +565,10 @@ export function WorksGrid({ works }: Props) {
           aria-pressed={govOnly}
           style={{
             padding: '8px 16px',
-            background: govOnly ? 'rgba(255,255,255,0.1)' : 'transparent',
-            color: govOnly ? '#fff' : 'rgba(255,255,255,0.35)',
-            border: `1px solid ${govOnly ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.08)'}`,
-            borderRadius: '2px',
+            background: govOnly ? '#333333' : '#FFFFFF',
+            color: govOnly ? '#fff' : '#555555',
+            border: `1px solid ${govOnly ? '#333333' : '#E8E4DB'}`,
+            borderRadius: '6px',
             fontSize: 12,
             letterSpacing: '0.08em',
             cursor: 'pointer',
@@ -566,10 +584,10 @@ export function WorksGrid({ works }: Props) {
           aria-pressed={womenOnly}
           style={{
             padding: '8px 16px',
-            background: womenOnly ? 'rgba(255,77,0,0.15)' : 'transparent',
-            color: womenOnly ? '#F37021' : 'rgba(255,255,255,0.35)',
-            border: `1px solid ${womenOnly ? 'rgba(255,77,0,0.4)' : 'rgba(255,255,255,0.08)'}`,
-            borderRadius: '2px',
+            background: womenOnly ? 'rgba(243,112,33,0.1)' : '#FFFFFF',
+            color: womenOnly ? '#E05C00' : '#555555',
+            border: `1px solid ${womenOnly ? 'rgba(243,112,33,0.4)' : '#E8E4DB'}`,
+            borderRadius: '6px',
             fontSize: 12,
             fontWeight: womenOnly ? 700 : 400,
             letterSpacing: '0.08em',
@@ -583,7 +601,7 @@ export function WorksGrid({ works }: Props) {
 
       {/* ── 그리드 ── */}
       {filtered.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: '80px 0', color: 'rgba(255,255,255,0.3)', fontSize: 15 }}>
+        <div style={{ textAlign: 'center', padding: '80px 0', color: '#AAAAAA', fontSize: 15 }}>
           해당 조건의 사례가 없습니다. 문의 주시면 바로 안내해 드립니다.
         </div>
       ) : (
@@ -611,7 +629,7 @@ export function WorksGrid({ works }: Props) {
           marginTop: 64,
           textAlign: 'center',
           fontSize: 14,
-          color: 'rgba(255,255,255,0.3)',
+          color: '#AAAAAA',
           fontStyle: 'italic',
         }}
       >
