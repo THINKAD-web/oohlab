@@ -53,10 +53,10 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
           gap: '0 20px',
           alignItems: 'center',
           padding: '20px 0',
-          borderBottom: '1px solid #1E1E1E',
+          borderBottom: '1px solid #1E2A3A',
           transition: 'background 0.15s',
         }}
-        onMouseEnter={(e) => { e.currentTarget.style.background = '#0F0F0F' }}
+        onMouseEnter={(e) => { e.currentTarget.style.background = '#1A2535' }}
         onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent' }}
       >
         {/* 번호 */}
@@ -174,7 +174,7 @@ export function WorksPreview({ works }: Props) {
     <section
       aria-label="대표 집행 사례"
       style={{
-        background: '#0A0A0A',
+        background: '#111827',
         padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 100px)',
       }}
     >
@@ -242,7 +242,7 @@ export function WorksPreview({ works }: Props) {
           gridTemplateColumns: '40px 1fr auto',
           gap: '0 20px',
           padding: '0 0 10px',
-          borderBottom: '1px solid #222',
+          borderBottom: '1px solid #1E2A3A',
         }}
       >
         <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.18)' }}>#</span>

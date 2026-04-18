@@ -31,10 +31,9 @@ export default function HomePage() {
       <section
         aria-label="문의 유도"
         style={{
-          background: '#000',
+          background: '#F8F5F0',
           padding: 'clamp(80px, 12vw, 160px) clamp(24px, 6vw, 100px)',
           textAlign: 'center',
-          borderTop: '1px solid #1A1A1A',
         }}
       >
         <p
@@ -44,7 +43,7 @@ export default function HomePage() {
             letterSpacing: '0.22em',
             textTransform: 'uppercase',
             color: '#F37021',
-            fontWeight: 600,
+            fontWeight: 700,
           }}
         >
           Action Speaks Louder
@@ -54,8 +53,8 @@ export default function HomePage() {
             margin: '0 0 48px',
             fontSize: 'clamp(32px, 5vw, 64px)',
             fontWeight: 800,
-            color: '#FFFFFF',
-            letterSpacing: '-0.02em',
+            color: '#111111',
+            letterSpacing: '-0.03em',
             lineHeight: 1.1,
             fontFamily: "'Pretendard', sans-serif",
           }}
@@ -88,8 +87,9 @@ export default function HomePage() {
                       color: '#fff',
                       fontWeight: 700,
                       fontSize: 16,
-                      borderRadius: '4px',
+                      borderRadius: '8px',
                       textDecoration: 'none',
+                      boxShadow: '0 4px 20px rgba(243,112,33,0.35)',
                     }
                   : {
                       display: 'inline-flex',
@@ -97,11 +97,11 @@ export default function HomePage() {
                       gap: 8,
                       padding: '18px 36px',
                       background: 'transparent',
-                      color: 'rgba(255,255,255,0.65)',
-                      fontWeight: 500,
+                      color: '#333333',
+                      fontWeight: 600,
                       fontSize: 16,
-                      border: '1px solid rgba(255,255,255,0.25)',
-                      borderRadius: '4px',
+                      border: '1px solid #CCCCCC',
+                      borderRadius: '8px',
                       textDecoration: 'none',
                     }
               }

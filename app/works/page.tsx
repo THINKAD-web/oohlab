@@ -15,7 +15,7 @@ export default function WorksPage() {
   return (
     <div
       style={{
-        background: '#0A0A0A',
+        background: '#0F1117',
         minHeight: '100vh',
         paddingTop: 100,
         paddingBottom: 100,

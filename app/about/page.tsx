@@ -13,7 +13,7 @@ export default function AboutPage() {
   const data = aboutData as unknown as AboutData
 
   return (
-    <div style={{ background: '#0A0A0A', minHeight: '100vh', paddingTop: 100 }}>
+    <div style={{ background: '#0F1117', minHeight: '100vh', paddingTop: 100 }}>
       <div style={{ padding: '0 clamp(24px, 6vw, 100px)' }}>
 
         {/* ── 페이지 헤더 ── */}
@@ -34,7 +34,7 @@ export default function AboutPage() {
           >
             {data.headline}
           </h1>
-          <p style={{ margin: 0, fontSize: 16, color: 'rgba(255,255,255,0.65)', lineHeight: 1.65 }}>
+          <p style={{ margin: 0, fontSize: 16, color: 'rgba(255,255,255,0.75)', lineHeight: 1.65 }}>
             {data.subHeadline}
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function AboutPage() {
             marginBottom: 'clamp(60px, 8vw, 100px)',
             padding: 'clamp(40px, 6vw, 72px)',
             background: 'linear-gradient(135deg, rgba(255,77,0,0.08) 0%, rgba(255,77,0,0.02) 100%)',
-            border: '1px solid rgba(255,77,0,0.25)',
+            border: '1px solid rgba(243,112,33,0.3)',
             borderRadius: '2px',
             display: 'grid',
             gridTemplateColumns: 'auto 1fr',

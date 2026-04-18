@@ -57,16 +57,19 @@ export function CounterStats({ stats }: { stats: StatItem[] }) {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-        gap: '1px',
-        background: '#232323',
-        border: '1px solid #232323',
+        gap: '20px',
         marginBottom: 'clamp(60px, 8vw, 100px)',
       }}
     >
       {stats.map((stat, i) => (
         <div
           key={stat.label}
-          style={{ padding: '40px 32px', background: '#151515' }}
+          style={{
+            padding: '40px 32px',
+            background: '#1A2030',
+            border: '1px solid #1E2A3A',
+            borderRadius: '12px',
+          }}
         >
           <span
             ref={(el) => { countersRef.current[i] = el }}
@@ -91,7 +94,7 @@ export function CounterStats({ stats }: { stats: StatItem[] }) {
               fontSize: 12,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.55)',
+              color: 'rgba(255,255,255,0.7)',
               fontWeight: 500,
             }}
           >
@@ -240,7 +243,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
                       style={{
                         margin: 0,
                         fontSize: 14,
-                        color: 'rgba(255,255,255,0.65)',
+                        color: 'rgba(255,255,255,0.75)',
                         lineHeight: 1.6,
                         fontFamily: "'Pretendard', sans-serif",
                       }}
@@ -259,7 +262,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
                     height: 12,
                     borderRadius: '50%',
                     background: '#F37021',
-                    border: '2px solid #0A0A0A',
+                    border: '2px solid #0F1117',
                     boxShadow: '0 0 0 1px #F37021',
                     zIndex: 1,
                     flexShrink: 0,
@@ -295,7 +298,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
                       style={{
                         margin: 0,
                         fontSize: 14,
-                        color: 'rgba(255,255,255,0.65)',
+                        color: 'rgba(255,255,255,0.75)',
                         lineHeight: 1.6,
                         fontFamily: "'Pretendard', sans-serif",
                       }}

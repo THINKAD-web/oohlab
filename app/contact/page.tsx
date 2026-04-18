@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div style={{ background: '#0A0A0A', minHeight: '100vh', paddingTop: 100 }}>
+    <div style={{ background: '#0F1117', minHeight: '100vh', paddingTop: 100 }}>
       <div
         style={{
           display: 'grid',

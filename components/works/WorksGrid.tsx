@@ -217,16 +217,15 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-                gap: '1px',
-                background: '#1E1E1E',
-                border: '1px solid #1E1E1E',
+                gap: '12px',
+                background: 'transparent',
                 marginBottom: 48,
               }}
             >
               {items.map((stat) => (
                 <div
                   key={stat.label}
-                  style={{ padding: '28px 24px', background: '#0D0D0D' }}
+                  style={{ padding: '28px 24px', background: '#1A2030', borderRadius: '10px', border: '1px solid #1E2A3A' }}
                 >
                   <p
                     style={{
@@ -234,7 +233,7 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
                       fontSize: 11,
                       letterSpacing: '0.15em',
                       textTransform: 'uppercase',
-                      color: 'rgba(255,255,255,0.35)',
+                      color: 'rgba(255,255,255,0.55)',
                     }}
                   >
                     {stat.label}
@@ -462,7 +461,7 @@ function WorkCard({
 
         {/* 텍스트 */}
         <div style={{ padding: '16px 4px 4px' }}>
-          <p style={{ margin: '0 0 4px', fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)' }}>
+          <p style={{ margin: '0 0 4px', fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>
             {work.mediaType} · {work.year}
           </p>
           <h3 style={{ margin: '0 0 4px', fontSize: 15, fontWeight: 700, color: '#fff', lineHeight: 1.25, fontFamily: "'Pretendard', sans-serif" }}>
@@ -512,7 +511,7 @@ export function WorksGrid({ works }: Props) {
           alignItems: 'center',
           marginBottom: 48,
           paddingBottom: 24,
-          borderBottom: '1px solid #1E1E1E',
+          borderBottom: '1px solid #1E2436',
         }}
       >
         {/* 매체 유형 필터 */}
@@ -524,9 +523,9 @@ export function WorksGrid({ works }: Props) {
             style={{
               padding: '8px 16px',
               background: mediaFilter === t.value ? '#F37021' : 'transparent',
-              color: mediaFilter === t.value ? '#fff' : 'rgba(255,255,255,0.45)',
-              border: `1px solid ${mediaFilter === t.value ? '#F37021' : 'rgba(255,255,255,0.12)'}`,
-              borderRadius: '2px',
+              color: mediaFilter === t.value ? '#fff' : 'rgba(255,255,255,0.6)',
+              border: `1px solid ${mediaFilter === t.value ? '#F37021' : 'rgba(255,255,255,0.15)'}`,
+              borderRadius: '6px',
               fontSize: 12,
               fontWeight: mediaFilter === t.value ? 700 : 400,
               letterSpacing: '0.08em',
@@ -539,7 +538,7 @@ export function WorksGrid({ works }: Props) {
         ))}
 
         {/* 구분선 */}
-        <div style={{ width: 1, height: 24, background: '#1E1E1E', margin: '0 4px' }} />
+        <div style={{ width: 1, height: 24, background: '#1E2436', margin: '0 4px' }} />
 
         {/* 지자체 토글 */}
         <button
@@ -548,9 +547,9 @@ export function WorksGrid({ works }: Props) {
           style={{
             padding: '8px 16px',
             background: govOnly ? 'rgba(255,255,255,0.1)' : 'transparent',
-            color: govOnly ? '#fff' : 'rgba(255,255,255,0.35)',
-            border: `1px solid ${govOnly ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.08)'}`,
-            borderRadius: '2px',
+            color: govOnly ? '#fff' : 'rgba(255,255,255,0.55)',
+            border: `1px solid ${govOnly ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.12)'}`,
+            borderRadius: '6px',
             fontSize: 12,
             letterSpacing: '0.08em',
             cursor: 'pointer',
@@ -567,8 +566,8 @@ export function WorksGrid({ works }: Props) {
           style={{
             padding: '8px 16px',
             background: womenOnly ? 'rgba(255,77,0,0.15)' : 'transparent',
-            color: womenOnly ? '#F37021' : 'rgba(255,255,255,0.35)',
-            border: `1px solid ${womenOnly ? 'rgba(255,77,0,0.4)' : 'rgba(255,255,255,0.08)'}`,
+            color: womenOnly ? '#F37021' : 'rgba(255,255,255,0.55)',
+            border: `1px solid ${womenOnly ? 'rgba(243,112,33,0.5)' : 'rgba(255,255,255,0.12)'}`,
             borderRadius: '2px',
             fontSize: 12,
             fontWeight: womenOnly ? 700 : 400,
