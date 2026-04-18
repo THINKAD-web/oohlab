@@ -8,9 +8,9 @@ export function Footer() {
     <footer
       role="contentinfo"
       style={{
-        background: '#F0EDE6',
-        borderTop: '1px solid #E8E4DB',
-        padding: 'clamp(24px, 3vw, 36px) clamp(24px, 6vw, 100px)',
+        background: '#000',
+        borderTop: '1px solid #1A1A1A',
+        padding: 'clamp(28px, 4vw, 44px) clamp(24px, 6vw, 100px)',
       }}
     >
       <div
@@ -31,7 +31,7 @@ export function Footer() {
             style={{
               fontSize: 15,
               fontWeight: 900,
-              color: '#111111',
+              color: '#FFFFFF',
               letterSpacing: '-0.03em',
               fontFamily: "'Pretendard', sans-serif",
             }}
@@ -57,7 +57,7 @@ export function Footer() {
             color: '#191600',
             fontWeight: 700,
             fontSize: 12,
-            borderRadius: '6px',
+            borderRadius: '3px',
             textDecoration: 'none',
             letterSpacing: '0.02em',
           }}
@@ -69,9 +69,9 @@ export function Footer() {
       {/* 하단 */}
       <div
         style={{
-          marginTop: 16,
-          paddingTop: 16,
-          borderTop: '1px solid #E0DBD2',
+          marginTop: 20,
+          paddingTop: 20,
+          borderTop: '1px solid #141414',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -79,12 +79,12 @@ export function Footer() {
           flexWrap: 'wrap',
         }}
       >
-        <p style={{ margin: 0, fontSize: 11, color: '#AAAAAA' }}>
+        <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.2)' }}>
           © {year} {COMPANY.legalName}. All rights reserved.
         </p>
         <Link
           href="/privacy"
-          style={{ fontSize: 11, color: '#AAAAAA', textDecoration: 'none' }}
+          style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)', textDecoration: 'none' }}
         >
           개인정보처리방침
         </Link>
