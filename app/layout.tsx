@@ -3,6 +3,7 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { CustomCursor } from '@/components/ui/CustomCursor'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
+import './globals.css'
 
 // ── Pretendard 폰트 (로컬 호스팅 권장 / CDN fallback)
 // 실제 배포 시 public/fonts 폴더에 Pretendard WOFF2 파일 배치
@@ -81,18 +82,7 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
         />
       </head>
-      <body
-        style={{
-          margin: 0,
-          padding: 0,
-          background: '#0A0A0A',
-          color: '#FFFFFF',
-          fontFamily: "'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif",
-          overflowX: 'hidden',
-          // 커스텀 커서 적용 (데스크톱)
-          cursor: 'none',
-        }}
-      >
+      <body>
         <SmoothScroll>
           <CustomCursor />
           <Navbar />
@@ -100,23 +90,6 @@ export default function RootLayout({
           <Footer />
         </SmoothScroll>
 
-        {/* 전역 CSS 리셋 + 유틸리티 */}
-        <style>{`
-          *, *::before, *::after { box-sizing: border-box; }
-          img, video { max-width: 100%; display: block; }
-          button { font-family: inherit; }
-          a { font-family: inherit; }
-          /* 모바일에서는 기본 커서 복원 */
-          @media (pointer: coarse) {
-            body { cursor: auto !important; }
-          }
-          /* 스크롤바 스타일링 */
-          ::-webkit-scrollbar { width: 3px; }
-          ::-webkit-scrollbar-track { background: #0A0A0A; }
-          ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
-          /* 선택 색상 */
-          ::selection { background: #F37021; color: #fff; }
-        `}</style>
       </body>
     </html>
   )

@@ -10,18 +10,23 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "autoprefixer": "^10.5.0",
+    "framer-motion": "^12.38.0",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.19",
     "next": "15.1.9",
+    "postcss": "^8.5.10",
     "react": "19.0.1",
     "react-dom": "19.0.1",
-    "lenis": "^1.1.19",
-    "gsap": "^3.12.5"
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "typescript": "^5",
     "eslint": "^9",
-    "eslint-config-next": "15.1.9"
+    "eslint-config-next": "15.1.9",
+    "typescript": "^5"
   }
 }
