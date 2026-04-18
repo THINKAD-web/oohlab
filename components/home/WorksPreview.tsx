@@ -5,13 +5,13 @@ import Link from 'next/link'
 import type { Work } from '@/lib/types'
 
 const TYPE_COLORS: Record<string, string> = {
-  '미디어믹스':     '#F37021',
-  '전광판':         '#E8B86D',
-  '지하철':         '#6D9EE8',
-  '버스':           '#72C472',
-  '디지털사이니지': '#C86DD2',
-  '외벽':           '#D2916D',
-  'DOOH':           '#F37021',
+  '미디어믹스':     '#E05C00',
+  '전광판':         '#B8720A',
+  '지하철':         '#1D56C4',
+  '버스':           '#16A34A',
+  '디지털사이니지': '#7C22C7',
+  '외벽':           '#B04A00',
+  'DOOH':           '#E05C00',
 }
 
 function WorkRow({ work, index }: { work: Work; index: number }) {
@@ -26,37 +26,36 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
       gsap.registerPlugin(ScrollTrigger)
       gsap.fromTo(
         el,
-        { opacity: 0, y: 20 },
+        { opacity: 0, y: 16 },
         {
           opacity: 1, y: 0,
-          duration: 0.7,
-          delay: index * 0.06,
+          duration: 0.6,
+          delay: index * 0.05,
           ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+          scrollTrigger: { trigger: el, start: 'top 90%', once: true },
         }
       )
     }
     animate()
   }, [index])
 
-  const typeColor = TYPE_COLORS[work.mediaType] || 'rgba(255,255,255,0.4)'
+  const typeColor = TYPE_COLORS[work.mediaType] || '#888888'
 
   return (
-    <div
-      ref={rowRef}
-      style={{ opacity: 0 }}
-    >
+    <div ref={rowRef} style={{ opacity: 0 }}>
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '40px 1fr auto',
+          gridTemplateColumns: '36px 1fr auto',
           gap: '0 20px',
           alignItems: 'center',
-          padding: '20px 0',
-          borderBottom: '1px solid #1E2A3A',
+          padding: '18px 8px',
+          borderBottom: '1px solid #E8E4DB',
           transition: 'background 0.15s',
+          borderRadius: '4px',
+          margin: '0 -8px',
         }}
-        onMouseEnter={(e) => { e.currentTarget.style.background = '#1A2535' }}
+        onMouseEnter={(e) => { e.currentTarget.style.background = '#F0ECE4' }}
         onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent' }}
       >
         {/* 번호 */}
@@ -64,7 +63,7 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
           style={{
             fontSize: 12,
             fontWeight: 700,
-            color: 'rgba(255,255,255,0.2)',
+            color: 'rgba(0,0,0,0.2)',
             fontVariantNumeric: 'tabular-nums',
             fontFamily: "'Pretendard', sans-serif",
           }}
@@ -79,7 +78,7 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
               style={{
                 fontSize: 15,
                 fontWeight: 600,
-                color: '#E8E8E8',
+                color: '#111111',
                 letterSpacing: '-0.01em',
                 fontFamily: "'Pretendard', sans-serif",
               }}
@@ -90,12 +89,12 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
               <span
                 style={{
                   padding: '2px 6px',
-                  background: 'rgba(243,112,33,0.15)',
-                  border: '1px solid rgba(243,112,33,0.3)',
-                  borderRadius: '2px',
+                  background: 'rgba(243,112,33,0.1)',
+                  border: '1px solid rgba(243,112,33,0.25)',
+                  borderRadius: '3px',
                   fontSize: 9,
                   fontWeight: 700,
-                  color: '#F37021',
+                  color: '#E05C00',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                 }}
@@ -107,11 +106,11 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
               <span
                 style={{
                   padding: '2px 6px',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '2px',
+                  background: 'rgba(0,0,0,0.05)',
+                  border: '1px solid rgba(0,0,0,0.1)',
+                  borderRadius: '3px',
                   fontSize: 9,
-                  color: 'rgba(255,255,255,0.4)',
+                  color: 'rgba(0,0,0,0.4)',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                 }}
@@ -124,7 +123,7 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
             style={{
               margin: 0,
               fontSize: 12,
-              color: 'rgba(255,255,255,0.38)',
+              color: '#999999',
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               whiteSpace: 'nowrap',
@@ -151,7 +150,7 @@ function WorkRow({ work, index }: { work: Work; index: number }) {
             style={{
               display: 'block',
               fontSize: 11,
-              color: 'rgba(255,255,255,0.28)',
+              color: '#AAAAAA',
               fontVariantNumeric: 'tabular-nums',
             }}
           >
@@ -174,7 +173,7 @@ export function WorksPreview({ works }: Props) {
     <section
       aria-label="대표 집행 사례"
       style={{
-        background: '#111827',
+        background: '#F8F5F0',
         padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 100px)',
       }}
     >
@@ -197,7 +196,7 @@ export function WorksPreview({ works }: Props) {
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color: '#F37021',
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           >
             Selected Works
@@ -207,8 +206,8 @@ export function WorksPreview({ works }: Props) {
               margin: 0,
               fontSize: 'clamp(28px, 4vw, 48px)',
               fontWeight: 800,
-              color: '#FFFFFF',
-              letterSpacing: '-0.02em',
+              color: '#111111',
+              letterSpacing: '-0.03em',
               lineHeight: 1.1,
               fontFamily: "'Pretendard', sans-serif",
             }}
@@ -220,13 +219,12 @@ export function WorksPreview({ works }: Props) {
           href="/works"
           style={{
             fontSize: 13,
-            color: 'rgba(255,255,255,0.5)',
+            color: '#888888',
             textDecoration: 'none',
             letterSpacing: '0.08em',
             display: 'flex',
             alignItems: 'center',
             gap: 6,
-            transition: 'color 0.2s',
             whiteSpace: 'nowrap',
           }}
         >
@@ -239,15 +237,15 @@ export function WorksPreview({ works }: Props) {
         aria-hidden="true"
         style={{
           display: 'grid',
-          gridTemplateColumns: '40px 1fr auto',
+          gridTemplateColumns: '36px 1fr auto',
           gap: '0 20px',
-          padding: '0 0 10px',
-          borderBottom: '1px solid #1E2A3A',
+          padding: '0 8px 10px',
+          borderBottom: '1px solid #D8D3CB',
         }}
       >
-        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.18)' }}>#</span>
-        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.18)' }}>캠페인</span>
-        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.18)', textAlign: 'right' }}>매체 · 연도</span>
+        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.25)' }}>#</span>
+        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.25)' }}>캠페인</span>
+        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.25)', textAlign: 'right' }}>매체 · 연도</span>
       </div>
 
       {/* 리스트 */}
@@ -260,7 +258,7 @@ export function WorksPreview({ works }: Props) {
         style={{
           marginTop: 40,
           fontSize: 13,
-          color: 'rgba(255,255,255,0.3)',
+          color: '#AAAAAA',
           textAlign: 'center',
           fontStyle: 'italic',
         }}

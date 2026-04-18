@@ -19,10 +19,10 @@ const KAKAO_URL =
 const INPUT_STYLE: React.CSSProperties = {
   width: '100%',
   padding: '14px 16px',
-  background: '#181818',
-  border: '1px solid #2A2A2A',
+  background: '#FFFFFF',
+  border: '1px solid #E8E4DB',
   borderRadius: '3px',
-  color: '#FFFFFF',
+  color: '#111111',
   fontSize: 14,
   fontFamily: "'Pretendard', sans-serif",
   outline: 'none',
@@ -115,13 +115,13 @@ export function ContactForm() {
             margin: '0 0 12px',
             fontSize: 24,
             fontWeight: 700,
-            color: '#FFFFFF',
+            color: '#111111',
             fontFamily: "'Pretendard', sans-serif",
           }}
         >
           문의가 접수되었습니다.
         </h2>
-        <p style={{ margin: '0 0 32px', fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.7 }}>
+        <p style={{ margin: '0 0 32px', fontSize: 14, color: '#888888', lineHeight: 1.7 }}>
           24시간 내 담당자가 연락드립니다.<br />
           빠른 상담은 카카오톡을 이용해 주세요.
         </p>
@@ -154,7 +154,7 @@ export function ContactForm() {
           fontSize: 11,
           letterSpacing: '0.2em',
           textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.3)',
+          color: '#AAAAAA',
         }}
       >
         문의 폼
@@ -165,7 +165,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="cf-name"
-            style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}
+            style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: '#888888', textTransform: 'uppercase' }}
           >
             이름 *
           </label>
@@ -184,7 +184,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="cf-company"
-            style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}
+            style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: '#888888', textTransform: 'uppercase' }}
           >
             회사/기관
           </label>
@@ -206,7 +206,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="cf-tel"
-            style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}
+            style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: '#888888', textTransform: 'uppercase' }}
           >
             연락처 *
           </label>
@@ -225,7 +225,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="cf-email"
-            style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}
+            style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: '#888888', textTransform: 'uppercase' }}
           >
             이메일
           </label>
@@ -246,7 +246,7 @@ export function ContactForm() {
       <div style={{ marginBottom: 12 }}>
         <label
           htmlFor="cf-type"
-          style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}
+          style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: '#888888', textTransform: 'uppercase' }}
         >
           문의 유형 *
         </label>
@@ -259,7 +259,7 @@ export function ContactForm() {
           onBlur={() => setFocusedField(null)}
           style={{
             ...fieldStyle('type'),
-            color: values.inquiryType ? '#FFFFFF' : 'rgba(255,255,255,0.3)',
+            color: values.inquiryType ? '#111111' : '#AAAAAA',
             backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'right 14px center',
@@ -281,7 +281,7 @@ export function ContactForm() {
       <div style={{ marginBottom: 24 }}>
         <label
           htmlFor="cf-message"
-          style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}
+          style={{ display: 'block', marginBottom: 6, fontSize: 11, letterSpacing: '0.1em', color: '#888888', textTransform: 'uppercase' }}
         >
           요청 내용
         </label>
@@ -365,7 +365,7 @@ export function ContactForm() {
         )}
       </button>
 
-      <p style={{ margin: '16px 0 0', fontSize: 11, color: 'rgba(255,255,255,0.25)', textAlign: 'center', lineHeight: 1.5 }}>
+      <p style={{ margin: '16px 0 0', fontSize: 11, color: '#BBBBBB', textAlign: 'center', lineHeight: 1.5 }}>
         개인정보는 문의 답변 목적으로만 사용됩니다.
       </p>
 

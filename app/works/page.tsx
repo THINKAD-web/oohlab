@@ -15,7 +15,7 @@ export default function WorksPage() {
   return (
     <div
       style={{
-        background: '#0F1117',
+        background: '#F8F5F0',
         minHeight: '100vh',
         paddingTop: 100,
         paddingBottom: 100,
@@ -30,7 +30,7 @@ export default function WorksPage() {
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color: '#F37021',
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           >
             Our Works
@@ -40,7 +40,7 @@ export default function WorksPage() {
               margin: '0 0 16px',
               fontSize: 'clamp(32px, 5vw, 64px)',
               fontWeight: 800,
-              color: '#FFFFFF',
+              color: '#111111',
               letterSpacing: '-0.025em',
               lineHeight: 1.05,
               fontFamily: "'Pretendard', sans-serif",
@@ -52,7 +52,7 @@ export default function WorksPage() {
             style={{
               margin: 0,
               fontSize: 15,
-              color: 'rgba(255,255,255,0.55)',
+              color: '#666666',
               maxWidth: 440,
               lineHeight: 1.65,
             }}

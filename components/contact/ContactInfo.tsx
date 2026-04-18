@@ -12,7 +12,8 @@ export function ContactInfo() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        borderRight: '1px solid #1A1A1A',
+        background: '#111827',
+        borderRight: '1px solid #1E2436',
       }}
     >
       <p
@@ -22,7 +23,7 @@ export function ContactInfo() {
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
           color: '#F37021',
-          fontWeight: 600,
+          fontWeight: 700,
         }}
       >
         Contact
@@ -44,7 +45,7 @@ export function ContactInfo() {
         style={{
           margin: '0 0 48px',
           fontSize: 15,
-          color: 'rgba(255,255,255,0.62)',
+          color: 'rgba(255,255,255,0.68)',
           lineHeight: 1.7,
           maxWidth: 380,
         }}
@@ -53,7 +54,6 @@ export function ContactInfo() {
         요청 후 24시간 내 회신 보장.
       </p>
 
-      {/* 카카오톡 즉시 연결 */}
       <a
         href="https://pf.kakao.com/_OOHLABchannel"
         target="_blank"
@@ -69,13 +69,13 @@ export function ContactInfo() {
           color: '#191600',
           fontWeight: 800,
           fontSize: 15,
-          borderRadius: '4px',
+          borderRadius: '8px',
           textDecoration: 'none',
           width: 'fit-content',
           marginBottom: 48,
           letterSpacing: '0.01em',
           transform: kakaoHovered ? 'translateY(-2px)' : 'none',
-          boxShadow: kakaoHovered ? '0 8px 24px rgba(250,225,0,0.25)' : 'none',
+          boxShadow: kakaoHovered ? '0 8px 24px rgba(250,225,0,0.2)' : '0 2px 8px rgba(0,0,0,0.2)',
           transition: 'transform 0.2s, box-shadow 0.2s',
         }}
       >
@@ -83,13 +83,12 @@ export function ContactInfo() {
         카카오톡으로 즉시 상담
       </a>
 
-      {/* 지자체·공공기관 전용 */}
       <div
         style={{
           padding: '24px',
-          background: 'rgba(255,77,0,0.06)',
-          border: '1px solid rgba(255,77,0,0.2)',
-          borderRadius: '4px',
+          background: 'rgba(243,112,33,0.08)',
+          border: '1px solid rgba(243,112,33,0.2)',
+          borderRadius: '12px',
           maxWidth: 420,
         }}
       >
@@ -120,7 +119,7 @@ export function ContactInfo() {
           style={{
             margin: '0 0 16px',
             fontSize: 13,
-            color: 'rgba(255,255,255,0.62)',
+            color: 'rgba(255,255,255,0.65)',
             lineHeight: 1.6,
           }}
         >

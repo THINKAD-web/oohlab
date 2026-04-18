@@ -8,67 +8,11 @@ interface Props {
   data: HomeData['hero']
 }
 
-// ──────────────────────────────
-//  ParticleOverlay (경량 CSS 기반)
-//  Canvas 대신 CSS animation으로 LED 점멸 효과
-//  GPU composite layer만 사용 — 성능 최우선
-// ──────────────────────────────
-function ParticleOverlay() {
-  // 파티클 수를 최소화 (30개), requestAnimationFrame 없이 CSS-only
-  const particles = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    top: `${Math.random() * 100}%`,
-    left: `${Math.random() * 100}%`,
-    size: Math.random() > 0.7 ? 2 : 1,
-    delay: `${(Math.random() * 6).toFixed(2)}s`,
-    duration: `${(3 + Math.random() * 5).toFixed(2)}s`,
-  }))
-
-  return (
-    <div
-      aria-hidden="true"
-      style={{
-        position: 'absolute',
-        inset: 0,
-        pointerEvents: 'none',
-        zIndex: 2,
-        overflow: 'hidden',
-      }}
-    >
-      <style>{`
-        @keyframes ooh-blink {
-          0%, 100% { opacity: 0; }
-          50% { opacity: 1; }
-        }
-      `}</style>
-      {particles.map((p) => (
-        <span
-          key={p.id}
-          style={{
-            position: 'absolute',
-            top: p.top,
-            left: p.left,
-            width: p.size,
-            height: p.size,
-            borderRadius: '50%',
-            backgroundColor: 'rgba(255,255,255,0.55)',
-            animation: `ooh-blink ${p.duration} ${p.delay} ease-in-out infinite`,
-          }}
-        />
-      ))}
-    </div>
-  )
-}
-
-// ──────────────────────────────
-//  TypewriterSlogan
-// ──────────────────────────────
 function TypewriterSlogan({ text }: { text: string }) {
   const [displayed, setDisplayed] = useState('')
   const [done, setDone] = useState(false)
 
   useEffect(() => {
-    // 500ms 지연 후 타이핑 시작 (영상 로드 여유)
     const startDelay = setTimeout(() => {
       let i = 0
       const interval = setInterval(() => {
@@ -78,9 +22,9 @@ function TypewriterSlogan({ text }: { text: string }) {
           clearInterval(interval)
           setDone(true)
         }
-      }, 60)
+      }, 55)
       return () => clearInterval(interval)
-    }, 500)
+    }, 400)
     return () => clearTimeout(startDelay)
   }, [text])
 
@@ -92,8 +36,8 @@ function TypewriterSlogan({ text }: { text: string }) {
           aria-hidden="true"
           style={{
             display: 'inline-block',
-            width: '3px',
-            height: '1em',
+            width: '4px',
+            height: '0.85em',
             backgroundColor: '#F37021',
             marginLeft: '4px',
             verticalAlign: 'middle',
@@ -105,116 +49,49 @@ function TypewriterSlogan({ text }: { text: string }) {
   )
 }
 
-// ──────────────────────────────
-//  WomenCertBadge (Hero 전용)
-//  3D hover 애니메이션 — CSS perspective
-// ──────────────────────────────
 function WomenCertBadge({ data }: { data: HomeData['hero']['womenCertHero'] }) {
-  const [tilt, setTilt] = useState({ x: 0, y: 0 })
-  const [hovered, setHovered] = useState(false)
-
-  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const cx = rect.left + rect.width / 2
-    const cy = rect.top + rect.height / 2
-    const dx = ((e.clientX - cx) / (rect.width / 2)) * 12
-    const dy = ((e.clientY - cy) / (rect.height / 2)) * -12
-    setTilt({ x: dy, y: dx })
-  }
-
   return (
     <div
-      onMouseMove={onMove}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => { setTilt({ x: 0, y: 0 }); setHovered(false) }}
       style={{
-        perspective: '600px',
-        display: 'inline-block',
-        cursor: 'default',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '10px',
+        padding: '8px 16px',
+        background: 'rgba(243,112,33,0.1)',
+        border: '1px solid rgba(243,112,33,0.3)',
+        borderRadius: '100px',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
       }}
     >
       <div
         style={{
-          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${hovered ? 1.08 : 1})`,
-          transition: hovered
-            ? 'transform 0.1s ease-out'
-            : 'transform 0.5s cubic-bezier(0.16,1,0.3,1)',
+          width: 28,
+          height: 28,
+          borderRadius: '50%',
+          background: 'linear-gradient(135deg, #F37021 0%, #FF9A3C 100%)',
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
-          padding: '10px 18px',
-          background: 'rgba(255,255,255,0.08)',
-          border: '1px solid rgba(255,255,255,0.25)',
-          borderRadius: '8px',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
+          justifyContent: 'center',
+          flexShrink: 0,
+          fontSize: 14,
         }}
+        aria-hidden="true"
       >
-        {/* 배지 이미지 또는 fallback 아이콘 */}
-        <div
-          style={{
-            width: 36,
-            height: 36,
-            borderRadius: '50%',
-            background: 'linear-gradient(135deg, #F37021 0%, #F7A56A 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexShrink: 0,
-            fontSize: 18,
-          }}
-          aria-hidden="true"
-        >
-          ♀
-        </div>
-        <div>
-          <p
-            style={{
-              margin: 0,
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: '#F37021',
-              lineHeight: 1,
-            }}
-          >
-            {data.label}
-          </p>
-          <p
-            style={{
-              margin: '4px 0 0',
-              fontSize: 12,
-              color: 'rgba(255,255,255,0.85)',
-              lineHeight: 1.3,
-              maxWidth: 200,
-            }}
-          >
-            {data.highlight}
-          </p>
-        </div>
-        {/* 반짝이 효과 */}
-        {hovered && (
-          <div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              inset: 0,
-              borderRadius: '8px',
-              background:
-                'linear-gradient(135deg, rgba(255,77,0,0.15) 0%, transparent 60%)',
-              pointerEvents: 'none',
-            }}
-          />
-        )}
+        ♀
+      </div>
+      <div>
+        <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F37021', lineHeight: 1 }}>
+          {data.label}
+        </p>
+        <p style={{ margin: '3px 0 0', fontSize: 11, color: 'rgba(255,255,255,0.8)', lineHeight: 1.3, maxWidth: 220 }}>
+          {data.highlight}
+        </p>
       </div>
     </div>
   )
 }
 
-// ──────────────────────────────
-//  HeroVideo (메인)
-// ──────────────────────────────
 export function HeroVideo({ data }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [videoLoaded, setVideoLoaded] = useState(false)
@@ -231,84 +108,98 @@ export function HeroVideo({ data }: Props) {
         position: 'relative',
         width: '100%',
         height: '100svh',
-        minHeight: 600,
+        minHeight: 640,
         overflow: 'hidden',
-        background: '#0A0A0A',
+        background: '#0D0E16',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
       }}
       aria-label="오랩 히어로 섹션"
     >
-      {/* ── 배경 이미지 (항상 최하단 — 영상/유튜브 로딩 전 표시) ── */}
-      {data.videoPoster && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={data.videoPoster}
-          alt=""
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            zIndex: 1,
-          }}
-        />
-      )}
+      {/* ── CSS 배경 — 항상 표시 (video 없을 때도 광고 느낌) ── */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(ellipse 90% 70% at 75% 20%, rgba(243,112,33,0.14) 0%, transparent 65%)',
+          zIndex: 0,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+          backgroundSize: '72px 72px',
+          zIndex: 0,
+        }}
+      />
+      {/* 오른쪽 상단 광고판 프레임 장식 */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          top: '8%',
+          right: '4%',
+          width: 'clamp(120px, 18vw, 260px)',
+          aspectRatio: '16/9',
+          border: '2px solid rgba(243,112,33,0.25)',
+          borderRadius: '4px',
+          zIndex: 0,
+          boxShadow: 'inset 0 0 40px rgba(243,112,33,0.04)',
+        }}
+      />
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          top: 'calc(8% + clamp(80px, 12vw, 175px) + 16px)',
+          right: 'calc(4% + clamp(20px, 3vw, 48px))',
+          width: 'clamp(60px, 9vw, 130px)',
+          aspectRatio: '9/16',
+          border: '2px solid rgba(243,112,33,0.15)',
+          borderRadius: '4px',
+          zIndex: 0,
+        }}
+      />
 
-      {/* ── 유튜브 배경 영상 ── */}
+      {/* ── 유튜브 배경 영상 (optional) ── */}
       {data.youtubeId && (
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
-            // 16:9 비율을 화면에 꽉 채우기 위해 넉넉하게 확장
-            top: '50%',
-            left: '50%',
-            width: '177.78vh',  // 16/9 * 100vh
-            height: '56.25vw',  // 9/16 * 100vw
-            minWidth: '100%',
-            minHeight: '100%',
+            top: '50%', left: '50%',
+            width: '177.78vh', height: '56.25vw',
+            minWidth: '100%', minHeight: '100%',
             transform: 'translate(-50%, -50%)',
-            zIndex: 2,
-            pointerEvents: 'none',
+            zIndex: 1, pointerEvents: 'none', opacity: 0.35,
           }}
         >
           <iframe
-            src={`https://www.youtube.com/embed/${data.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${data.youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`}
+            src={`https://www.youtube.com/embed/${data.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${data.youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`}
             allow="autoplay; encrypted-media"
-            allowFullScreen={false}
             title="배경 영상"
-            style={{
-              width: '100%',
-              height: '100%',
-              border: 'none',
-              pointerEvents: 'none',
-            }}
+            style={{ width: '100%', height: '100%', border: 'none', pointerEvents: 'none' }}
           />
         </div>
       )}
 
-      {/* ── 로컬/외부 WebM 영상 (유튜브 없을 때) ── */}
+      {/* ── 로컬 영상 (optional) ── */}
       {!data.youtubeId && data.video && (
         <video
           ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
+          autoPlay muted loop playsInline
           poster={data.videoPoster}
           style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            opacity: videoLoaded ? 1 : 0,
-            transition: 'opacity 1.5s ease',
-            zIndex: 2,
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%', objectFit: 'cover',
+            opacity: videoLoaded ? 0.35 : 0,
+            transition: 'opacity 2s ease',
+            zIndex: 1,
           }}
         >
           <source src={data.video} type="video/webm" />
@@ -320,127 +211,193 @@ export function HeroVideo({ data }: Props) {
       <div
         aria-hidden="true"
         style={{
-          position: 'absolute',
-          inset: 0,
-          background:
-            'linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.45) 50%, rgba(10,10,10,0.78) 100%)',
-          zIndex: 3,
+          position: 'absolute', inset: 0, zIndex: 2,
+          background: 'linear-gradient(135deg, rgba(13,14,22,0.92) 0%, rgba(13,14,22,0.65) 60%, rgba(13,14,22,0.5) 100%)',
         }}
       />
-
-      {/* ── LED Particle Overlay ── */}
-      <ParticleOverlay />
 
       {/* ── 콘텐츠 레이어 ── */}
       <div
         style={{
           position: 'relative',
-          zIndex: 4,
-          textAlign: 'center',
-          padding: '0 24px',
-          maxWidth: 900,
+          zIndex: 3,
           width: '100%',
+          maxWidth: 1200,
+          margin: '0 auto',
+          padding: '0 clamp(24px, 6vw, 100px)',
+          display: 'grid',
+          gridTemplateColumns: '1fr auto',
+          gap: 'clamp(32px, 5vw, 72px)',
+          alignItems: 'center',
         }}
       >
-        {/* 여성기업인증 배지 */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginBottom: 36,
-            animation: 'ooh-fadein 0.8s ease both',
-          }}
-        >
-          <WomenCertBadge data={data.womenCertHero} />
+        {/* 왼쪽: 메인 카피 */}
+        <div>
+          {/* 여성기업인증 배지 */}
+          <div
+            style={{
+              marginBottom: 36,
+              animation: 'ooh-fadein 0.7s ease both',
+            }}
+          >
+            <WomenCertBadge data={data.womenCertHero} />
+          </div>
+
+          {/* 메인 슬로건 */}
+          <h1
+            style={{
+              margin: '0 0 20px',
+              fontSize: 'clamp(40px, 6.5vw, 84px)',
+              fontWeight: 900,
+              color: '#FFFFFF',
+              lineHeight: 1.05,
+              letterSpacing: '-0.03em',
+              fontFamily: "'Pretendard', sans-serif",
+              animation: 'ooh-fadein 0.7s 0.12s ease both',
+            }}
+          >
+            <TypewriterSlogan text={data.slogan} />
+          </h1>
+
+          {/* 서브 슬로건 */}
+          <p
+            style={{
+              margin: '0 0 48px',
+              fontSize: 'clamp(15px, 1.8vw, 20px)',
+              color: 'rgba(255,255,255,0.68)',
+              letterSpacing: '0.01em',
+              lineHeight: 1.7,
+              maxWidth: 500,
+              animation: 'ooh-fadein 0.7s 0.35s ease both',
+              opacity: 0,
+            }}
+          >
+            {data.subSlogan}
+          </p>
+
+          {/* CTA 버튼 */}
+          <div
+            style={{
+              display: 'flex',
+              gap: 12,
+              flexWrap: 'wrap',
+              animation: 'ooh-fadein 0.7s 0.6s ease both',
+              opacity: 0,
+            }}
+          >
+            {data.cta.map((btn) => (
+              <Link
+                key={btn.label}
+                href={btn.href}
+                target={btn.type === 'kakao' ? '_blank' : undefined}
+                rel={btn.type === 'kakao' ? 'noopener noreferrer' : undefined}
+                style={
+                  btn.style === 'primary'
+                    ? {
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 8,
+                        padding: '16px 32px',
+                        background: '#F37021',
+                        color: '#fff',
+                        fontWeight: 700,
+                        fontSize: 15,
+                        borderRadius: '8px',
+                        textDecoration: 'none',
+                        letterSpacing: '0.01em',
+                        boxShadow: '0 4px 24px rgba(243,112,33,0.4)',
+                      }
+                    : {
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 8,
+                        padding: '16px 32px',
+                        background: 'rgba(255,255,255,0.07)',
+                        color: '#FFFFFF',
+                        fontWeight: 600,
+                        fontSize: 15,
+                        borderRadius: '8px',
+                        border: '1px solid rgba(255,255,255,0.2)',
+                        textDecoration: 'none',
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                      }
+                }
+              >
+                {btn.type === 'kakao' && (
+                  <span aria-hidden="true" style={{ fontSize: 16 }}>💬</span>
+                )}
+                {btn.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
-        {/* 메인 슬로건 */}
-        <h1
-          style={{
-            margin: '0 0 20px',
-            fontSize: 'clamp(28px, 5.5vw, 68px)',
-            fontWeight: 800,
-            color: '#FFFFFF',
-            lineHeight: 1.1,
-            letterSpacing: '-0.02em',
-            fontFamily: "'Pretendard', sans-serif",
-            animation: 'ooh-fadein 0.8s 0.2s ease both',
-          }}
-        >
-          <TypewriterSlogan text={data.slogan} />
-        </h1>
-
-        {/* 서브 슬로건 */}
-        <p
-          style={{
-            margin: '0 0 48px',
-            fontSize: 'clamp(14px, 2vw, 20px)',
-            color: 'rgba(255,255,255,0.65)',
-            letterSpacing: '0.01em',
-            fontWeight: 400,
-            animation: 'ooh-fadein 0.8s 0.5s ease both',
-            opacity: 0,
-          }}
-        >
-          {data.subSlogan}
-        </p>
-
-        {/* CTA 버튼 */}
+        {/* 오른쪽: 실적 수치 패널 */}
         <div
+          className="ooh-hero-stats"
           style={{
             display: 'flex',
-            gap: 16,
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            animation: 'ooh-fadein 0.8s 0.8s ease both',
+            flexDirection: 'column',
+            gap: 8,
+            animation: 'ooh-fadein 0.7s 0.85s ease both',
             opacity: 0,
           }}
         >
-          {data.cta.map((btn) => (
-            <Link
-              key={btn.label}
-              href={btn.href}
-              target={btn.type === 'kakao' ? '_blank' : undefined}
-              rel={btn.type === 'kakao' ? 'noopener noreferrer' : undefined}
-              data-cursor-pointer
-              style={
-                btn.style === 'primary'
-                  ? {
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 8,
-                      padding: '16px 32px',
-                      background: '#F37021',
-                      color: '#fff',
-                      fontWeight: 700,
-                      fontSize: 15,
-                      borderRadius: '4px',
-                      textDecoration: 'none',
-                      letterSpacing: '0.01em',
-                      transition: 'background 0.2s, transform 0.2s',
-                    }
-                  : {
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 8,
-                      padding: '16px 32px',
-                      background: 'transparent',
-                      color: '#fff',
-                      fontWeight: 600,
-                      fontSize: 15,
-                      borderRadius: '4px',
-                      border: '1px solid rgba(255,255,255,0.4)',
-                      textDecoration: 'none',
-                      letterSpacing: '0.01em',
-                      transition: 'border-color 0.2s, background 0.2s',
-                    }
-              }
+          {[
+            { num: '15', unit: '년', label: '업력' },
+            { num: '45+', unit: '개', label: '매체 파트너' },
+            { num: '800+', unit: '건', label: '집행 사례' },
+          ].map((stat) => (
+            <div
+              key={stat.label}
+              style={{
+                padding: '22px 28px',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '12px',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                minWidth: 148,
+              }}
             >
-              {btn.type === 'kakao' && (
-                <span aria-hidden="true" style={{ fontSize: 16 }}>💬</span>
-              )}
-              {btn.label}
-            </Link>
+              <span
+                style={{
+                  display: 'block',
+                  fontSize: 'clamp(28px, 3.5vw, 42px)',
+                  fontWeight: 900,
+                  color: '#F37021',
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1,
+                  fontFamily: "'Pretendard', sans-serif",
+                  fontVariantNumeric: 'tabular-nums',
+                }}
+              >
+                {stat.num}
+                <span
+                  style={{
+                    fontSize: '0.45em',
+                    color: 'rgba(255,255,255,0.45)',
+                    fontWeight: 400,
+                    marginLeft: 2,
+                  }}
+                >
+                  {stat.unit}
+                </span>
+              </span>
+              <span
+                style={{
+                  display: 'block',
+                  marginTop: 8,
+                  fontSize: 10,
+                  color: 'rgba(255,255,255,0.4)',
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {stat.label}
+              </span>
+            </div>
           ))}
         </div>
       </div>
@@ -450,7 +407,7 @@ export function HeroVideo({ data }: Props) {
         aria-hidden="true"
         style={{
           position: 'absolute',
-          bottom: 36,
+          bottom: 32,
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 4,
@@ -458,16 +415,16 @@ export function HeroVideo({ data }: Props) {
           flexDirection: 'column',
           alignItems: 'center',
           gap: 8,
-          animation: 'ooh-fadein 1s 1.2s ease both',
+          animation: 'ooh-fadein 1s 1.3s ease both',
           opacity: 0,
         }}
       >
         <span
           style={{
-            fontSize: 11,
-            letterSpacing: '0.18em',
+            fontSize: 9,
+            letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.35)',
+            color: 'rgba(255,255,255,0.25)',
           }}
         >
           Scroll
@@ -475,9 +432,9 @@ export function HeroVideo({ data }: Props) {
         <div
           style={{
             width: 1,
-            height: 40,
+            height: 44,
             background:
-              'linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%)',
+              'linear-gradient(to bottom, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 100%)',
             animation: 'ooh-scroll-line 1.8s ease infinite',
           }}
         />
@@ -486,7 +443,7 @@ export function HeroVideo({ data }: Props) {
       {/* ── 글로벌 keyframes ── */}
       <style>{`
         @keyframes ooh-fadein {
-          from { opacity: 0; transform: translateY(16px); }
+          from { opacity: 0; transform: translateY(14px); }
           to   { opacity: 1; transform: translateY(0); }
         }
         @keyframes ooh-cursor-blink {
@@ -499,6 +456,8 @@ export function HeroVideo({ data }: Props) {
           51%  { transform: scaleY(1); transform-origin: bottom; }
           100% { transform: scaleY(0); transform-origin: bottom; }
         }
+        .ooh-hero-stats { display: flex; }
+        @media (max-width: 800px) { .ooh-hero-stats { display: none !important; } }
         @media (prefers-reduced-motion: reduce) {
           * { animation-duration: 0.01ms !important; }
         }

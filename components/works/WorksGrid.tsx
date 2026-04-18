@@ -368,11 +368,11 @@ function WorkCard({
   }, [hovered, videoReady])
 
   return (
-    <div ref={cardRef} style={{ opacity: 0 }}>
+    <div ref={cardRef} style={{ opacity: 0, background: '#FFFFFF', borderRadius: '12px', overflow: 'hidden', border: '1px solid #E8E4DB', boxShadow: '0 2px 12px rgba(0,0,0,0.05)', transition: 'box-shadow 0.25s ease, transform 0.25s ease' }}>
       <button
         onClick={onClick}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseEnter={(e) => { setHovered(true); (e.currentTarget.closest('div[style]') as HTMLDivElement).style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)'; (e.currentTarget.closest('div[style]') as HTMLDivElement).style.transform = 'translateY(-3px)' }}
+        onMouseLeave={(e) => { setHovered(false); (e.currentTarget.closest('div[style]') as HTMLDivElement).style.boxShadow = '0 2px 12px rgba(0,0,0,0.05)'; (e.currentTarget.closest('div[style]') as HTMLDivElement).style.transform = 'translateY(0)' }}
         aria-label={`${work.title} 상세 보기`}
         data-cursor-pointer
         style={{
@@ -390,7 +390,7 @@ function WorkCard({
             position: 'relative',
             aspectRatio: '4/3',
             overflow: 'hidden',
-            background: '#111',
+            background: '#E8E4DB',
           }}
         >
           <div
@@ -460,11 +460,11 @@ function WorkCard({
         </div>
 
         {/* 텍스트 */}
-        <div style={{ padding: '16px 4px 4px' }}>
-          <p style={{ margin: '0 0 4px', fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>
+        <div style={{ padding: '16px 16px 16px' }}>
+          <p style={{ margin: '0 0 4px', fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#888888' }}>
             {work.mediaType} · {work.year}
           </p>
-          <h3 style={{ margin: '0 0 4px', fontSize: 15, fontWeight: 700, color: '#fff', lineHeight: 1.25, fontFamily: "'Pretendard', sans-serif" }}>
+          <h3 style={{ margin: '0 0 4px', fontSize: 15, fontWeight: 700, color: '#111111', lineHeight: 1.25, fontFamily: "'Pretendard', sans-serif" }}>
             {work.title}
           </h3>
           {work.stats.result && work.stats.result.trim() !== '' && (
@@ -511,7 +511,7 @@ export function WorksGrid({ works }: Props) {
           alignItems: 'center',
           marginBottom: 48,
           paddingBottom: 24,
-          borderBottom: '1px solid #1E2436',
+          borderBottom: '1px solid #E8E4DB',
         }}
       >
         {/* 매체 유형 필터 */}
@@ -522,9 +522,9 @@ export function WorksGrid({ works }: Props) {
             aria-pressed={mediaFilter === t.value}
             style={{
               padding: '8px 16px',
-              background: mediaFilter === t.value ? '#F37021' : 'transparent',
-              color: mediaFilter === t.value ? '#fff' : 'rgba(255,255,255,0.6)',
-              border: `1px solid ${mediaFilter === t.value ? '#F37021' : 'rgba(255,255,255,0.15)'}`,
+              background: mediaFilter === t.value ? '#F37021' : '#FFFFFF',
+              color: mediaFilter === t.value ? '#fff' : '#555555',
+              border: `1px solid ${mediaFilter === t.value ? '#F37021' : '#E8E4DB'}`,
               borderRadius: '6px',
               fontSize: 12,
               fontWeight: mediaFilter === t.value ? 700 : 400,
@@ -538,7 +538,7 @@ export function WorksGrid({ works }: Props) {
         ))}
 
         {/* 구분선 */}
-        <div style={{ width: 1, height: 24, background: '#1E2436', margin: '0 4px' }} />
+        <div style={{ width: 1, height: 24, background: '#E8E4DB', margin: '0 4px' }} />
 
         {/* 지자체 토글 */}
         <button
@@ -546,9 +546,9 @@ export function WorksGrid({ works }: Props) {
           aria-pressed={govOnly}
           style={{
             padding: '8px 16px',
-            background: govOnly ? 'rgba(255,255,255,0.1)' : 'transparent',
-            color: govOnly ? '#fff' : 'rgba(255,255,255,0.55)',
-            border: `1px solid ${govOnly ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.12)'}`,
+            background: govOnly ? '#333333' : '#FFFFFF',
+            color: govOnly ? '#fff' : '#555555',
+            border: `1px solid ${govOnly ? '#333333' : '#E8E4DB'}`,
             borderRadius: '6px',
             fontSize: 12,
             letterSpacing: '0.08em',
@@ -565,10 +565,10 @@ export function WorksGrid({ works }: Props) {
           aria-pressed={womenOnly}
           style={{
             padding: '8px 16px',
-            background: womenOnly ? 'rgba(255,77,0,0.15)' : 'transparent',
-            color: womenOnly ? '#F37021' : 'rgba(255,255,255,0.55)',
-            border: `1px solid ${womenOnly ? 'rgba(243,112,33,0.5)' : 'rgba(255,255,255,0.12)'}`,
-            borderRadius: '2px',
+            background: womenOnly ? 'rgba(243,112,33,0.1)' : '#FFFFFF',
+            color: womenOnly ? '#E05C00' : '#555555',
+            border: `1px solid ${womenOnly ? 'rgba(243,112,33,0.4)' : '#E8E4DB'}`,
+            borderRadius: '6px',
             fontSize: 12,
             fontWeight: womenOnly ? 700 : 400,
             letterSpacing: '0.08em',
@@ -582,7 +582,7 @@ export function WorksGrid({ works }: Props) {
 
       {/* ── 그리드 ── */}
       {filtered.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: '80px 0', color: 'rgba(255,255,255,0.3)', fontSize: 15 }}>
+        <div style={{ textAlign: 'center', padding: '80px 0', color: '#AAAAAA', fontSize: 15 }}>
           해당 조건의 사례가 없습니다. 문의 주시면 바로 안내해 드립니다.
         </div>
       ) : (
@@ -610,7 +610,7 @@ export function WorksGrid({ works }: Props) {
           marginTop: 64,
           textAlign: 'center',
           fontSize: 14,
-          color: 'rgba(255,255,255,0.3)',
+          color: '#AAAAAA',
           fontStyle: 'italic',
         }}
       >
