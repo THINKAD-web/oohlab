@@ -1,0 +1,56 @@
+{
+  "headline": "How We Work.",
+  "intro": "광고는 매체부터 정확해야 합니다. 5개 단계를 거쳐 비즈니스 목표를 옥외광고 캠페인으로 옮깁니다. 추측이 아닌 데이터, 화려한 카피보다 적합한 위치.",
+  "chapters": [
+    {
+      "number": "01",
+      "label": "Brief",
+      "title": "프로젝트의 시작.",
+      "paragraphs": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 모든 캠페인의 출발점은 정확한 의뢰서입니다. 비즈니스 목표, 타겟 오디언스, 예산 규모를 함께 정리합니다.",
+        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 이 단계에서 결정된 사항이 이후 모든 매체 선정의 기준이 됩니다.",
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      ]
+    },
+    {
+      "number": "02",
+      "label": "Survey",
+      "title": "매체 조사.",
+      "paragraphs": [
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. 잠재 매체 후보를 동시 조사합니다. 유동인구·노출 효율·매체사 가용성을 한 번에 검토합니다.",
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 전국 주요 매체사와의 직접 협력 관계로 정확한 가용 정보를 빠르게 확인합니다.",
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+      ]
+    },
+    {
+      "number": "03",
+      "label": "Propose",
+      "title": "미디어믹스 제안.",
+      "paragraphs": [
+        "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 예산 한도 내에서 최적 조합을 제안합니다.",
+        "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. 각 매체의 노출 비용 대비 효율을 수치로 제시합니다. 추측이 아닌 데이터에 기반한 결정을 돕습니다.",
+        "Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+      ]
+    },
+    {
+      "number": "04",
+      "label": "Execute",
+      "title": "집행.",
+      "paragraphs": [
+        "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 매체사 계약부터 광고 소재 입고, 송출 일정 관리까지 한 손에 처리합니다.",
+        "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. 공공기관 캠페인의 행정 절차도 OOH-LAB이 직접 진행합니다.",
+        "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae."
+      ]
+    },
+    {
+      "number": "05",
+      "label": "Report",
+      "title": "결과 보고.",
+      "paragraphs": [
+        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum. 캠페인 종료 후 전체 결과를 정리한 보고서를 전달합니다.",
+        "Et harum quidem rerum facilis est et expedita distinctio. 노출 추정치, 사진/영상 증빙, 매체별 송출 기록을 포함합니다.",
+        "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit. 다음 캠페인 의사결정에 활용할 수 있도록 핵심 데이터를 한 페이지로 요약합니다."
+      ]
+    }
+  ]
+}
