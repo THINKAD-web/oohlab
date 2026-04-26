@@ -1,11 +1,25 @@
 'use client'
 
 import aboutData from '@/data/about.json'
+import interviewData from '@/data/interview.json'
 import masthead from '@/data/masthead.json'
 import { useCountUp, useInView } from '@/lib/hooks'
 import type { AboutData } from '@/lib/types'
 
 const DATA = aboutData as unknown as AboutData
+
+interface InterviewQA {
+  id: string
+  question: string
+  /** Answer body — paragraphs separated by `\n\n`. Inline `<em>` allowed. */
+  answer: string
+}
+
+const INTERVIEW = interviewData as {
+  subtitle: string
+  intro: string
+  qa: InterviewQA[]
+}
 
 // ─── § 01 · Cover ───────────────────────────────────────────────────────────
 
@@ -162,14 +176,14 @@ function Stat({
   )
 }
 
-// ─── § 03 · Certifications & Standing ───────────────────────────────────────
+// ─── § 05 · Certifications & Standing ───────────────────────────────────────
 
 function CertificationsSection() {
   const { ref, inView } = useInView<HTMLDivElement>(0.15)
   const cert = DATA.womenCertSection
   return (
     <section
-      data-page="03"
+      data-page="05"
       data-page-label="Standing"
       style={{
         paddingBlock: 'var(--gap-y)',
@@ -254,13 +268,13 @@ function CertificationsSection() {
   )
 }
 
-// ─── § 04 · Chronology ──────────────────────────────────────────────────────
+// ─── § 03 · Chronology ──────────────────────────────────────────────────────
 
 function ChronologySection() {
   const { ref, inView } = useInView<HTMLDivElement>(0.05)
   return (
     <section
-      data-page="04"
+      data-page="03"
       data-page-label="Chronology"
       style={{ paddingBlock: 'var(--gap-y)' }}
     >
@@ -363,13 +377,159 @@ function ChronologyEntry({
   )
 }
 
-// ─── § 05 · Network (partners) ──────────────────────────────────────────────
+// ─── § 04 · Interview (From the Founder) ────────────────────────────────────
+
+function InterviewSection() {
+  const { ref, inView } = useInView<HTMLDivElement>(0.05)
+  return (
+    <section
+      data-page="04"
+      data-page-label="Interview"
+      style={{ paddingBlock: 'var(--gap-y)', borderTop: 'var(--rule)' }}
+    >
+      <div
+        ref={ref}
+        className={`container stagger${inView ? ' is-visible' : ''}`}
+      >
+        <p className="t-caption" style={{ margin: 0 }}>
+          ⏤ {INTERVIEW.subtitle}
+        </p>
+
+        <div
+          style={{
+            marginTop: 'var(--gap-y-sm)',
+            display: 'grid',
+            gridTemplateColumns: 'minmax(220px, 5fr) minmax(0, 7fr)',
+            gap: 'clamp(24px, 5vw, 64px)',
+            alignItems: 'start',
+          }}
+        >
+          {/* Photo placeholder (5 cols) */}
+          <div
+            style={{
+              position: 'sticky',
+              top: 'calc(var(--nav-h) + 24px)',
+              alignSelf: 'start',
+            }}
+          >
+            <div
+              role="img"
+              aria-label="Founder portrait — TBD"
+              style={{
+                position: 'relative',
+                width: '100%',
+                aspectRatio: '3/4',
+                background: 'var(--surface)',
+                border: 'var(--rule)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <span
+                className="t-mono"
+                style={{
+                  fontSize: 11,
+                  letterSpacing: 'var(--tracking-label)',
+                  textTransform: 'uppercase',
+                  color: 'var(--muted)',
+                }}
+              >
+                ⏤ Photo TBD
+              </span>
+            </div>
+          </div>
+
+          {/* Right column (7 cols): intro quote + Q&A list */}
+          <div>
+            <blockquote
+              className="t-h1 t-italic"
+              style={{
+                margin: 0,
+                color: 'var(--fg)',
+                fontVariationSettings: "'opsz' 96, 'SOFT' 50, 'WONK' 1",
+              }}
+            >
+              &ldquo;{INTERVIEW.intro}&rdquo;
+            </blockquote>
+
+            <div style={{ marginTop: 'var(--gap-y)' }}>
+              {INTERVIEW.qa.map((item, i) => (
+                <QABlock key={item.id} item={item} isLast={i === INTERVIEW.qa.length - 1} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function QABlock({ item, isLast }: { item: InterviewQA; isLast: boolean }) {
+  const paragraphs = item.answer.split(/\n\n+/)
+  return (
+    <div>
+      <p
+        className="t-caption"
+        style={{ margin: 0, color: 'var(--accent)' }}
+      >
+        ⏤ Q.{item.id}
+      </p>
+      <h3
+        style={{
+          margin: '8px 0 0',
+          fontFamily: 'var(--font-serif)',
+          fontStyle: 'italic',
+          fontWeight: 300,
+          fontSize: 'clamp(24px, 2.6vw, 32px)',
+          letterSpacing: '-0.01em',
+          lineHeight: 1.25,
+          fontVariationSettings: "'opsz' 72, 'SOFT' 50, 'WONK' 1",
+          color: 'var(--fg)',
+        }}
+      >
+        {item.question}
+      </h3>
+
+      <div
+        style={{
+          marginTop: 12,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 16,
+          maxWidth: 720,
+        }}
+      >
+        {paragraphs.map((p, i) => (
+          <p
+            key={i}
+            style={{
+              margin: 0,
+              fontSize: 'var(--type-body)',
+              lineHeight: 1.7,
+              color: i === 0 ? 'var(--fg)' : 'var(--muted)',
+            }}
+            // Inline <em> tags inside dummy answers are author-controlled
+            // and trusted (no user input), so dangerouslySetInnerHTML is safe.
+            dangerouslySetInnerHTML={{ __html: p }}
+          />
+        ))}
+      </div>
+
+      {!isLast && (
+        <hr className="divider" style={{ marginBlock: 32 }} />
+      )}
+    </div>
+  )
+}
+
+// ─── § 06 · Network (partners) ──────────────────────────────────────────────
 
 function NetworkSection() {
   const { ref, inView } = useInView<HTMLDivElement>(0.15)
   return (
     <section
-      data-page="05"
+      data-page="06"
       data-page-label="Network"
       style={{ paddingBlock: 'var(--gap-y)', borderTop: 'var(--rule)' }}
     >
@@ -439,8 +599,9 @@ export function EditorialAbout() {
     <>
       <CoverSection />
       <StatsSection />
-      <CertificationsSection />
       <ChronologySection />
+      <InterviewSection />
+      <CertificationsSection />
       <NetworkSection />
     </>
   )
