@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import worksData from '@/data/works.json'
 import masthead from '@/data/masthead.json'
+import { useCountUp, useInView } from '@/lib/hooks'
 import type { Work } from '@/lib/types'
 
 const WORKS = (worksData.works as unknown as Work[]).slice(0, 6)
@@ -11,47 +12,6 @@ const WORKS = (worksData.works as unknown as Work[]).slice(0, 6)
 const HERO_LINE_1 = 'Out of Home,'
 const HERO_LINE_2 = 'Out of Ordinary.'
 const TYPE_DELAY = 50 // ms / char (brief: 0.05s)
-
-// ─── Helpers ────────────────────────────────────────────────────────────────
-
-function useInView<T extends Element>(threshold = 0.15) {
-  const ref = useRef<T | null>(null)
-  const [inView, setInView] = useState(false)
-  useEffect(() => {
-    const el = ref.current
-    if (!el || inView) return
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true)
-          obs.disconnect()
-        }
-      },
-      { threshold }
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [inView, threshold])
-  return { ref, inView }
-}
-
-function useCountUp(target: number, triggered: boolean, duration = 1200) {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    if (!triggered) return
-    const start = performance.now()
-    let raf = 0
-    const tick = (now: number) => {
-      const p = Math.min((now - start) / duration, 1)
-      const eased = 1 - Math.pow(1 - p, 3) // ease-out cubic
-      setCount(Math.round(eased * target))
-      if (p < 1) raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [triggered, target, duration])
-  return count
-}
 
 // ─── Section 01 · Hero ──────────────────────────────────────────────────────
 
