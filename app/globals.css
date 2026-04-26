@@ -57,6 +57,8 @@
   --z-base: 1;
   --z-marquee: 10;
   --z-nav: 20;
+  --z-scroll-indicator: 30;
+  --z-preview: 40;
   --z-cursor: 50;
   --z-page-transition: 100;
 
@@ -215,9 +217,21 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ─── Hide native cursor on hover-capable devices ───────────────────────── */
-@media (hover: hover) and (pointer: fine) {
+/* Mirror the activation gate of <CustomCursor/> so we never blank the
+   native cursor without rendering our own. */
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
   body { cursor: none; }
-  a, button, [data-cursor] { cursor: none; }
+  a, button, [data-cursor], input, textarea, select { cursor: none; }
+}
+
+@keyframes cursor-pulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.8); }
+  100% { transform: scale(1); }
+}
+@keyframes cursor-label {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* ─── Section stagger reveal (caption → headline → body → divider) ──────── */
@@ -280,6 +294,14 @@ a { color: inherit; text-decoration: none; }
 }
 @keyframes cursor-blink {
   50% { opacity: 0; }
+}
+
+/* ─── Scroll indicator (left rail) ──────────────────────────────────────── */
+.scroll-indicator__btn:hover .scroll-indicator__dash {
+  width: 14px;
+}
+.scroll-indicator__btn:hover .scroll-indicator__dash[data-active] {
+  width: 14px;
 }
 
 /* ─── Page transition (cover → reveal on route change) ─────────────────── */
