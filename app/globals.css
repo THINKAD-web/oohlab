@@ -57,6 +57,8 @@
   --z-base: 1;
   --z-marquee: 10;
   --z-nav: 20;
+  --z-scroll-indicator: 30;
+  --z-preview: 40;
   --z-cursor: 50;
   --z-page-transition: 100;
 

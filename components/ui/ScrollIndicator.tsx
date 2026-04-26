@@ -117,7 +117,7 @@ export function ScrollIndicator() {
         left: 16,
         top: '50%',
         transform: 'translateY(-50%)',
-        zIndex: 'var(--z-scroll-indicator, 30)' as unknown as number,
+        zIndex: 'var(--z-scroll-indicator)' as unknown as number,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',

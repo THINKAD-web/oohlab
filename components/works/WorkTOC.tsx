@@ -293,7 +293,7 @@ export function WorkTOC({ works, showGovTag = true, prefetchCount = 8 }: Props) 
             position: 'fixed',
             top: 0,
             left: 0,
-            zIndex: 40,
+            zIndex: 'var(--z-preview)' as unknown as number,
             pointerEvents: 'none',
             opacity: hovered ? 1 : 0,
             transform: 'translate3d(0, 0, 0)',
