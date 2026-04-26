@@ -1,0 +1,70 @@
+{
+  "headline": "Capabilities.",
+  "intro": "도시 어디서나 닿습니다.",
+  "introParagraphs": [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. OOH-LAB은 6개 카테고리의 옥외광고 매체를 직접 운영·집행합니다. 디지털 사이니지부터 전통 빌보드, 지하철·버스 같은 교통 매체까지.",
+    "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 매체사와의 직접 협력으로 정확한 가용 정보·견적·송출 일정을 한 호흡에 처리합니다.",
+    "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. 단일 매체 캠페인부터 미디어믹스까지 — 예산과 목표에 맞춰 선택할 수 있습니다."
+  ],
+  "items": [
+    {
+      "number": "01",
+      "code": "DOOH",
+      "title": "Digital Out of Home",
+      "subtitle": "디지털 옥외광고",
+      "description": "Lorem ipsum dolor sit amet. 도심 핵심 상권의 LED 전광판·디지털 사이니지에 동영상 콘텐츠를 송출합니다. 시간대별 송출 스케줄 조정 가능, 캠페인 기간 중 소재 교체도 신속하게 진행합니다.",
+      "examples": ["홍대 M스크린", "삼성역 LED", "강남역 디지털 사이니지"],
+      "relatedWorks": ["bomtoon-ooh-2024-2025", "kcci-led-2025", "sony-led-2025"]
+    },
+    {
+      "number": "02",
+      "code": "SUBWAY",
+      "title": "Subway",
+      "subtitle": "지하철 광고",
+      "description": "Sed do eiusmod tempor incididunt. 서울 1~9호선과 수도권 광역 노선 전 구간 운영. 차량 내부 액자, 스크린도어, 역사 와이드칼라 등 다양한 형태로 노출 시간을 확보합니다.",
+      "examples": ["수인분당선 차량 광고", "2호선 와이드칼라", "9호선 스크린도어"],
+      "relatedWorks": [
+        "hangang-env-agency-2025",
+        "at-korea-subway-2025",
+        "kto-subway-2025",
+        "kisa-subway-2025"
+      ]
+    },
+    {
+      "number": "03",
+      "code": "BUS·SHELTER",
+      "title": "Bus & Shelter",
+      "subtitle": "버스·쉘터 광고",
+      "description": "Ut enim ad minim veniam. G버스, 시내버스, BRT, 스마트 버스쉘터까지 한 번에 집행합니다. 노선 단위 타겟팅으로 특정 지역·동선 집중 노출이 가능합니다.",
+      "examples": ["경기버스 외부 랩핑", "시내버스 후면", "스마트 버스쉘터"],
+      "relatedWorks": ["hangang-env-agency-2025", "dongbu-tech-bus-2025"]
+    },
+    {
+      "number": "04",
+      "code": "BILLBOARD",
+      "title": "Billboard",
+      "subtitle": "빌보드",
+      "description": "Duis aute irure dolor in reprehenderit. 고속도로변과 도심 빌딩 옥상의 대형 빌보드는 장기 노출 캠페인에 적합합니다. 야간 조명 가용 매체도 다수 보유.",
+      "examples": ["도심 옥상 빌보드", "고속도로변 대형 빌보드"],
+      "relatedWorks": ["bomtoon-ooh-2024-2025"]
+    },
+    {
+      "number": "05",
+      "code": "WALL",
+      "title": "Wall Media",
+      "subtitle": "외벽 미디어",
+      "description": "Excepteur sint occaecat cupidatat. 건물 외벽을 활용한 대형 광고 매체. 도심 핵심 입지에서 단일 노출만으로도 강력한 임팩트를 만듭니다.",
+      "examples": ["홍대 LC타워 외벽", "강남역 빌딩 외벽"],
+      "relatedWorks": ["bomtoon-ooh-2024-2025", "rejuran-wall-2025"]
+    },
+    {
+      "number": "06",
+      "code": "TRANSIT",
+      "title": "Transit",
+      "subtitle": "교통매체 종합",
+      "description": "Sed ut perspiciatis unde omnis iste. 공항, 기차역, 고속버스터미널 등 거점 교통 시설 내 광고 매체를 종합 운영합니다. 출장객·관광객 타겟 캠페인에 최적.",
+      "examples": ["KTX 광역 광고", "인천공항 디지털 사이니지"],
+      "relatedWorks": ["china-tourism-seoul-2025"]
+    }
+  ]
+}
