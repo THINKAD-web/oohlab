@@ -246,6 +246,13 @@ a { color: inherit; text-decoration: none; }
   transform: scaleX(1);
 }
 
+/* ─── TOC dimming (Works index hover) ───────────────────────────────────── */
+.toc__row {
+  transition: opacity var(--dur) var(--ease-edit);
+}
+.toc.is-dimming .toc__row { opacity: 0.3; }
+.toc.is-dimming .toc__row.is-active { opacity: 1; }
+
 /* ─── Typewriter cursor blink ───────────────────────────────────────────── */
 .cursor-blink {
   display: inline-block;
