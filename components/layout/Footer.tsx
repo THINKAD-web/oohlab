@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { COMPANY } from '@/lib/company'
 import masthead from '@/data/masthead.json'
+import { Marquee } from '@/components/ui/Marquee'
 
 interface ColItem {
   label: string
@@ -76,29 +77,9 @@ export function Footer() {
         borderTop: 'var(--rule)',
       }}
     >
-      {/* ── Marquee strip placeholder (Phase 3 will animate) ───────────── */}
-      <div
-        aria-hidden
-        style={{
-          borderBottom: 'var(--rule)',
-          overflow: 'hidden',
-          paddingBlock: 12,
-        }}
-      >
-        <div
-          className="t-mono"
-          style={{
-            fontSize: 11,
-            letterSpacing: 'var(--tracking-label)',
-            textTransform: 'uppercase',
-            color: 'var(--muted)',
-            whiteSpace: 'nowrap',
-            paddingInline: 'var(--gutter)',
-          }}
-        >
-          {masthead.marqueeText}
-        </div>
-      </div>
+      {/* ── Marquee (footer · slower loop, ever-present masthead) ──────── */}
+      <Marquee text={masthead.marqueeText} speed={75} />
+
 
       {/* ── Colophon body ──────────────────────────────────────────────── */}
       <div className="container" style={{ paddingBlock: 'var(--gap-y)' }}>

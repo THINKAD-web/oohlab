@@ -4,6 +4,9 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { CustomCursor } from '@/components/ui/CustomCursor'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
+import { Marquee } from '@/components/ui/Marquee'
+import { ScrollIndicator } from '@/components/ui/ScrollIndicator'
+import masthead from '@/data/masthead.json'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://oohlab.co.kr'),
@@ -74,7 +77,9 @@ export default function RootLayout({
       <body>
         <SmoothScroll>
           <CustomCursor />
+          <ScrollIndicator />
           <Navbar />
+          <Marquee text={masthead.marqueeText} />
           <main id="main-content">{children}</main>
           <Footer />
         </SmoothScroll>

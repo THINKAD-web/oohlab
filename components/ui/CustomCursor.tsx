@@ -1,120 +1,152 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import masthead from '@/data/masthead.json'
+
+type Variant = keyof typeof masthead.cursorLabels
+const LABELS = masthead.cursorLabels
 
 /**
- * CustomCursor
- * - 데스크톱 (pointer device)에서만 활성화
- * - 모바일·터치 디바이스에서는 완전히 비활성화 (CSS + JS 이중 체크)
- * - 성능: transform만 사용 (layout 재계산 없음), will-change 최소화
+ * Editorial cursor — small red dot + mono caption that follows with ~100ms lag.
+ * Variants: default / link / work / button (overridable via [data-cursor=…]).
+ * Disabled on touch devices via `(hover: hover)` media query.
  */
 export function CustomCursor() {
-  const cursorRef = useRef<HTMLDivElement>(null)
-  const dotRef = useRef<HTMLDivElement>(null)
-  const [isActive, setIsActive] = useState(false)
-  const [isPointer, setIsPointer] = useState(false)
-  const pos = useRef({ x: 0, y: 0 })
-  const dotPos = useRef({ x: 0, y: 0 })
+  const rootRef = useRef<HTMLDivElement>(null)
+  const [enabled, setEnabled] = useState(false)
+  const [variant, setVariant] = useState<Variant>('default')
+  const [visible, setVisible] = useState(false)
+
+  // Latest target / current rendered position (refs to avoid re-renders)
+  const target = useRef({ x: 0, y: 0 })
+  const current = useRef({ x: 0, y: 0 })
   const rafId = useRef<number>(0)
 
   useEffect(() => {
-    // 터치 기기 or 세밀한 포인터 없으면 비활성화
-    const hasPointer = window.matchMedia('(pointer: fine)').matches
-    if (!hasPointer) return
+    if (typeof window === 'undefined') return
+    const supports = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    if (!supports) return
+    setEnabled(true)
 
-    setIsActive(true)
+    const visibleRef = { current: false }
 
     const onMove = (e: MouseEvent) => {
-      pos.current = { x: e.clientX, y: e.clientY }
+      target.current.x = e.clientX
+      target.current.y = e.clientY
+      if (!visibleRef.current) {
+        // Snap position on first appearance to avoid initial slide from (0,0)
+        current.current.x = e.clientX
+        current.current.y = e.clientY
+        visibleRef.current = true
+        setVisible(true)
+      }
     }
 
-    const onEnterLink = () => setIsPointer(true)
-    const onLeaveLink = () => setIsPointer(false)
+    const onLeave = () => {
+      visibleRef.current = false
+      setVisible(false)
+    }
 
-    // 링크·버튼 hover 감지
-    const links = document.querySelectorAll('a, button, [data-cursor-pointer]')
-    links.forEach((el) => {
-      el.addEventListener('mouseenter', onEnterLink)
-      el.addEventListener('mouseleave', onLeaveLink)
-    })
-
-    window.addEventListener('mousemove', onMove)
-
-    // rAF 루프 — 두 커서 레이어 각기 다른 lerp
-    function loop() {
-      // 도트: 즉각 추적
-      dotPos.current.x += (pos.current.x - dotPos.current.x) * 0.95
-      dotPos.current.y += (pos.current.y - dotPos.current.y) * 0.95
-
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${dotPos.current.x - 4}px, ${dotPos.current.y - 4}px)`
+    const onOver = (e: MouseEvent) => {
+      const t = e.target as Element | null
+      if (!t || !(t instanceof Element)) {
+        setVariant('default')
+        return
       }
-      // 링: 부드러운 lag
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${pos.current.x - 20}px, ${pos.current.y - 20}px)`
+      const match = t.closest('[data-cursor], a, button')
+      if (!match) {
+        setVariant('default')
+        return
       }
+      const v = (match as HTMLElement).dataset.cursor
+      if (v && v in LABELS) {
+        setVariant(v as Variant)
+        return
+      }
+      const tag = match.tagName
+      if (tag === 'A') setVariant('link')
+      else if (tag === 'BUTTON') setVariant('button')
+      else setVariant('default')
+    }
 
+    const lerpFactor = 0.18 // ≈100ms convergence at 60fps
+
+    const loop = () => {
+      current.current.x += (target.current.x - current.current.x) * lerpFactor
+      current.current.y += (target.current.y - current.current.y) * lerpFactor
+      const el = rootRef.current
+      if (el) {
+        el.style.transform = `translate3d(${current.current.x}px, ${current.current.y}px, 0)`
+      }
       rafId.current = requestAnimationFrame(loop)
     }
+
+    window.addEventListener('mousemove', onMove)
+    window.addEventListener('mouseover', onOver)
+    document.addEventListener('mouseleave', onLeave)
     rafId.current = requestAnimationFrame(loop)
 
     return () => {
       window.removeEventListener('mousemove', onMove)
-      links.forEach((el) => {
-        el.removeEventListener('mouseenter', onEnterLink)
-        el.removeEventListener('mouseleave', onLeaveLink)
-      })
+      window.removeEventListener('mouseover', onOver)
+      document.removeEventListener('mouseleave', onLeave)
       cancelAnimationFrame(rafId.current)
     }
   }, [])
 
-  if (!isActive) return null
+  if (!enabled) return null
 
   return (
-    <>
-      {/* 외부 링 */}
+    <div
+      ref={rootRef}
+      aria-hidden
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 'var(--z-cursor)' as unknown as number,
+        pointerEvents: 'none',
+        opacity: visible ? 1 : 0,
+        transition: 'opacity var(--dur-fast) var(--ease-edit)',
+        willChange: 'transform',
+      }}
+    >
+      {/* Anchor at the dot center */}
       <div
-        ref={cursorRef}
-        aria-hidden="true"
         style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: 40,
-          height: 40,
-          borderRadius: '50%',
-          border: '1px solid rgba(255,255,255,0.6)',
-          pointerEvents: 'none',
-          zIndex: 9999,
-          transition: 'width 0.25s ease, height 0.25s ease, border-color 0.25s ease',
-          willChange: 'transform',
-          ...(isPointer && {
-            width: 64,
-            height: 64,
-            borderColor: '#F37021',
-            marginLeft: -12,
-            marginTop: -12,
-          }),
+          position: 'absolute',
+          left: -4,
+          top: -4,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
         }}
-      />
-      {/* 내부 도트 */}
-      <div
-        ref={dotRef}
-        aria-hidden="true"
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: 8,
-          height: 8,
-          borderRadius: '50%',
-          backgroundColor: isPointer ? '#F37021' : '#fff',
-          pointerEvents: 'none',
-          zIndex: 9999,
-          transition: 'background-color 0.2s ease',
-          willChange: 'transform',
-        }}
-      />
-    </>
+      >
+        <span
+          aria-hidden
+          style={{
+            width: 8,
+            height: 8,
+            background: 'var(--accent)',
+            display: 'block',
+            flexShrink: 0,
+          }}
+        />
+        <span
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 11,
+            letterSpacing: 'var(--tracking-tight)',
+            textTransform: 'uppercase',
+            color: 'var(--fg)',
+            whiteSpace: 'nowrap',
+            transform: 'translateY(0.5px)',
+            transition: 'opacity var(--dur-fast) var(--ease-edit)',
+          }}
+        >
+          {LABELS[variant]}
+        </span>
+      </div>
+    </div>
   )
 }

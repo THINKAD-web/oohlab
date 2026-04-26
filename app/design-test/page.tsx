@@ -26,7 +26,7 @@ export default function DesignTestPage() {
   return (
     <div style={{ paddingBlock: 'var(--gap-y)' }}>
       {/* ── Header ─────────────────────────────────────── */}
-      <section className="container" style={{ marginBottom: 'var(--gap-y)' }}>
+      <section data-page="01" data-page-label="Header" className="container" style={{ marginBottom: 'var(--gap-y)' }}>
         <p className="t-caption" style={{ marginBottom: 16 }}>
           ⏤ Internal · Phase 1 verification
         </p>
@@ -42,7 +42,7 @@ export default function DesignTestPage() {
       <hr className="divider" style={{ marginBottom: 'var(--gap-y)' }} />
 
       {/* ── 1. Color swatches ──────────────────────────── */}
-      <section className="container" style={{ marginBottom: 'var(--gap-y)' }}>
+      <section data-page="02" data-page-label="Color" className="container" style={{ marginBottom: 'var(--gap-y)' }}>
         <p className="t-caption" style={{ marginBottom: 12 }}>§ 01 · Color</p>
         <h2 className="t-h2" style={{ marginBottom: 'var(--gap-y-sm)' }}>Swatches</h2>
         <div
@@ -81,7 +81,7 @@ export default function DesignTestPage() {
       <hr className="divider" style={{ marginBottom: 'var(--gap-y)' }} />
 
       {/* ── 2. Type scale ──────────────────────────────── */}
-      <section className="container" style={{ marginBottom: 'var(--gap-y)' }}>
+      <section data-page="03" data-page-label="Type" className="container" style={{ marginBottom: 'var(--gap-y)' }}>
         <p className="t-caption" style={{ marginBottom: 12 }}>§ 02 · Typography scale</p>
         <h2 className="t-h2" style={{ marginBottom: 40 }}>Headlines &amp; meta</h2>
 
@@ -136,7 +136,7 @@ export default function DesignTestPage() {
       <hr className="divider" style={{ marginBottom: 'var(--gap-y)' }} />
 
       {/* ── 3. Font comparison ─────────────────────────── */}
-      <section className="container" style={{ marginBottom: 'var(--gap-y)' }}>
+      <section data-page="04" data-page-label="Fonts" className="container" style={{ marginBottom: 'var(--gap-y)' }}>
         <p className="t-caption" style={{ marginBottom: 12 }}>§ 03 · Font families</p>
         <h2 className="t-h2" style={{ marginBottom: 40 }}>3 families, same line</h2>
 
@@ -150,7 +150,7 @@ export default function DesignTestPage() {
       <hr className="divider" style={{ marginBottom: 'var(--gap-y)' }} />
 
       {/* ── 4. Dividers ────────────────────────────────── */}
-      <section className="container" style={{ marginBottom: 'var(--gap-y)' }}>
+      <section data-page="05" data-page-label="Dividers" className="container" style={{ marginBottom: 'var(--gap-y)' }}>
         <p className="t-caption" style={{ marginBottom: 12 }}>§ 04 · Dividers</p>
         <h2 className="t-h2" style={{ marginBottom: 32 }}>Hairlines</h2>
 
@@ -169,7 +169,7 @@ export default function DesignTestPage() {
       <hr className="divider" style={{ marginBottom: 'var(--gap-y)' }} />
 
       {/* ── 5. Tracking scale (mono labels) ────────────── */}
-      <section className="container" style={{ marginBottom: 'var(--gap-y)' }}>
+      <section data-page="06" data-page-label="Tracking" className="container" style={{ marginBottom: 'var(--gap-y)' }}>
         <p className="t-caption" style={{ marginBottom: 12 }}>§ 05 · Tracking</p>
         <h2 className="t-h2" style={{ marginBottom: 32 }}>Mono label spacings</h2>
 
@@ -201,7 +201,7 @@ export default function DesignTestPage() {
       <hr className="divider" style={{ marginBottom: 'var(--gap-y)' }} />
 
       {/* ── 6. Container vs Container-text ─────────────── */}
-      <section style={{ marginBottom: 'var(--gap-y)' }}>
+      <section data-page="07" data-page-label="Layout" style={{ marginBottom: 'var(--gap-y)' }}>
         <div className="container" style={{ marginBottom: 'var(--gap-y-sm)' }}>
           <p className="t-caption" style={{ marginBottom: 12 }}>§ 06 · Layout</p>
           <h2 className="t-h2" style={{ marginBottom: 24 }}>Container widths</h2>
@@ -245,7 +245,7 @@ export default function DesignTestPage() {
       <hr className="divider" style={{ marginBottom: 'var(--gap-y)' }} />
 
       {/* ── 7. Gap tokens ──────────────────────────────── */}
-      <section className="container" style={{ marginBottom: 'var(--gap-y)' }}>
+      <section data-page="08" data-page-label="Gap" className="container" style={{ marginBottom: 'var(--gap-y)' }}>
         <p className="t-caption" style={{ marginBottom: 12 }}>§ 07 · Gap</p>
         <h2 className="t-h2" style={{ marginBottom: 'var(--gap-y-sm)' }}>Spacing scale</h2>
 
@@ -259,7 +259,7 @@ export default function DesignTestPage() {
       <hr className="divider" style={{ marginBottom: 'var(--gap-y)' }} />
 
       {/* ── 8. Motion tokens ───────────────────────────── */}
-      <section className="container" style={{ marginBottom: 'var(--gap-y)' }}>
+      <section data-page="09" data-page-label="Motion" className="container" style={{ marginBottom: 'var(--gap-y)' }}>
         <p className="t-caption" style={{ marginBottom: 12 }}>§ 08 · Motion</p>
         <h2 className="t-h2" style={{ marginBottom: 32 }}>Easing &amp; durations</h2>
 
@@ -283,7 +283,7 @@ export default function DesignTestPage() {
       <hr className="divider" style={{ marginBottom: 'var(--gap-y)' }} />
 
       {/* ── 9. Z-index reference ───────────────────────── */}
-      <section className="container" style={{ marginBottom: 'var(--gap-y)' }}>
+      <section data-page="10" data-page-label="Z-index" className="container" style={{ marginBottom: 'var(--gap-y)' }}>
         <p className="t-caption" style={{ marginBottom: 12 }}>§ 09 · Z-index</p>
         <h2 className="t-h2" style={{ marginBottom: 32 }}>Layer scale</h2>
 
