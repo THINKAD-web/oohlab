@@ -253,6 +253,21 @@ a { color: inherit; text-decoration: none; }
 .toc.is-dimming .toc__row { opacity: 0.3; }
 .toc.is-dimming .toc__row.is-active { opacity: 1; }
 
+/* ─── TOC accordion panel (mobile / touch) ──────────────────────────────── */
+.toc__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur) var(--ease-edit);
+}
+.toc__panel.is-open { grid-template-rows: 1fr; }
+.toc__panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .toc__panel { transition: none; }
+}
+
 /* ─── Typewriter cursor blink ───────────────────────────────────────────── */
 .cursor-blink {
   display: inline-block;
