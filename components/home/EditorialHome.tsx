@@ -6,8 +6,11 @@ import worksData from '@/data/works.json'
 import masthead from '@/data/masthead.json'
 import { useCountUp, useInView } from '@/lib/hooks'
 import type { Work } from '@/lib/types'
+import { WorkTOC, type WorkTOCEntry } from '@/components/works/WorkTOC'
 
-const WORKS = (worksData.works as unknown as Work[]).slice(0, 6)
+const WORKS: WorkTOCEntry[] = (worksData.works as unknown as Work[])
+  .slice(0, 6)
+  .map((w, i) => ({ ...w, fig: `FIG. ${String(i + 1).padStart(2, '0')}` }))
 
 const HERO_LINE_1 = 'Out of Home,'
 const HERO_LINE_2 = 'Out of Ordinary.'
@@ -178,11 +181,7 @@ function IndexOfWorkSection() {
 
         <hr className="divider divider-draw" style={{ marginTop: 40 }} />
 
-        <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-          {WORKS.map((w, i) => (
-            <WorkRow key={w.id} index={i} work={w} />
-          ))}
-        </ul>
+        <WorkTOC works={WORKS} showGovTag={false} prefetchCount={6} />
 
         <div
           style={{
@@ -207,76 +206,6 @@ function IndexOfWorkSection() {
         </div>
       </div>
     </section>
-  )
-}
-
-function WorkRow({ work, index }: { work: Work; index: number }) {
-  const fig = String(index + 1).padStart(2, '0')
-  return (
-    <li style={{ borderBottom: 'var(--rule)' }}>
-      <Link
-        href={`/works/${work.slug}`}
-        data-cursor="work"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '64px 1fr auto auto',
-          alignItems: 'baseline',
-          gap: 'clamp(16px, 3vw, 40px)',
-          paddingBlock: 24,
-          color: 'var(--fg)',
-        }}
-      >
-        <span
-          className="t-mono"
-          style={{
-            fontSize: 11,
-            letterSpacing: 'var(--tracking-tight)',
-            textTransform: 'uppercase',
-            color: 'var(--muted)',
-          }}
-        >
-          № {fig}
-        </span>
-
-        <span
-          style={{
-            fontFamily: 'var(--font-serif)',
-            fontStyle: 'italic',
-            fontWeight: 300,
-            fontSize: 'clamp(22px, 3vw, 36px)',
-            letterSpacing: '-0.01em',
-            lineHeight: 1.15,
-            fontVariationSettings: "'opsz' 72, 'SOFT' 50, 'WONK' 1",
-          }}
-        >
-          {work.client}
-        </span>
-
-        <span
-          className="t-mono show-desktop"
-          style={{
-            fontSize: 11,
-            letterSpacing: 'var(--tracking-tight)',
-            textTransform: 'uppercase',
-            color: 'var(--muted)',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          {work.mediaType} · {work.year}
-        </span>
-
-        <span
-          aria-hidden
-          className="t-mono"
-          style={{
-            fontSize: 14,
-            color: 'var(--fg)',
-          }}
-        >
-          →
-        </span>
-      </Link>
-    </li>
   )
 }
 
