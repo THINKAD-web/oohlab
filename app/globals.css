@@ -65,6 +65,9 @@
   --dur: 0.4s;
   --dur-fast: 0.2s;  /* 호버, 마이크로 인터랙션 */
   --dur-slow: 0.8s;  /* 디바이더 라인 드로잉, 페이지 전환 */
+
+  /* ── Chrome */
+  --nav-h: 56px;
 }
 
 /* ─── Reset ─────────────────────────────────────────────────────────────── */
@@ -180,6 +183,35 @@ a { color: inherit; text-decoration: none; }
   border: 0;
   border-top: var(--rule-strong);
   margin: 0;
+}
+
+/* ─── Link rule (left-to-right underline draw) ──────────────────────────── */
+.link-rule {
+  position: relative;
+  display: inline-block;
+}
+.link-rule::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--dur) var(--ease-edit);
+}
+.link-rule:hover::after,
+.link-rule:focus-visible::after,
+.link-rule.is-active::after {
+  width: 100%;
+}
+
+/* ─── Responsive show/hide (768px breakpoint) ───────────────────────────── */
+.show-desktop { display: flex; }
+.show-mobile { display: none; }
+@media (max-width: 768px) {
+  .show-desktop { display: none !important; }
+  .show-mobile { display: flex !important; }
 }
 
 /* ─── Selection / scrollbar ─────────────────────────────────────────────── */
