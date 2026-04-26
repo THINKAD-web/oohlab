@@ -1,56 +1,62 @@
 {
   "headline": "How We Work.",
-  "intro": "광고는 매체부터 정확해야 합니다. 5개 단계를 거쳐 비즈니스 목표를 옥외광고 캠페인으로 옮깁니다. 추측이 아닌 데이터, 화려한 카피보다 적합한 위치.",
+  "subheadline": "광고는 매체부터 정확해야 합니다.",
+  "intro": [
+    "옥외광고는 SNS와 다릅니다.",
+    "한 번 잘못 정한 위치는 6개월을 갑니다.",
+    "OOH-LAB은 15년간 다음 5단계를 지켜왔습니다. 책상 위 데이터만으로는 부족합니다. 우리는 실제로 현장을 걸으며, 사람들의 시선이 머무는 순간을 직접 확인하고, 그 데이터를 바탕으로 가장 효과적인 매체를 찾아냅니다."
+  ],
   "chapters": [
     {
       "number": "01",
       "label": "Brief",
-      "title": "프로젝트의 시작.",
+      "lead": "클라이언트 미팅, 목표 정의, 예산 범위 확정. \"광고를 왜 하는가\"부터 묻습니다.",
       "paragraphs": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 모든 캠페인의 출발점은 정확한 의뢰서입니다. 비즈니스 목표, 타겟 오디언스, 예산 규모를 함께 정리합니다.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 이 단계에서 결정된 사항이 이후 모든 매체 선정의 기준이 됩니다.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "첫 미팅에서 우리는 브랜드의 진짜 목적을 함께 찾아갑니다. 단순한 '노출'이 아니라, 누구에게 어떤 인상을 남기고 싶은지를 명확히 합니다.",
+        "예산과 기간에 맞는 현실적인 목표를 설정하고, 그 목표를 달성하기 위한 최적의 방향성을 클라이언트와 함께 정의합니다. 이 과정에서 서로의 기대치를 정확히 맞추는 것이 가장 중요합니다."
       ]
     },
     {
       "number": "02",
       "label": "Survey",
-      "title": "매체 조사.",
+      "lead": "매체 답사. 유동인구, 시인성, 경쟁 광고 분석. 서울 시내 800개 옥외 매체를 직접 검토합니다.",
       "paragraphs": [
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. 잠재 매체 후보를 동시 조사합니다. 유동인구·노출 효율·매체사 가용성을 한 번에 검토합니다.",
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 전국 주요 매체사와의 직접 협력 관계로 정확한 가용 정보를 빠르게 확인합니다.",
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+        "책상 위 데이터만으로는 부족합니다. 우리는 실제로 현장을 걸으며 시간대별 유동인구, 조명과 각도에 따른 시인성, 주변 경쟁사 광고 상황까지 직접 확인합니다.",
+        "서울 전역 800개 이상의 매체를 직접 답사하며 쌓은 '생생한 감각'이 OOH-LAB만의 차별화된 제안의 기반이 됩니다."
       ]
     },
     {
       "number": "03",
       "label": "Propose",
-      "title": "미디어믹스 제안.",
+      "lead": "미디어플랜 제안서. 매체 조합, 노출 추정, 예산 견적. 여러 안을 비교하며 최적 조합을 찾습니다.",
       "paragraphs": [
-        "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 예산 한도 내에서 최적 조합을 제안합니다.",
-        "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. 각 매체의 노출 비용 대비 효율을 수치로 제시합니다. 추측이 아닌 데이터에 기반한 결정을 돕습니다.",
-        "Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+        "조사 결과를 바탕으로 2~3개의 플랜을 제안합니다. 각 플랜의 예상 노출량, 타겟 적합성, 비용 효율성을 투명하게 비교해 드립니다.",
+        "클라이언트의 피드백을 적극 반영하며, '가장 비싼' 것이 아니라 '가장 효과적인' 조합을 함께 찾아갑니다. 제안서는 단순한 견적서가 아니라, 전략 문서입니다."
       ]
     },
     {
       "number": "04",
       "label": "Execute",
-      "title": "집행.",
+      "lead": "제작·설치·집행. 협력 매체사 45곳과 직접 컨택. 설치 사진과 집행 증빙을 매일 공유합니다.",
       "paragraphs": [
-        "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 매체사 계약부터 광고 소재 입고, 송출 일정 관리까지 한 손에 처리합니다.",
-        "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. 공공기관 캠페인의 행정 절차도 OOH-LAB이 직접 진행합니다.",
-        "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae."
+        "확정된 플랜은 즉시 실행에 들어갑니다. 협력 매체사 45곳과 긴밀히 소통하며 제작부터 설치, 유지보수까지 책임집니다.",
+        "설치 당일부터 매일 현장 사진과 진행 상황을 공유하고, 예상치 못한 변수가 발생하면 즉시 대안을 제시합니다. 투명한 실행 과정이 곧 결과에 대한 신뢰로 이어집니다."
       ]
     },
     {
       "number": "05",
       "label": "Report",
-      "title": "결과 보고.",
+      "lead": "집행 완료 후 결과 리포트. 노출 추정, 사진 아카이브. 공공기관 정산 양식에 맞춘 증빙 자료 제공.",
       "paragraphs": [
-        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum. 캠페인 종료 후 전체 결과를 정리한 보고서를 전달합니다.",
-        "Et harum quidem rerum facilis est et expedita distinctio. 노출 추정치, 사진/영상 증빙, 매체별 송출 기록을 포함합니다.",
-        "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit. 다음 캠페인 의사결정에 활용할 수 있도록 핵심 데이터를 한 페이지로 요약합니다."
+        "캠페인이 끝난 후 상세한 결과 리포트를 제공합니다. 추정 노출량 분석, 전체 설치 사진 아카이브, 그리고 공공기관 정산에 바로 활용할 수 있는 증빙 자료까지 준비합니다.",
+        "단순히 '끝났다'가 아니라, 다음 캠페인을 위한 인사이트와 개선점을 함께 나눕니다."
       ]
     }
-  ]
+  ],
+  "footer": {
+    "label": "Inquiry",
+    "text": "프로젝트 견적 문의",
+    "linkText": "Get a quote",
+    "href": "/contact"
+  }
 }

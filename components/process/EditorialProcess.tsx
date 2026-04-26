@@ -8,14 +8,24 @@ import { useInView } from '@/lib/hooks'
 interface Chapter {
   number: string
   label: string
-  title: string
+  /** Italic Fraunces pull-quote shown above the chapter body (24–28px). */
+  lead: string
   paragraphs: string[]
+}
+
+interface FooterBlock {
+  label: string
+  text: string
+  linkText: string
+  href: string
 }
 
 const DATA = processData as {
   headline: string
-  intro: string
+  subheadline: string
+  intro: string[]
   chapters: Chapter[]
+  footer: FooterBlock
 }
 
 // ─── § 01 · Hero ────────────────────────────────────────────────────────────
@@ -41,16 +51,41 @@ function HeroSection() {
         </h1>
 
         <p
+          className="t-display t-italic"
           style={{
-            margin: '32px 0 0',
-            maxWidth: 600,
-            fontSize: 'var(--type-body)',
+            margin: '8px 0 0',
             color: 'var(--muted)',
-            lineHeight: 1.7,
+            fontSize: 'clamp(28px, 4vw, 48px)',
+            lineHeight: 1.05,
           }}
         >
-          {DATA.intro}
+          {DATA.subheadline}
         </p>
+
+        <div
+          style={{
+            marginTop: 'var(--gap-y-sm)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 16,
+            maxWidth: 'var(--max-w-text)',
+          }}
+        >
+          {DATA.intro.map((p, i) => (
+            <p
+              key={i}
+              style={{
+                margin: 0,
+                fontSize: i < 2 ? 'clamp(17px, 1.7vw, 20px)' : 'var(--type-body)',
+                lineHeight: i < 2 ? 1.5 : 1.8,
+                color: i === 0 ? 'var(--fg)' : 'var(--muted)',
+                fontWeight: i < 2 ? 500 : 400,
+              }}
+            >
+              {p}
+            </p>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -109,12 +144,25 @@ function ChapterSection({ chapter, pageNo }: { chapter: Chapter; pageNo: string 
             <p className="t-caption" style={{ margin: 0 }}>
               ⏤ {chapter.label}
             </p>
-            <h2
-              className="t-h2"
-              style={{ margin: '12px 0 0' }}
+
+            {/* Pull-quote lead — italic Fraunces 24-28px */}
+            <p
+              style={{
+                margin: '16px 0 0',
+                maxWidth: 'var(--max-w-text)',
+                fontFamily: 'var(--font-serif)',
+                fontStyle: 'italic',
+                fontWeight: 400,
+                fontSize: 'clamp(22px, 2.4vw, 28px)',
+                lineHeight: 1.4,
+                letterSpacing: '-0.01em',
+                fontVariationSettings: "'opsz' 72, 'SOFT' 50, 'WONK' 1",
+                color: 'var(--fg)',
+              }}
             >
-              {chapter.title}
-            </h2>
+              {chapter.lead}
+            </p>
+
             <div
               style={{
                 marginTop: 'var(--gap-y-sm)',
@@ -147,11 +195,11 @@ function ChapterSection({ chapter, pageNo }: { chapter: Chapter; pageNo: string 
 
 // ─── § Footer · Inquiry ────────────────────────────────────────────────────
 
-function InquirySection() {
+function InquirySection({ footer }: { footer: FooterBlock }) {
   const { ref, inView } = useInView<HTMLDivElement>(0.2)
   return (
     <section
-      data-page-label="Inquiry"
+      data-page-label={footer.label}
       style={{
         borderTop: 'var(--rule)',
         paddingBlock: 'var(--gap-y)',
@@ -162,25 +210,14 @@ function InquirySection() {
         className={`container stagger${inView ? ' is-visible' : ''}`}
       >
         <p className="t-caption" style={{ margin: 0 }}>
-          § Inquiry
+          § {footer.label}
         </p>
         <h2 className="t-h2" style={{ margin: '12px 0 0', maxWidth: 720 }}>
-          Bring your <span className="t-italic">brief.</span>
+          {footer.text}
         </h2>
-        <p
-          style={{
-            margin: '20px 0 0',
-            maxWidth: 540,
-            color: 'var(--muted)',
-            fontSize: 'var(--type-body)',
-            lineHeight: 1.7,
-          }}
-        >
-          5단계 중 어디서든 시작할 수 있습니다. 이미 매체 후보가 정해져 있어도 좋습니다.
-        </p>
         <div style={{ marginTop: 'var(--gap-y-sm)' }}>
           <Link
-            href="/contact"
+            href={footer.href}
             className="link-rule"
             style={{
               fontFamily: 'var(--font-mono)',
@@ -191,7 +228,7 @@ function InquirySection() {
               fontWeight: 500,
             }}
           >
-            ✦ Next Issue → /contact
+            ✦ {footer.linkText} → {footer.href}
           </Link>
         </div>
       </div>
@@ -212,7 +249,7 @@ export function EditorialProcess() {
           pageNo={String(i + 2).padStart(2, '0')}
         />
       ))}
-      <InquirySection />
+      <InquirySection footer={DATA.footer} />
     </>
   )
 }
