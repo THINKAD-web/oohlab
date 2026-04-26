@@ -6,6 +6,7 @@ import { CustomCursor } from '@/components/ui/CustomCursor'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
 import { Marquee } from '@/components/ui/Marquee'
 import { ScrollIndicator } from '@/components/ui/ScrollIndicator'
+import { PageTransition } from '@/components/ui/PageTransition'
 import masthead from '@/data/masthead.json'
 
 export const metadata: Metadata = {
@@ -78,6 +79,7 @@ export default function RootLayout({
         <SmoothScroll>
           <CustomCursor />
           <ScrollIndicator />
+          <PageTransition />
           <Navbar />
           <Marquee text={masthead.marqueeText} />
           <main id="main-content">{children}</main>

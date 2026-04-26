@@ -267,6 +267,45 @@ a { color: inherit; text-decoration: none; }
   50% { opacity: 0; }
 }
 
+/* ─── Page transition (cover → reveal on route change) ─────────────────── */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-page-transition);
+  background: var(--fg);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: top;
+  animation: page-transition var(--dur-slow) var(--ease-edit) forwards;
+}
+.page-transition__label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--bg);
+  opacity: 0;
+  animation: page-transition-label var(--dur-slow) var(--ease-edit) forwards;
+}
+@keyframes page-transition {
+  0%   { transform: translateY(0); }
+  60%  { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+@keyframes page-transition-label {
+  0%   { opacity: 0; transform: translateY(6px); }
+  20%  { opacity: 1; transform: translateY(0); }
+  60%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-transition,
+  .page-transition__label { animation: none; }
+  .page-transition { display: none; }
+}
+
 /* ─── Marquee ───────────────────────────────────────────────────────────── */
 .marquee {
   overflow: hidden;
